@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	<AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+	<IsPackable>true</IsPackable>
+	<PackageIconUrl>https://i.imgur.com/Wq5D0gQ.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/thiagobarradas/aspnet-scaffolding3</PackageProjectUrl>
+    <PackageTags>aspnet, scaffolding, splunk, seq, healthcheck, timezone, requestkey, timeelapsed, api, core, json</PackageTags>
+    <Company>Thiago Barradas</Company>
+    <Authors>Thiago Barradas</Authors>
+    <PackageLicenseUrl>https://github.com/thiagobarradas/aspnet-scaffolding3/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/thiagobarradas/aspnet-scaffolding3</RepositoryUrl>
+	<Description>AspNet Scaffolding with log, serializer, and all structure to work good for me :D</Description>
+    <Copyright>Ⓒ Thiago Barradas</Copyright>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.AzureStorage" Version="3.0.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="3.0.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="3.0.4" />
+    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="3.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="3.0.0" />
+    <PackageReference Include="AspNetSerilog" Version="1.0.9" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="CorrelationId" Version="2.1.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.HealthChecks" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Mongo.CRUD" Version="1.0.13" />
+    <PackageReference Include="PackUtils" Version="1.0.60" />
+    <PackageReference Include="PagedList.NetCore" Version="1.0.6" />
+    <PackageReference Include="PipelineR" Version="1.0.25" />
+    <PackageReference Include="RestSharp.Serilog.Auto" Version="1.0.40" />
+    <PackageReference Include="Serilog.Builder" Version="1.0.25" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.0.0" />
+    <PackageReference Include="WebApi.Models" Version="1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
