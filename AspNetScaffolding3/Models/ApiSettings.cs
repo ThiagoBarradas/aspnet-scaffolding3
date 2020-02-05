@@ -1,5 +1,6 @@
 ﻿using AspNetScaffolding.Extensions.JsonSerializer;
 using System;
+using TimeZoneConverter;
 
 namespace AspNetScaffolding.Models
 {
@@ -10,7 +11,7 @@ namespace AspNetScaffolding.Models
             Domain = "DefaultDomain";
             Application = "DefaultApp";
             SupportedCultures = new string[] { "pt-BR", "en-US" };
-            TimezoneDefault = TimeZoneInfo.FindSystemTimeZoneById("UTC");
+            TimezoneDefault = "UTC";
             TimezoneHeader = "Timezone";
             TimeElapsedProperty = "X-Internal-Time";
             RequestKeyProperty = "RequestKey";
@@ -45,7 +46,9 @@ namespace AspNetScaffolding.Models
 
         public string TimezoneHeader { get; set; }
 
-        public TimeZoneInfo TimezoneDefault { get; set; }
+        public string TimezoneDefault { get; set; }
+
+        public TimeZoneInfo TimezoneDefaultInfo => TZConvert.GetTimeZoneInfo(this.TimezoneDefault);
 
         public string TimeElapsedProperty { get; set; }
     }

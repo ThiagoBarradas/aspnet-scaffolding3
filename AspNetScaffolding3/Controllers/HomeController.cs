@@ -78,7 +78,7 @@ namespace AspNetScaffolding.Controllers
 
             public DateTime CurrentNow => DateTime.UtcNow;
 
-            public string DefaultTimezone => Api.ApiSettings.TimezoneDefault.Id;
+            public string DefaultTimezone => Api.ApiSettings.TimezoneDefaultInfo.Id;
 
             public string CurrentTimezone { get; set; }
 

@@ -58,7 +58,7 @@ namespace AspNetScaffolding
             mvc.ConfigureJsonSettings(services,
                 Api.ApiSettings.JsonSerializer,
                 Api.ApiSettings?.TimezoneHeader,
-                Api.ApiSettings?.TimezoneDefault);
+                Api.ApiSettings?.TimezoneDefaultInfo);
             
             mvc.AddMvcOptions(options =>
             {
