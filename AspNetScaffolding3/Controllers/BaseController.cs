@@ -1,4 +1,6 @@
-﻿using AspNetScaffolding.Extensions.JsonSerializer;
+﻿using AspNetScaffolding.Extensions.Cors;
+using AspNetScaffolding.Extensions.JsonSerializer;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using PackUtils;
@@ -9,7 +11,7 @@ using WebApi.Models.Response;
 
 namespace AspNetScaffolding.Controllers
 {
-    //[EnableCors(CorsServiceExtension.CorsName)]
+    [EnableCors(CorsServiceExtension.CorsName)]
     public class BaseController : ControllerBase
     {
         public BaseController() {}
