@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetScaffolding3", "AspNetScaffolding3\AspNetScaffolding3.csproj", "{C62F17AB-7EA4-4549-9C78-0618CEDC2C1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetScaffolding3", "AspNetScaffolding3\AspNetScaffolding3.csproj", "{C62F17AB-7EA4-4549-9C78-0618CEDC2C1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetScaffolding3.DemoApi", "AspNetScaffolding3.DemoApi\AspNetScaffolding3.DemoApi.csproj", "{7852D13E-020D-47CF-97A2-6E84F43AD41D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetScaffolding3.DemoApi", "AspNetScaffolding3.DemoApi\AspNetScaffolding3.DemoApi.csproj", "{7852D13E-020D-47CF-97A2-6E84F43AD41D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
