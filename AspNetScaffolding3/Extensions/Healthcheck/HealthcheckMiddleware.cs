@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AspNetScaffolding.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -21,7 +22,8 @@ namespace AspNetScaffolding.Extensions.Healthcheck
                     ResponseWriter = WriteResponse
                 };
 
-                app.UseHealthChecks(GetFullPath(), options);
+                app.UseHealthChecks(
+                    GetFullPath(HealthcheckServiceExtension.ApiSettings, HealthcheckServiceExtension.HealthcheckSettings), options);
             }
         }
 
@@ -42,11 +44,11 @@ namespace AspNetScaffolding.Extensions.Healthcheck
                 json.ToString(Formatting.Indented));
         }
 
-        public static string GetFullPath()
+        public static string GetFullPath(ApiSettings apiSettings, HealthcheckSettings healthcheckSettings)
         {
-            var basePath = HealthcheckServiceExtension.ApiSettings.GetPathPrefixConsideringVersion();
+            var basePath = apiSettings.GetPathPrefixConsideringVersion();
             basePath = ((string.IsNullOrWhiteSpace(basePath) == false) ? "/" + basePath.Trim('/') : "");
-            var finalPathPart = HealthcheckServiceExtension.HealthcheckSettings.Path?.Trim('/');
+            var finalPathPart = healthcheckSettings.Path?.Trim('/');
 
             return (basePath ?? "") + "/" + (finalPathPart ?? "healthcheck");
         }

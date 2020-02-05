@@ -25,6 +25,7 @@ Basic steps:
 - FluentValidation is automatic configured, just implements validator and use `this.Validate(obj);` in your action;
 - This project uses `WebApi.Models` and can handler `ApiResponse` and `ApiException` like `NotFoundException`, `BadRequestException`, `UnauthorizedException`, etc;
 - This project includes restsharp autolog for serilog with current RequestKey;
+- To use AutoMapper you only need to create your mapping inheriting from Profile;
 
 ```c#
 // Program.cs
@@ -38,12 +39,11 @@ public class Program
             ApiName = "My AspNet Scaffolding",
             ApiPort = 8700,
             EnvironmentVariablesPrefix = "Prefix_",
-            ConfigureMapper = Startup.AdditionalConfigureMapper,
-            ConfigureHealthcheck = Startup.AdditionalConfigureHealthcheck,
+	    ConfigureHealthcheck = Startup.AdditionalConfigureHealthcheck,
             ConfigureServices = Startup.AdditionalConfigureServices,
             Configure = Startup.AdditionalConfigure,
             AutoRegisterAssemblies = new Assembly[] 
-				{ Assembly.GetExecutingAssembly() }
+                { Assembly.GetExecutingAssembly() }
         };
 
         Api.Run(config);
@@ -73,12 +73,6 @@ public static class Startup
         // customize your app
         app.UseAuthentication();
     }
-
-    public static void AdditionalConfigureMapper(IMapperConfigurationExpression mapper)
-    {
-        // customize your mappers
-        mapper.CreateMap<SomeModel, OtherModel>();
-    }
 }
 
 ```
@@ -104,13 +98,16 @@ App Settings
     "TimeElapsedProperty": "X-Internal-Time"
   },
   "HealthcheckSettings": {
-    "Enabled" :  true,
-    "Path": "healthcheck/some-token-if-needed",
-    "LogEnabled" : false
-  }
-},
+    "Enabled": true,
+    "Path": "healthcheck",
+    "LogEnabled": false
+  },
+  "DbSettings": {
+    "ConnectionString": "mongodb://user:pass@localhost:27017/DatabaseName",
+    "Name": "DatabaseName"
+  },
   "LogSettings": {
-    "DebugEnabled": false,
+    "DebugEnabled": true,
     "TitlePrefix": "[{Application}] ",
     "JsonBlacklist": [ "*password", "*card.number", "*creditcardnumber", "*cvv" ],
     "SeqOptions": {
@@ -125,7 +122,7 @@ App Settings
       "Url": "http://localhost:8088/services/collector",
       "Token": "XXXX",
       "Index": "my.index",
-      "Application": "MyApp",
+      "Application": "MyApp :Ds",
       "ProcessName": "Domain.App",
       "Company": "MyCompany",
       "ProductVersion": "1.0.0",
