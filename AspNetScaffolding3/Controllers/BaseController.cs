@@ -29,7 +29,7 @@ namespace AspNetScaffolding.Controllers
             }
             else
             {
-                result = new StatusCodeResult((int)response.StatusCode);
+                result = new StatusCodeResult((int) response.StatusCode);
                 Response.ContentType = "application/json";
             }
 
@@ -92,7 +92,7 @@ namespace AspNetScaffolding.Controllers
                         errorPerProperty.Key.Split(".")
                         .Select(r => r.GetValueConsideringCurrentCase()));
 
-                    errorsResponse.AddError(propertyName, errorDetail.ErrorMessage);
+                    errorsResponse.AddError(errorDetail.ErrorMessage, propertyName);
                 }
             }
 
