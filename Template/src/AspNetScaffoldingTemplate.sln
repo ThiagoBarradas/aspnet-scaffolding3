@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetScaffoldingTemplate.Api", "AspNetScaffoldingTemplate.Api\AspNetScaffoldingTemplate.Api.csproj", "{03D3613E-E97F-487C-8E51-A4F665C0B09C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetScaffoldingTemplate.Core", "AspNetScaffoldingTemplate.Core\AspNetScaffoldingTemplate.Core.csproj", "{5D9C0460-8171-4288-A60A-759301314047}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetScaffoldingTemplate.Core.Tests", "AspNetScaffoldingTemplate.Core.Tests\AspNetScaffoldingTemplate.Core.Tests.csproj", "{2ED76AF1-9E7B-4C81-8A00-BE9564C63081}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{66114FA4-4C37-441C-A21B-3BBDC2B7B5D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{C1CDA210-7F11-49D4-94C9-E52C05C14088}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{0396E795-A62B-4D13-AEDF-F205CF5C80B5}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\CONTRIBUTING.md = ..\.github\CONTRIBUTING.md
+		..\.github\ISSUE_TEMPLATE.md = ..\.github\ISSUE_TEMPLATE.md
+		..\.github\PULL_REQUEST_TEMPLATE.md = ..\.github\PULL_REQUEST_TEMPLATE.md
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devops", "devops", "{C07EF172-928F-4CBB-B880-AD15343A6F6F}"
+	ProjectSection(SolutionItems) = preProject
+		..\devops\azure-pipelines.yml = ..\devops\azure-pipelines.yml
+		..\devops\docker-compose.yml = ..\devops\docker-compose.yml
+		..\devops\Dockerfile = ..\devops\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{925259B9-EF9A-46C3-8260-6A2BBC1ED68B}"
+	ProjectSection(SolutionItems) = preProject
+		AspNetScaffoldingTemplate.Api\Docs.md = AspNetScaffoldingTemplate.Api\Docs.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03D3613E-E97F-487C-8E51-A4F665C0B09C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D3613E-E97F-487C-8E51-A4F665C0B09C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03D3613E-E97F-487C-8E51-A4F665C0B09C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03D3613E-E97F-487C-8E51-A4F665C0B09C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D9C0460-8171-4288-A60A-759301314047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D9C0460-8171-4288-A60A-759301314047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D9C0460-8171-4288-A60A-759301314047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D9C0460-8171-4288-A60A-759301314047}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED76AF1-9E7B-4C81-8A00-BE9564C63081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED76AF1-9E7B-4C81-8A00-BE9564C63081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED76AF1-9E7B-4C81-8A00-BE9564C63081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED76AF1-9E7B-4C81-8A00-BE9564C63081}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C1CDA210-7F11-49D4-94C9-E52C05C14088} = {66114FA4-4C37-441C-A21B-3BBDC2B7B5D9}
+		{0396E795-A62B-4D13-AEDF-F205CF5C80B5} = {66114FA4-4C37-441C-A21B-3BBDC2B7B5D9}
+		{C07EF172-928F-4CBB-B880-AD15343A6F6F} = {66114FA4-4C37-441C-A21B-3BBDC2B7B5D9}
+		{925259B9-EF9A-46C3-8260-6A2BBC1ED68B} = {66114FA4-4C37-441C-A21B-3BBDC2B7B5D9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5AB108F-44A3-41E0-BE18-84B60F4C162E}
+	EndGlobalSection
+EndGlobal
