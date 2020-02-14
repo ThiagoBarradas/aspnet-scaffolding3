@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -9,9 +9,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Person\Profile\" />
-    <Folder Include="Models\Person\Response\" />
-    <Folder Include="Models\Person\Request\" />
+    <None Update="Docs.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

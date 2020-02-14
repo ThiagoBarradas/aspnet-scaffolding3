@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "$ext_safeprojectname$": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

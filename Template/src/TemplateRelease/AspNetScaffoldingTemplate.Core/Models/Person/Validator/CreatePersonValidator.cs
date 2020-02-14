@@ -1,7 +1,7 @@
-﻿using AspNetScaffoldingTemplate.Core.Models.Person.Composition;
+﻿using $ext_safeprojectname$.Models.Person.Composition;
 using FluentValidation;
 
-namespace AspNetScaffoldingTemplate.Core.Models.Person.Validator
+namespace $ext_safeprojectname$.Models.Person.Validator
 {
     public class CreatePersonValidator : AbstractValidator<Person>
     {

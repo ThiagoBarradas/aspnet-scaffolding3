@@ -1,0 +1,41 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>AspNetScaffolding3.Api</Name>
+    <Description>Creates a new web api based on AspNetScaffolding3</Description>
+    <ProjectType>CSharp</ProjectType>
+    <DefaultName>MyService</DefaultName>
+    <ProvideDefaultName>false</ProvideDefaultName>
+    <EnableLocationBrowseButton>false</EnableLocationBrowseButton>
+    <CreateInPlace>false</CreateInPlace>
+	<CreateNewFolder>false</CreateNewFolder>
+    <Icon>__TemplateIcon.png</Icon>
+    <PreviewImage>__PreviewImage.png</PreviewImage>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+	  <SolutionFolder Name="Solution Items">
+	    <SolutionFolder Name="docs">
+		</SolutionFolder>
+		<SolutionFolder Name="devops">
+		</SolutionFolder>
+	    <SolutionFolder Name="github">
+		</SolutionFolder>
+	    <SolutionFolder Name="git">
+	    </SolutionFolder>
+	  </SolutionFolder>
+      <ProjectTemplateLink CopyParameters="true" ProjectName="$safeprojectname$.Api">
+        AspNetScaffoldingTemplate.Api\AspNetScaffoldingTemplate.Api.vstemplate
+      </ProjectTemplateLink>	
+      <ProjectTemplateLink CopyParameters="true" ProjectName="$safeprojectname$.Core">
+        AspNetScaffoldingTemplate.Core\AspNetScaffoldingTemplate.Core.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink CopyParameters="true" ProjectName="$safeprojectname$.Core.Tests">
+        AspNetScaffoldingTemplate.Core.Tests\AspNetScaffoldingTemplate.Core.Tests.vstemplate
+      </ProjectTemplateLink>
+    </ProjectCollection>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>AspNetScaffoldingTemplate, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=88b5b98976609649</Assembly>
+    <FullClassName>AspNetScaffoldingTemplate.Wizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

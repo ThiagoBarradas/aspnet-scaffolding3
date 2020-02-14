@@ -1,9 +1,9 @@
-﻿using AspNetScaffoldingTemplate.Core.Models.Person.Composition;
+﻿using $ext_safeprojectname$.Models.Person.Composition;
 using PackUtils.Converters;
 using System;
 using System.Text.Json.Serialization;
 
-namespace AspNetScaffoldingTemplate.Core.Models.Person
+namespace $ext_safeprojectname$.Models.Person
 {
     public class Person
     {

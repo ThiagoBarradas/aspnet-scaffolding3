@@ -2,8 +2,8 @@
 This is a guide to use this Pull Request Template.
 
 # Title
-[feature] Implements the crazy powerful transaction search
-[hotfix] Fixes login with e-mail address
+[Feature] Implements the crazy powerful transaction search
+[Bug] Fixes login with e-mail address
 
 Add a gif that expresses your reaction to the implemented code, make it fun
 

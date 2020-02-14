@@ -1,0 +1,45 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>AspNetScaffolding3.Core</Name>
+    <Description>Creates a new core for web api based on AspNetScaffolding3</Description>
+	<ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>AspNetScaffoldingTemplate.Core</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.png</Icon>
+    <PreviewImage>__PreviewImage.png</PreviewImage>
+	<Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$ext_safeprojectname$.Core.csproj" File="AspNetScaffoldingTemplate.Core.csproj" ReplaceParameters="true">
+      <Folder Name="Properties" TargetFolderName="Properties" />
+      <Folder Name="Models" TargetFolderName="Models">
+        <Folder Name="Person" TargetFolderName="Person">
+          <Folder Name="Composition" TargetFolderName="Composition">
+            <ProjectItem ReplaceParameters="true" TargetFileName="Address.cs">Address.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="PersonType.cs">PersonType.cs</ProjectItem>
+          </Folder>
+          <Folder Name="Profile" TargetFolderName="Profile" />
+          <Folder Name="Request" TargetFolderName="Request" />
+          <Folder Name="Response" TargetFolderName="Response" />
+          <Folder Name="Validator" TargetFolderName="Validator">
+            <ProjectItem ReplaceParameters="true" TargetFileName="CreatePersonValidator.cs">CreatePersonValidator.cs</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Person.cs">Person.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Services" TargetFolderName="Services">
+        <Folder Name="Interfaces" TargetFolderName="Interfaces">
+          <ProjectItem ReplaceParameters="true" TargetFileName="IPersonService.cs">IPersonService.cs</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="PersonService.cs">PersonService.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
