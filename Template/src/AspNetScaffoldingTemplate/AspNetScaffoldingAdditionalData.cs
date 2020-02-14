@@ -108,7 +108,7 @@ namespace AspNetScaffoldingTemplate
 
         private void authorNameTxt_TextChanged(object sender, System.EventArgs e)
         {
-            this.authorNameTxt.Text = this.authorNameTxt.Text.Trim();
+            this.authorNameTxt.Text = this.authorNameTxt.Text.TrimStart();
             this.HasError["authorName"] = (this.authorNameTxt.Text.Length == 0);
 
             this.GoToEnd(this.authorNameTxt);
@@ -144,7 +144,7 @@ namespace AspNetScaffoldingTemplate
             if (HasError.ContainsValue(true))
             {
                 this.doneBtn.BackColor = Color.FromArgb(30, 30, 30);
-                this.doneBtn.ForeColor = Color.FromArgb(170, 170, 170);
+                this.doneBtn.ForeColor = Color.FromArgb(200, 200, 200);
                 this.doneBtn.Enabled = false;
             }
             else
@@ -161,7 +161,7 @@ namespace AspNetScaffoldingTemplate
             txtBox.LostFocus += (s, e) => { this.PlaceholderLostFocus(placeholder, txtBox, ignoreReturn); };
             txtBox.TextChanged += (s, e) => { this.PlaceholderTextChanged(placeholder, txtBox, ignoreReturn); };
             txtBox.Text = placeholder;
-            txtBox.ForeColor = Color.FromArgb(170, 170, 170);
+            txtBox.ForeColor = Color.FromArgb(200, 200, 200);
         }
 
         private void PlaceholderGotFocus(string placeholder, TextBox txtBox, bool ignoreReturn)
@@ -190,7 +190,7 @@ namespace AspNetScaffoldingTemplate
             if (txtBox.Text.Trim() == "")
             {
                 txtBox.Text = placeholder;
-                txtBox.ForeColor = Color.FromArgb(170, 170, 170);
+                txtBox.ForeColor = Color.FromArgb(200, 200, 200);
             }
         }
 

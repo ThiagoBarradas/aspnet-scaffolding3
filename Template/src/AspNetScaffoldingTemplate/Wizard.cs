@@ -3,7 +3,6 @@ using Microsoft.VisualStudio.TemplateWizard;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace AspNetScaffoldingTemplate
 {
@@ -51,7 +50,7 @@ namespace AspNetScaffoldingTemplate
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                throw ex;
             }
         }
 
