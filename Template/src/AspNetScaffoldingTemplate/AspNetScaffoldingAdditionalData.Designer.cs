@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AspNetScaffoldingAdditionalData));
-            this.doneBtn = new System.Windows.Forms.Button();
             this.companyTxt = new System.Windows.Forms.TextBox();
             this.teamTxt = new System.Windows.Forms.TextBox();
             this.pathTxt = new System.Windows.Forms.TextBox();
+            this.versionTxt = new System.Windows.Forms.TextBox();
+            this.authorNameTxt = new System.Windows.Forms.TextBox();
+            this.authorEmailTxt = new System.Windows.Forms.TextBox();
+            this.doneBtn = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
             this.companyLabel = new System.Windows.Forms.Label();
             this.teamLabel = new System.Windows.Forms.Label();
             this.pathLabel = new System.Windows.Forms.Label();
-            this.versionTxt = new System.Windows.Forms.TextBox();
             this.authorLabel = new System.Windows.Forms.Label();
-            this.authorNameTxt = new System.Windows.Forms.TextBox();
             this.authorEmailLabel = new System.Windows.Forms.Label();
-            this.authorEmailTxt = new System.Windows.Forms.TextBox();
-            this.backBtn = new System.Windows.Forms.Button();
             this.companyPanel = new System.Windows.Forms.Panel();
             this.teamPanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pathPanel = new System.Windows.Forms.Panel();
             this.versionPanel = new System.Windows.Forms.Panel();
             this.authorNamePanel = new System.Windows.Forms.Panel();
             this.authorEmailPanel = new System.Windows.Forms.Panel();
@@ -52,28 +52,13 @@
             this.bg = new System.Windows.Forms.Panel();
             this.companyPanel.SuspendLayout();
             this.teamPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pathPanel.SuspendLayout();
+            this.versionPanel.SuspendLayout();
             this.authorNamePanel.SuspendLayout();
             this.authorEmailPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImg)).BeginInit();
             this.bg.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // doneBtn
-            // 
-            this.doneBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.doneBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.doneBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.doneBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.doneBtn.ForeColor = System.Drawing.Color.White;
-            this.doneBtn.Location = new System.Drawing.Point(631, 420);
-            this.doneBtn.Margin = new System.Windows.Forms.Padding(5, 10, 56, 56);
-            this.doneBtn.Name = "doneBtn";
-            this.doneBtn.Size = new System.Drawing.Size(119, 36);
-            this.doneBtn.TabIndex = 0;
-            this.doneBtn.Text = "Finish";
-            this.doneBtn.UseVisualStyleBackColor = false;
-            this.doneBtn.Click += new System.EventHandler(this.doneBtn_Click);
             // 
             // companyTxt
             // 
@@ -86,7 +71,7 @@
             this.companyTxt.MinimumSize = new System.Drawing.Size(294, 22);
             this.companyTxt.Name = "companyTxt";
             this.companyTxt.Size = new System.Drawing.Size(294, 22);
-            this.companyTxt.TabIndex = 1;
+            this.companyTxt.TabIndex = 0;
             this.companyTxt.Text = "MyCompanyName";
             this.companyTxt.TextChanged += new System.EventHandler(this.companyTxt_TextChanged);
             // 
@@ -101,7 +86,7 @@
             this.teamTxt.MinimumSize = new System.Drawing.Size(294, 22);
             this.teamTxt.Name = "teamTxt";
             this.teamTxt.Size = new System.Drawing.Size(294, 22);
-            this.teamTxt.TabIndex = 2;
+            this.teamTxt.TabIndex = 1;
             this.teamTxt.Text = "MyTeamName";
             this.teamTxt.TextChanged += new System.EventHandler(this.teamTxt_TextChanged);
             // 
@@ -116,78 +101,24 @@
             this.pathTxt.MinimumSize = new System.Drawing.Size(240, 22);
             this.pathTxt.Name = "pathTxt";
             this.pathTxt.Size = new System.Drawing.Size(240, 22);
-            this.pathTxt.TabIndex = 3;
+            this.pathTxt.TabIndex = 2;
             this.pathTxt.Text = "path-prefix";
             this.pathTxt.TextChanged += new System.EventHandler(this.pathTxt_TextChanged);
-            // 
-            // companyLabel
-            // 
-            this.companyLabel.AutoSize = true;
-            this.companyLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.companyLabel.ForeColor = System.Drawing.Color.White;
-            this.companyLabel.Location = new System.Drawing.Point(65, 68);
-            this.companyLabel.Margin = new System.Windows.Forms.Padding(56, 15, 3, 3);
-            this.companyLabel.MaximumSize = new System.Drawing.Size(294, 22);
-            this.companyLabel.MinimumSize = new System.Drawing.Size(294, 22);
-            this.companyLabel.Name = "companyLabel";
-            this.companyLabel.Size = new System.Drawing.Size(294, 22);
-            this.companyLabel.TabIndex = 4;
-            this.companyLabel.Text = "Company";
-            // 
-            // teamLabel
-            // 
-            this.teamLabel.AutoSize = true;
-            this.teamLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.teamLabel.ForeColor = System.Drawing.Color.White;
-            this.teamLabel.Location = new System.Drawing.Point(65, 148);
-            this.teamLabel.Margin = new System.Windows.Forms.Padding(56, 20, 3, 3);
-            this.teamLabel.MaximumSize = new System.Drawing.Size(300, 22);
-            this.teamLabel.MinimumSize = new System.Drawing.Size(300, 22);
-            this.teamLabel.Name = "teamLabel";
-            this.teamLabel.Size = new System.Drawing.Size(300, 22);
-            this.teamLabel.TabIndex = 5;
-            this.teamLabel.Text = "Team/Domain";
-            // 
-            // pathLabel
-            // 
-            this.pathLabel.AutoSize = true;
-            this.pathLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.pathLabel.ForeColor = System.Drawing.Color.White;
-            this.pathLabel.Location = new System.Drawing.Point(65, 228);
-            this.pathLabel.Margin = new System.Windows.Forms.Padding(56, 20, 3, 3);
-            this.pathLabel.MaximumSize = new System.Drawing.Size(350, 22);
-            this.pathLabel.MinimumSize = new System.Drawing.Size(350, 22);
-            this.pathLabel.Name = "pathLabel";
-            this.pathLabel.Size = new System.Drawing.Size(350, 22);
-            this.pathLabel.TabIndex = 6;
-            this.pathLabel.Text = "Path Prefix and Version (e.g. for path-prefix/v1)";
             // 
             // versionTxt
             // 
             this.versionTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.versionTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.versionTxt.ForeColor = System.Drawing.Color.White;
-            this.versionTxt.Location = new System.Drawing.Point(324, 262);
-            this.versionTxt.MaximumSize = new System.Drawing.Size(38, 36);
+            this.versionTxt.Location = new System.Drawing.Point(5, 9);
+            this.versionTxt.Margin = new System.Windows.Forms.Padding(59, 3, 3, 3);
+            this.versionTxt.MaximumSize = new System.Drawing.Size(38, 22);
+            this.versionTxt.MinimumSize = new System.Drawing.Size(38, 22);
             this.versionTxt.Name = "versionTxt";
             this.versionTxt.Size = new System.Drawing.Size(38, 15);
-            this.versionTxt.TabIndex = 7;
+            this.versionTxt.TabIndex = 3;
             this.versionTxt.Text = "1";
             this.versionTxt.TextChanged += new System.EventHandler(this.versionTxt_TextChanged);
-            // 
-            // authorLabel
-            // 
-            this.authorLabel.AutoSize = true;
-            this.authorLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.authorLabel.ForeColor = System.Drawing.Color.White;
-            this.authorLabel.Location = new System.Drawing.Point(65, 312);
-            this.authorLabel.Margin = new System.Windows.Forms.Padding(56, 20, 3, 3);
-            this.authorLabel.MaximumSize = new System.Drawing.Size(300, 22);
-            this.authorLabel.MinimumSize = new System.Drawing.Size(300, 22);
-            this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(300, 22);
-            this.authorLabel.TabIndex = 9;
-            this.authorLabel.Text = "Author Name";
             // 
             // authorNameTxt
             // 
@@ -200,23 +131,9 @@
             this.authorNameTxt.MinimumSize = new System.Drawing.Size(294, 22);
             this.authorNameTxt.Name = "authorNameTxt";
             this.authorNameTxt.Size = new System.Drawing.Size(294, 22);
-            this.authorNameTxt.TabIndex = 8;
+            this.authorNameTxt.TabIndex = 4;
             this.authorNameTxt.Text = "Thiago Barradas";
             this.authorNameTxt.TextChanged += new System.EventHandler(this.authorNameTxt_TextChanged);
-            // 
-            // authorEmailLabel
-            // 
-            this.authorEmailLabel.AutoSize = true;
-            this.authorEmailLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.authorEmailLabel.ForeColor = System.Drawing.Color.White;
-            this.authorEmailLabel.Location = new System.Drawing.Point(65, 392);
-            this.authorEmailLabel.Margin = new System.Windows.Forms.Padding(56, 20, 3, 3);
-            this.authorEmailLabel.MaximumSize = new System.Drawing.Size(300, 22);
-            this.authorEmailLabel.MinimumSize = new System.Drawing.Size(300, 22);
-            this.authorEmailLabel.Name = "authorEmailLabel";
-            this.authorEmailLabel.Size = new System.Drawing.Size(300, 22);
-            this.authorEmailLabel.TabIndex = 11;
-            this.authorEmailLabel.Text = "Author Email";
             // 
             // authorEmailTxt
             // 
@@ -229,7 +146,7 @@
             this.authorEmailTxt.MinimumSize = new System.Drawing.Size(294, 22);
             this.authorEmailTxt.Name = "authorEmailTxt";
             this.authorEmailTxt.Size = new System.Drawing.Size(294, 22);
-            this.authorEmailTxt.TabIndex = 10;
+            this.authorEmailTxt.TabIndex = 5;
             this.authorEmailTxt.Text = "th.barradas@gmail.com";
             this.authorEmailTxt.TextChanged += new System.EventHandler(this.authorEmailTxt_TextChanged);
             // 
@@ -245,10 +162,96 @@
             this.backBtn.Margin = new System.Windows.Forms.Padding(10, 10, 5, 56);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(119, 36);
-            this.backBtn.TabIndex = 12;
+            this.backBtn.TabIndex = 6;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
+            // doneBtn
+            // 
+            this.doneBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.doneBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.doneBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.doneBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.doneBtn.ForeColor = System.Drawing.Color.White;
+            this.doneBtn.Location = new System.Drawing.Point(631, 420);
+            this.doneBtn.Margin = new System.Windows.Forms.Padding(5, 10, 56, 56);
+            this.doneBtn.Name = "doneBtn";
+            this.doneBtn.Size = new System.Drawing.Size(119, 36);
+            this.doneBtn.TabIndex = 7;
+            this.doneBtn.Text = "Finish";
+            this.doneBtn.UseVisualStyleBackColor = false;
+            this.doneBtn.Click += new System.EventHandler(this.doneBtn_Click);
+            // 
+            // companyLabel
+            // 
+            this.companyLabel.AutoSize = true;
+            this.companyLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(33)))));
+            this.companyLabel.ForeColor = System.Drawing.Color.White;
+            this.companyLabel.Location = new System.Drawing.Point(65, 68);
+            this.companyLabel.Margin = new System.Windows.Forms.Padding(56, 15, 3, 3);
+            this.companyLabel.MaximumSize = new System.Drawing.Size(294, 22);
+            this.companyLabel.MinimumSize = new System.Drawing.Size(294, 22);
+            this.companyLabel.Name = "companyLabel";
+            this.companyLabel.Size = new System.Drawing.Size(294, 22);
+            this.companyLabel.TabIndex = 20;
+            this.companyLabel.Text = "Company";
+            // 
+            // teamLabel
+            // 
+            this.teamLabel.AutoSize = true;
+            this.teamLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(33)))));
+            this.teamLabel.ForeColor = System.Drawing.Color.White;
+            this.teamLabel.Location = new System.Drawing.Point(65, 148);
+            this.teamLabel.Margin = new System.Windows.Forms.Padding(56, 20, 3, 3);
+            this.teamLabel.MaximumSize = new System.Drawing.Size(300, 22);
+            this.teamLabel.MinimumSize = new System.Drawing.Size(300, 22);
+            this.teamLabel.Name = "teamLabel";
+            this.teamLabel.Size = new System.Drawing.Size(300, 22);
+            this.teamLabel.TabIndex = 20;
+            this.teamLabel.Text = "Team/Domain";
+            // 
+            // pathLabel
+            // 
+            this.pathLabel.AutoSize = true;
+            this.pathLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(33)))));
+            this.pathLabel.ForeColor = System.Drawing.Color.White;
+            this.pathLabel.Location = new System.Drawing.Point(65, 228);
+            this.pathLabel.Margin = new System.Windows.Forms.Padding(56, 20, 3, 3);
+            this.pathLabel.MaximumSize = new System.Drawing.Size(350, 22);
+            this.pathLabel.MinimumSize = new System.Drawing.Size(350, 22);
+            this.pathLabel.Name = "pathLabel";
+            this.pathLabel.Size = new System.Drawing.Size(350, 22);
+            this.pathLabel.TabIndex = 20;
+            this.pathLabel.Text = "Path Prefix and Version (e.g. for path-prefix/v1)";
+            // 
+            // authorLabel
+            // 
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(33)))));
+            this.authorLabel.ForeColor = System.Drawing.Color.White;
+            this.authorLabel.Location = new System.Drawing.Point(65, 312);
+            this.authorLabel.Margin = new System.Windows.Forms.Padding(56, 20, 3, 3);
+            this.authorLabel.MaximumSize = new System.Drawing.Size(300, 22);
+            this.authorLabel.MinimumSize = new System.Drawing.Size(300, 22);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(300, 22);
+            this.authorLabel.TabIndex = 20;
+            this.authorLabel.Text = "Author Name";
+            // 
+            // authorEmailLabel
+            // 
+            this.authorEmailLabel.AutoSize = true;
+            this.authorEmailLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(33)))));
+            this.authorEmailLabel.ForeColor = System.Drawing.Color.White;
+            this.authorEmailLabel.Location = new System.Drawing.Point(65, 392);
+            this.authorEmailLabel.Margin = new System.Windows.Forms.Padding(56, 20, 3, 3);
+            this.authorEmailLabel.MaximumSize = new System.Drawing.Size(300, 22);
+            this.authorEmailLabel.MinimumSize = new System.Drawing.Size(300, 22);
+            this.authorEmailLabel.Name = "authorEmailLabel";
+            this.authorEmailLabel.Size = new System.Drawing.Size(300, 22);
+            this.authorEmailLabel.TabIndex = 20;
+            this.authorEmailLabel.Text = "Author Email";
             // 
             // companyPanel
             // 
@@ -260,7 +263,7 @@
             this.companyPanel.MinimumSize = new System.Drawing.Size(300, 36);
             this.companyPanel.Name = "companyPanel";
             this.companyPanel.Size = new System.Drawing.Size(300, 36);
-            this.companyPanel.TabIndex = 13;
+            this.companyPanel.TabIndex = 8;
             // 
             // teamPanel
             // 
@@ -272,30 +275,31 @@
             this.teamPanel.MinimumSize = new System.Drawing.Size(300, 36);
             this.teamPanel.Name = "teamPanel";
             this.teamPanel.Size = new System.Drawing.Size(300, 36);
-            this.teamPanel.TabIndex = 14;
+            this.teamPanel.TabIndex = 9;
             // 
-            // panel2
+            // pathPanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.panel2.Controls.Add(this.pathTxt);
-            this.panel2.Location = new System.Drawing.Point(65, 253);
-            this.panel2.Margin = new System.Windows.Forms.Padding(56, 0, 3, 3);
-            this.panel2.MaximumSize = new System.Drawing.Size(250, 36);
-            this.panel2.MinimumSize = new System.Drawing.Size(250, 36);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 36);
-            this.panel2.TabIndex = 15;
+            this.pathPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.pathPanel.Controls.Add(this.pathTxt);
+            this.pathPanel.Location = new System.Drawing.Point(65, 253);
+            this.pathPanel.Margin = new System.Windows.Forms.Padding(56, 0, 3, 3);
+            this.pathPanel.MaximumSize = new System.Drawing.Size(250, 36);
+            this.pathPanel.MinimumSize = new System.Drawing.Size(250, 36);
+            this.pathPanel.Name = "pathPanel";
+            this.pathPanel.Size = new System.Drawing.Size(250, 36);
+            this.pathPanel.TabIndex = 10;
             // 
             // versionPanel
             // 
             this.versionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.versionPanel.Controls.Add(this.versionTxt);
             this.versionPanel.Location = new System.Drawing.Point(320, 253);
             this.versionPanel.Margin = new System.Windows.Forms.Padding(56, 0, 3, 3);
             this.versionPanel.MaximumSize = new System.Drawing.Size(45, 36);
             this.versionPanel.MinimumSize = new System.Drawing.Size(45, 36);
             this.versionPanel.Name = "versionPanel";
             this.versionPanel.Size = new System.Drawing.Size(45, 36);
-            this.versionPanel.TabIndex = 16;
+            this.versionPanel.TabIndex = 11;
             // 
             // authorNamePanel
             // 
@@ -307,7 +311,7 @@
             this.authorNamePanel.MinimumSize = new System.Drawing.Size(300, 36);
             this.authorNamePanel.Name = "authorNamePanel";
             this.authorNamePanel.Size = new System.Drawing.Size(300, 36);
-            this.authorNamePanel.TabIndex = 15;
+            this.authorNamePanel.TabIndex = 12;
             // 
             // authorEmailPanel
             // 
@@ -319,17 +323,18 @@
             this.authorEmailPanel.MinimumSize = new System.Drawing.Size(300, 36);
             this.authorEmailPanel.Name = "authorEmailPanel";
             this.authorEmailPanel.Size = new System.Drawing.Size(300, 36);
-            this.authorEmailPanel.TabIndex = 16;
+            this.authorEmailPanel.TabIndex = 13;
             // 
             // logoImg
             // 
             this.logoImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.logoImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.logoImg.Image = ((System.Drawing.Image)(resources.GetObject("logoImg.Image")));
             this.logoImg.InitialImage = ((System.Drawing.Image)(resources.GetObject("logoImg.InitialImage")));
-            this.logoImg.Location = new System.Drawing.Point(495, 58);
+            this.logoImg.Location = new System.Drawing.Point(459, 54);
             this.logoImg.Name = "logoImg";
-            this.logoImg.Size = new System.Drawing.Size(250, 250);
-            this.logoImg.TabIndex = 17;
+            this.logoImg.Size = new System.Drawing.Size(300, 300);
+            this.logoImg.TabIndex = 20;
             this.logoImg.TabStop = false;
             // 
             // bg
@@ -337,36 +342,35 @@
             this.bg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.bg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(33)))));
             this.bg.Controls.Add(this.logoImg);
             this.bg.Location = new System.Drawing.Point(2, 2);
             this.bg.Name = "bg";
             this.bg.Size = new System.Drawing.Size(811, 517);
-            this.bg.TabIndex = 18;
+            this.bg.TabIndex = 50;
             // 
             // AspNetScaffoldingAdditionalData
             // 
-            this.AcceptButton = this.doneBtn;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Silver;
-            this.CancelButton = this.backBtn;
             this.ClientSize = new System.Drawing.Size(815, 521);
             this.ControlBox = false;
-            this.Controls.Add(this.authorNamePanel);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.teamPanel);
-            this.Controls.Add(this.backBtn);
-            this.Controls.Add(this.authorEmailLabel);
-            this.Controls.Add(this.authorLabel);
-            this.Controls.Add(this.versionTxt);
-            this.Controls.Add(this.pathLabel);
-            this.Controls.Add(this.teamLabel);
             this.Controls.Add(this.companyLabel);
-            this.Controls.Add(this.doneBtn);
+            this.Controls.Add(this.teamLabel);
+            this.Controls.Add(this.pathLabel);
+            this.Controls.Add(this.authorLabel);
+            this.Controls.Add(this.authorEmailLabel);
             this.Controls.Add(this.companyPanel);
+            this.Controls.Add(this.teamPanel);
+            this.Controls.Add(this.pathPanel);
             this.Controls.Add(this.versionPanel);
+            this.Controls.Add(this.authorNamePanel);
             this.Controls.Add(this.authorEmailPanel);
+            this.Controls.Add(this.backBtn);
+            this.Controls.Add(this.doneBtn);
             this.Controls.Add(this.bg);
+            this.CancelButton = this.backBtn;
+            this.AcceptButton = this.doneBtn;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -378,8 +382,10 @@
             this.companyPanel.PerformLayout();
             this.teamPanel.ResumeLayout(false);
             this.teamPanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pathPanel.ResumeLayout(false);
+            this.pathPanel.PerformLayout();
+            this.versionPanel.ResumeLayout(false);
+            this.versionPanel.PerformLayout();
             this.authorNamePanel.ResumeLayout(false);
             this.authorNamePanel.PerformLayout();
             this.authorEmailPanel.ResumeLayout(false);
@@ -393,22 +399,24 @@
 
         #endregion
 
-        private System.Windows.Forms.Button doneBtn;
         private System.Windows.Forms.TextBox companyTxt;
         private System.Windows.Forms.TextBox teamTxt;
         private System.Windows.Forms.TextBox pathTxt;
+        private System.Windows.Forms.TextBox versionTxt;
+        private System.Windows.Forms.TextBox authorNameTxt;
+        private System.Windows.Forms.TextBox authorEmailTxt;
+        private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Button doneBtn;
+
         private System.Windows.Forms.Label companyLabel;
         private System.Windows.Forms.Label teamLabel;
         private System.Windows.Forms.Label pathLabel;
-        private System.Windows.Forms.TextBox versionTxt;
         private System.Windows.Forms.Label authorLabel;
-        private System.Windows.Forms.TextBox authorNameTxt;
         private System.Windows.Forms.Label authorEmailLabel;
-        private System.Windows.Forms.TextBox authorEmailTxt;
-        private System.Windows.Forms.Button backBtn;
+
         private System.Windows.Forms.Panel companyPanel;
         private System.Windows.Forms.Panel teamPanel;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pathPanel;
         private System.Windows.Forms.Panel versionPanel;
         private System.Windows.Forms.Panel authorNamePanel;
         private System.Windows.Forms.Panel authorEmailPanel;

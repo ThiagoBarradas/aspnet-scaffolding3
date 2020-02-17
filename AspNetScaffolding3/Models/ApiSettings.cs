@@ -38,6 +38,8 @@ namespace AspNetScaffolding.Models
 
         public JsonSerializerEnum JsonSerializer { get; set; }
 
+        public string JsonSerializerString => Api.ApiSettings.JsonSerializer.ToString().ToLower();
+
         public string[] SupportedCultures { get; set; }
 
         public string RequestKeyProperty { get; set; } 

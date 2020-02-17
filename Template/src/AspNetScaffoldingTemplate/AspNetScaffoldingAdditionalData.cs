@@ -37,12 +37,16 @@ namespace AspNetScaffoldingTemplate
                 { "version", false }
             };
 
-            AddPlaceholder("Thiago Barradas", this.authorNameTxt);
-            AddPlaceholder("th.barradas@gmail.com", this.authorEmailTxt);
-            AddPlaceholder("MyCompanyName", this.companyTxt);
-            AddPlaceholder("MyTeamName", this.teamTxt);
-            AddPlaceholder("path-prefix", this.pathTxt);
-            AddPlaceholder("1", this.versionTxt, true);
+            
+            this.backBtn.TabIndex = 6;
+            this.doneBtn.TabIndex = 7;
+
+            AddPlaceholder("th.barradas@gmail.com", this.authorEmailTxt, 5);
+            AddPlaceholder("Thiago Barradas", this.authorNameTxt, 4);
+            AddPlaceholder("1", this.versionTxt, 3, true);
+            AddPlaceholder("path-prefix", this.pathTxt, 2);
+            AddPlaceholder("MyTeamName", this.teamTxt, 1);
+            AddPlaceholder("MyCompanyName", this.companyTxt, 0);
         }
 
         private void doneBtn_Click(object sender, System.EventArgs e)
@@ -155,13 +159,14 @@ namespace AspNetScaffoldingTemplate
             }
         }
 
-        private void AddPlaceholder(string placeholder, TextBox txtBox, bool ignoreReturn = false)
+        private void AddPlaceholder(string placeholder, TextBox txtBox, int tabIndex, bool ignoreReturn = false)
         {
             txtBox.GotFocus += (s, e) => { this.PlaceholderGotFocus(placeholder, txtBox, ignoreReturn); };
             txtBox.LostFocus += (s, e) => { this.PlaceholderLostFocus(placeholder, txtBox, ignoreReturn); };
             txtBox.TextChanged += (s, e) => { this.PlaceholderTextChanged(placeholder, txtBox, ignoreReturn); };
             txtBox.Text = placeholder;
             txtBox.ForeColor = Color.FromArgb(200, 200, 200);
+            txtBox.TabIndex = tabIndex;
         }
 
         private void PlaceholderGotFocus(string placeholder, TextBox txtBox, bool ignoreReturn)
@@ -204,7 +209,7 @@ namespace AspNetScaffoldingTemplate
 
             if (txtBox.Text.Trim() == placeholder)
             {
-                txtBox.ForeColor = Color.FromArgb(30, 30, 30);
+                txtBox.ForeColor = Color.FromArgb(200, 200, 200);
             }
             else
             {

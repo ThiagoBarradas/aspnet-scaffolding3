@@ -14,14 +14,6 @@
   <TemplateContent>
     <ProjectCollection>
 	  <SolutionFolder Name="Solution Items">
-	    <SolutionFolder Name="docs">
-		</SolutionFolder>
-		<SolutionFolder Name="devops">
-		</SolutionFolder>
-	    <SolutionFolder Name="github">
-		</SolutionFolder>
-	    <SolutionFolder Name="git">
-	    </SolutionFolder>
 	  </SolutionFolder>
       <ProjectTemplateLink CopyParameters="true" ProjectName="$safeprojectname$.Api">
         AspNetScaffoldingTemplate.Api\AspNetScaffoldingTemplate.Api.vstemplate

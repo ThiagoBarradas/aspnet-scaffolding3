@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="AspNetScaffolding3" Version="1.14" Language="en-US" Publisher="Thiago Barradas" />
+        <Identity Id="AspNetScaffolding3" Version="1.15" Language="en-US" Publisher="Thiago Barradas" />
         <DisplayName>AspNetScaffolding3</DisplayName>
         <Description xml:space="preserve">Creates a new web api based on AspNetScaffolding3</Description>
         <Icon>icon.png</Icon>

@@ -66,9 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="aspnetscaffolding-wizard.snk" />
-    <None Include="AspNetScaffolding3.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Content Include="logo.png" />
     <Content Include="ProjectTemplates\AspNetScaffolding3.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

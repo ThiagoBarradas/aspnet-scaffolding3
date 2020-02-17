@@ -18,7 +18,7 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.AzureStorage" Version="3.0.1" />
     <PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="3.0.1" />
-    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="3.0.4" />
+    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="3.0.5" />
     <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="3.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="3.0.0" />
@@ -33,9 +33,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Mongo.CRUD" Version="1.0.13" />
-    <PackageReference Include="PackUtils" Version="1.0.65" />
+    <PackageReference Include="PackUtils" Version="1.0.66" />
     <PackageReference Include="PagedList.NetCore" Version="1.0.6" />
-    <PackageReference Include="PipelineR" Version="1.0.25" />
+    <PackageReference Include="PipelineR" Version="1.0.29" />
     <PackageReference Include="RestSharp.Easy" Version="1.0.14" />
     <PackageReference Include="RestSharp.Serilog.Auto" Version="1.0.44" />
     <PackageReference Include="Serilog.Builder" Version="1.0.25" />
