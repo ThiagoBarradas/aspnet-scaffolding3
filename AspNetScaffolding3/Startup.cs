@@ -12,6 +12,7 @@ using AspNetScaffolding.Extensions.RequestKey;
 using AspNetScaffolding.Extensions.RoutePrefix;
 using AspNetScaffolding.Extensions.TimeElapsed;
 using AspNetScaffolding.Utilities;
+using AspNetScaffolding3.Extensions.GracefullShutdown;
 using AspNetSerilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -43,6 +44,7 @@ namespace AspNetScaffolding
             Api.ConfigurationRoot.GetSection("LogSettings").Bind(Api.LogSettings);
             Api.ConfigurationRoot.GetSection("DatabaseSettings").Bind(Api.DatabaseSettings);
             Api.ConfigurationRoot.GetSection("DocsSettings").Bind(Api.DocsSettings);
+            Api.ConfigurationRoot.GetSection("ShutdownSettings").Bind(Api.ShutdownSettings);
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -92,6 +94,7 @@ namespace AspNetScaffolding
             Api.ApiBasicConfiguration.ConfigureServices?.Invoke(services);
 
             services.SetupAutoMapper();
+            services.AddGracefullShutdown();
 
             services.SetupHealthcheck(Api.ApiSettings,
                 Api.HealthcheckSettings,
@@ -100,6 +103,7 @@ namespace AspNetScaffolding
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseGracefullShutdown();
             app.UseAspNetSerilog();
             app.UseAccountId();
             app.UseRequestKey();

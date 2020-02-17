@@ -45,5 +45,6 @@ namespace AspNetScaffolding3.Utilities
                 StatusCode = requestHandlerResult.StatusCode
             };
         }
+
     }
 }

@@ -1,11 +1,13 @@
 ﻿using AspNetScaffolding.Extensions.JsonSerializer;
 using AspNetScaffolding.Extensions.RequestKey;
 using AspNetScaffolding.Utilities;
+using AspNetScaffolding3.Extensions.GracefullShutdown;
 using AspNetSerilog.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PackUtils.Converters;
 using System;
+using System.Threading;
 
 namespace AspNetScaffolding.Controllers
 {
@@ -16,11 +18,15 @@ namespace AspNetScaffolding.Controllers
 
         protected readonly IHttpContextAccessor HttpContextAccessor;
 
+        protected readonly GracefullShutdownState GracefullShutdownState;
+
         public HomeController(
             IHttpContextAccessor httpContextAccessor,
+            GracefullShutdownState gracefullShutdownState,
             RequestKey requestKey)
         {
             this.HttpContextAccessor = httpContextAccessor;
+            this.GracefullShutdownState = gracefullShutdownState;
             this.RequestKey = requestKey;
         }
 
@@ -29,9 +35,10 @@ namespace AspNetScaffolding.Controllers
         public IActionResult Home()
         {
             this.DisableLogging();
-
+            
             return Ok(new HomeDetails
             {
+                RIP = this.GracefullShutdownState.RequestsInProgress,
                 Service = Api.ApiBasicConfiguration?.ApiName,
                 BuildVersion = Api.ApiSettings?.BuildVersion,
                 Environment = EnvironmentUtility.GetCurrentEnvironment(),
@@ -42,6 +49,15 @@ namespace AspNetScaffolding.Controllers
                 EnvironmentPrefix = Api.ApiBasicConfiguration.EnvironmentVariablesPrefix,
                 TimezoneInfo = new TimezoneInfo(this.HttpContextAccessor)
             });
+        }
+
+        [HttpGet("delay")]
+        [ProducesResponseType(typeof(HomeDetails), 200)]
+        public IActionResult Delay()
+        {
+            Thread.Sleep(20000);
+
+            return Ok();
         }
 
         public class HomeDetails
@@ -58,6 +74,8 @@ namespace AspNetScaffolding.Controllers
             
             public string EnvironmentPrefix { get; set; }
 
+            public long RIP { get; set; }
+            
             public JsonSerializerEnum JsonSerializer { get; set; }
             
             public string RequestKey { get; set; }

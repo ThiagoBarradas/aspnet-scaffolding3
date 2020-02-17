@@ -75,9 +75,18 @@ namespace AspNetScaffolding.Extensions.ExceptionHandler
         private static Task ApiException(HttpContext context, ApiException exception)
         {
             var apiResponse = exception.ToApiResponse();
+            var statusCode = (int) apiResponse.StatusCode;
+
+            if (exception is PermanentRedirectException)
+            {
+                statusCode = 308;
+                var location = $"{Api.ApiSettings.AppUrl.Trim('/')}{context.Request.Path}{context.Request.QueryString}";
+
+                context.Response.Headers["Location"] = location;
+            }
 
             context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int) apiResponse.StatusCode;
+            context.Response.StatusCode = statusCode;
 
             if (apiResponse.Content != null)
             {

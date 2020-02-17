@@ -2,6 +2,7 @@
 using AspNetScaffolding.Extensions.Healthcheck;
 using AspNetScaffolding.Extensions.Logger;
 using AspNetScaffolding.Models;
+using AspNetScaffolding3.Extensions.GracefullShutdown;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -24,6 +25,8 @@ namespace AspNetScaffolding
         public static DatabaseSettings DatabaseSettings { get; set; } = new DatabaseSettings();
 
         public static DocsSettings DocsSettings { get; set; } = new DocsSettings();
+
+        public static ShutdownSettings ShutdownSettings { get; set; } = new ShutdownSettings();
 
         public static void Run(ApiBasicConfiguration apiBasicConfiguration)
         {

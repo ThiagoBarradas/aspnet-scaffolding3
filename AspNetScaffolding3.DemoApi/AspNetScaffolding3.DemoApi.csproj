@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PackUtils" Version="1.0.66" />
+    <PackageReference Include="PackUtils" Version="1.0.67" />
   </ItemGroup>
 
   <ItemGroup>

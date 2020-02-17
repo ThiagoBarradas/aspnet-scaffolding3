@@ -1,5 +1,6 @@
 ﻿using AspNetScaffolding.Extensions.Cors;
 using AspNetScaffolding.Extensions.JsonSerializer;
+using AspNetScaffolding3.Extensions.GracefullShutdown;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -14,7 +15,10 @@ namespace AspNetScaffolding.Controllers
     [EnableCors(CorsServiceExtension.CorsName)]
     public class BaseController : ControllerBase
     {
-        public BaseController() {}
+        public BaseController()
+        {
+            this.ValidationShutdown();
+        }
 
         protected IActionResult CreateJsonResponse(ApiResponse response)
         {
@@ -29,7 +33,7 @@ namespace AspNetScaffolding.Controllers
             }
             else
             {
-                result = new StatusCodeResult((int) response.StatusCode);
+                result = new StatusCodeResult((int)response.StatusCode);
                 Response.ContentType = "application/json";
             }
 
