@@ -102,6 +102,11 @@ App Settings
     "Path": "healthcheck",
     "LogEnabled": false
   },
+  "ShutdownSettings": {
+    "ShutdownTimeoutIsSeconds" : 30,
+    "Enabled" : true,
+    "Redirect" : false
+  },
   "DbSettings": {
     "ConnectionString": "mongodb://user:pass@localhost:27017/DatabaseName",
     "Name": "DatabaseName"
