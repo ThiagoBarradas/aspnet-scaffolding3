@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PackUtils.Converters;
 using System;
-using System.Threading;
 
 namespace AspNetScaffolding.Controllers
 {
@@ -49,15 +48,6 @@ namespace AspNetScaffolding.Controllers
                 EnvironmentPrefix = Api.ApiBasicConfiguration.EnvironmentVariablesPrefix,
                 TimezoneInfo = new TimezoneInfo(this.HttpContextAccessor)
             });
-        }
-
-        [HttpGet("delay")]
-        [ProducesResponseType(typeof(HomeDetails), 200)]
-        public IActionResult Delay()
-        {
-            Thread.Sleep(20000);
-
-            return Ok();
         }
 
         public class HomeDetails
