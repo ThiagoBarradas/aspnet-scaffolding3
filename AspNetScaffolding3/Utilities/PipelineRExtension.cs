@@ -1,11 +1,10 @@
-﻿using AspNetScaffolding;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PackUtils;
 using PipelineR;
 using System.Linq;
 using WebApi.Models.Response;
 
-namespace AspNetScaffolding3.Utilities
+namespace AspNetScaffolding.Utilities
 {
     public static class PipelineRExtension
     {
@@ -45,6 +44,5 @@ namespace AspNetScaffolding3.Utilities
                 StatusCode = requestHandlerResult.StatusCode
             };
         }
-
     }
 }

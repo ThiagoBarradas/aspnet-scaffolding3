@@ -1,14 +1,10 @@
 ﻿using AspNetScaffolding.Extensions.JsonSerializer;
 using AspNetScaffolding.Models;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using PackUtils;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 
 namespace AspNetScaffolding.Extensions.Docs
 {
@@ -57,14 +53,8 @@ namespace AspNetScaffolding.Extensions.Docs
                             break;
                     }
 
-                    options.SchemaFilter<SnakeEnumSchemaFilter2>();
-
-                    options.CustomSchemaIds(x => x.FullName);
-                    options.CustomOperationIds(apiDesc =>
-                    {
-                        return apiDesc.TryGetMethodInfo(out MethodInfo methodInfo) 
-                            ? methodInfo.Name : null;
-                    });
+                    options.IgnoreObsoleteActions();
+                    options.IgnoreObsoleteProperties();
 
                     options.OperationFilter<QueryAndPathCaseOperationFilter>();
                     options.SwaggerDoc(apiSettings.Version, new OpenApiInfo
@@ -107,26 +97,6 @@ namespace AspNetScaffolding.Extensions.Docs
             DocsServiceExtension.DocsSettings.SwaggerJsonTemplateUrl = swaggerJsonPath;
             DocsServiceExtension.DocsSettings.SwaggerJsonUrl = finalPath;
             DocsServiceExtension.DocsSettings.RedocUrl = docsPath;
-        }
-    }
-
-    public class SnakeEnumSchemaFilter2 : Swashbuckle.AspNetCore.SwaggerGen.ISchemaFilter
-    {
-        public void Apply(OpenApiSchema schema, SchemaFilterContext context)
-        {
-            if (schema.Enum.Count > 0)
-            {
-                IList<IOpenApiAny> results = new List<IOpenApiAny>();
-                var enumValues = Enum.GetValues(context.Type);
-                foreach (var enumValue in enumValues)
-                {
-                    results.Add(new OpenApiString(enumValue.ToString().ToSnakeCase()));
-                }
-
-                schema.Enum = results;
-                schema.Type = "string";
-                schema.Format = null;
-            }
         }
     }
 }
