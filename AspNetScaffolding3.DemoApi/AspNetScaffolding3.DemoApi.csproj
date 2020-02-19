@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CQRS.Extensions" Version="3.0.6" />
+    <PackageReference Include="CQRS.Extensions.AspNetMVC" Version="3.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AspNetScaffolding3\AspNetScaffolding3.csproj" />
   </ItemGroup>
 
