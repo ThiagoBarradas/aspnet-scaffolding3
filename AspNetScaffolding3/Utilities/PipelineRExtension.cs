@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using PackUtils;
+﻿using AspNetScaffolding.Extensions.JsonSerializer;
+using Microsoft.AspNetCore.Mvc;
 using PipelineR;
 using System.Linq;
 using WebApi.Models.Response;
@@ -29,7 +29,7 @@ namespace AspNetScaffolding.Utilities
                             parts.RemoveAt(0);
                         }
 
-                        var finalParts = parts.Select(i => i.ToCase(Api.ApiSettings.JsonSerializerString));
+                        var finalParts = parts.Select(i => i.GetValueConsideringCurrentCase());
                         property = string.Join(".", finalParts);
                     }
 

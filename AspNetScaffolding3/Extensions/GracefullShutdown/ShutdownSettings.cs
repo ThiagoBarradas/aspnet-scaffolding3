@@ -18,12 +18,12 @@ namespace AspNetScaffolding3.Extensions.GracefullShutdown
         /// <summary>
         /// forces shutdown after X seconds
         /// </summary>
-        public int ShutdownTimeoutIsSeconds { get; set; } = 60;
+        public int ShutdownTimeoutInSeconds { get; set; } = 60;
 
         /// <summary>
         /// forces shutdown after X seconds - timespan format
         /// </summary>
-        public TimeSpan ShutdownTimeoutTimeSpan => TimeSpan.FromSeconds(this.ShutdownTimeoutIsSeconds);
+        public TimeSpan ShutdownTimeoutTimeSpan => TimeSpan.FromSeconds(this.ShutdownTimeoutInSeconds);
 
         /// <summary>
         /// State for gracefull shutdown

@@ -14,6 +14,7 @@ using AspNetScaffolding.Extensions.TimeElapsed;
 using AspNetScaffolding.Utilities;
 using AspNetScaffolding3.Extensions.GracefullShutdown;
 using AspNetSerilog;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -53,7 +54,7 @@ namespace AspNetScaffolding
             services.AddHttpContextAccessor();
             
             services.SetupSwaggerDocs(Api.DocsSettings, Api.ApiSettings);
-            
+
             var mvc = services.AddMvc(options => options.EnableEndpointRouting = false);
             mvc.RegisterAssembliesForControllers(Api.ApiBasicConfiguration?.AutoRegisterAssemblies);
             mvc.RegisterAssembliesForFluentValidation(Api.ApiBasicConfiguration?.AutoRegisterAssemblies);
@@ -88,7 +89,7 @@ namespace AspNetScaffolding
                 Api.ApiSettings?.Application,
                 Api.LogSettings, 
                 ignoredRoutes);
-            
+
             services.AddControllers();
 
             Api.ApiBasicConfiguration.ConfigureServices?.Invoke(services);

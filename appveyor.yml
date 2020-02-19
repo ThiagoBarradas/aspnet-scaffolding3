@@ -29,6 +29,7 @@ build:
 #  - codecov -f .\coverage.xml -t %CODECOV_TOKEN%
 
 after_test:
+  - rm -f AspNetScaffolding3\bin\Release\netcoreapp3.1\appsettings*.json
   - dotnet pack --configuration Release /p:Version=%version%
 
 artifacts:

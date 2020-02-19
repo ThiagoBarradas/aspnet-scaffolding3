@@ -8,20 +8,7 @@ namespace AspNetScaffolding.Extensions.JsonSerializer
 
         public static string GetValueConsideringCurrentCase(this string value)
         {
-            switch (JsonSerializerMode)
-            {
-                case JsonSerializerEnum.Camelcase:
-                    value = value.ToCamelCase();
-                    break;
-                case JsonSerializerEnum.Snakecase:
-                    value = value.ToSnakeCase();
-                    break;
-                case JsonSerializerEnum.Lowercase:
-                    value = value.ToLowerCase();
-                    break;
-            }
-
-            return value;
+            return value.ToCase(JsonSerializerMode.ToString());
         }
     }
 }
