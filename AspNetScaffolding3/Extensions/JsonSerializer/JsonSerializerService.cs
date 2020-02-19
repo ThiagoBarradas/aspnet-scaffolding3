@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CQRS.Extensions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using PackUtils;
 using PackUtils.Converters;
 using System;
+using System.Linq;
 
 namespace AspNetScaffolding.Extensions.JsonSerializer
 {
@@ -42,6 +44,12 @@ namespace AspNetScaffolding.Extensions.JsonSerializer
                 default:
                     break;
             }
+
+            PropertyName.Resolver = (propertyName) =>
+            {
+                var parts = propertyName.Split('.');
+                return string.Join(".", parts.Select(r => r.ToCase(jsonSerializerMode.ToString())));
+            };
 
             JsonSerializer.Converters.Clear();
             JsonSerializer.Converters.Add(new EnumWithContractJsonConverter());
