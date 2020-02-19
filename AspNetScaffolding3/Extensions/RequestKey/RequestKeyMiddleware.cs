@@ -16,6 +16,12 @@ namespace AspNetScaffolding.Extensions.RequestKey
 
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
+            try
+            {
+                context.Request.EnableBuffering();
+            }
+            catch (Exception) { }
+
             if (context.Request.Headers.ContainsKey(RequestKeyServiceExtension.RequestKeyHeaderName))
             {
                 this.RequestKey.Value = context.Request.Headers[RequestKeyServiceExtension.RequestKeyHeaderName];

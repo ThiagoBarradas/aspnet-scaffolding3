@@ -2,9 +2,11 @@
 using AspNetScaffolding.Extensions.JsonSerializer;
 using AspNetScaffolding3.Extensions.GracefullShutdown;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using PackUtils;
+using System;
 using System.IO;
 using System.Linq;
 using WebApi.Models.Exceptions;
@@ -56,6 +58,12 @@ namespace AspNetScaffolding.Controllers
             if (this.Request.Body.CanRead &&
                 this.Request.Body.CanSeek)
             {
+                try
+                {
+                    this.Request.EnableBuffering();
+                }
+                catch (Exception) { }
+                
                 MemoryStream stream = new MemoryStream();
                 this.Request.Body.Seek(0, SeekOrigin.Begin);
                 this.Request.Body.CopyTo(stream);
