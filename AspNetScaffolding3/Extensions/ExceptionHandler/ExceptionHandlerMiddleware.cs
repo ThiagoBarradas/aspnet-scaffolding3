@@ -20,20 +20,20 @@ namespace AspNetScaffolding.Extensions.ExceptionHandler
 
         public ExceptionHandlerMiddleware(RequestDelegate next)
         {
-            this.Next = next;
+            Next = next;
 
-            this.IsDevelopment = EnvironmentUtility.IsDevelopment();
+            IsDevelopment = EnvironmentUtility.IsDevelopment();
         }
 
         public async Task Invoke(HttpContext context)
         {
             try
             {
-                await this.Next(context);
+                await Next(context);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                await HandleExceptionAsync(context, ex, this.IsDevelopment);
+                await HandleExceptionAsync(context, ex, IsDevelopment);
             }
         }
 
@@ -47,7 +47,7 @@ namespace AspNetScaffolding.Extensions.ExceptionHandler
 
             if (exception is ApiException)
             {
-                return ApiException(context, (ApiException) exception);
+                return ApiException(context, (ApiException)exception);
             }
             else
             {
@@ -67,7 +67,7 @@ namespace AspNetScaffolding.Extensions.ExceptionHandler
             }
 
             context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
             return Task.CompletedTask;
         }
@@ -75,7 +75,7 @@ namespace AspNetScaffolding.Extensions.ExceptionHandler
         private static Task ApiException(HttpContext context, ApiException exception)
         {
             var apiResponse = exception.ToApiResponse();
-            var statusCode = (int) apiResponse.StatusCode;
+            var statusCode = (int)apiResponse.StatusCode;
 
             if (exception is PermanentRedirectException)
             {

@@ -3,7 +3,7 @@ using AspNetScaffolding.DemoApi.Models;
 
 namespace AspNetScaffolding.DemoApi.Profiles
 {
-    public class CustomerProfile:AutoMapper.Profile
+    public class CustomerProfile : AutoMapper.Profile
     {
         public CustomerProfile()
         {

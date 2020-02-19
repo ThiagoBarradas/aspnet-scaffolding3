@@ -30,9 +30,9 @@ namespace AspNetScaffolding3.Extensions.GracefullShutdown
                 throw new ArgumentNullException(nameof(applicationLifetime));
             }
 
-            this.Next = next ?? throw new ArgumentNullException(nameof(next));
-            this.ShutdownSettings = Api.ShutdownSettings;
-            this.State = state ?? throw new ArgumentNullException(nameof(state));
+            Next = next ?? throw new ArgumentNullException(nameof(next));
+            ShutdownSettings = Api.ShutdownSettings;
+            State = state ?? throw new ArgumentNullException(nameof(state));
 
             applicationLifetime.ApplicationStopping.Register(OnApplicationStopping);
             applicationLifetime.ApplicationStopped.Register(OnApplicationStopped);
@@ -40,13 +40,13 @@ namespace AspNetScaffolding3.Extensions.GracefullShutdown
 
         public async Task Invoke(HttpContext context)
         {
-            var ignoredRequest = this.State.StopRequested;
+            var ignoredRequest = State.StopRequested;
 
             if (!ignoredRequest)
             {
-                this.State.NotifyRequestStarted();
+                State.NotifyRequestStarted();
             }
-                
+
             try
             {
                 await Next.Invoke(context);
@@ -55,34 +55,34 @@ namespace AspNetScaffolding3.Extensions.GracefullShutdown
             {
                 if (!ignoredRequest)
                 {
-                    this.State.NotifyRequestFinished();
+                    State.NotifyRequestFinished();
                 }
             }
         }
 
         private void OnApplicationStopping()
         {
-            this.ShutdownStarted = DateTime.UtcNow;
-            this.State.NotifyStopRequested();
+            ShutdownStarted = DateTime.UtcNow;
+            State.NotifyStopRequested();
         }
 
         private void OnApplicationStopped()
         {
-            var shutdownLimit = ShutdownStarted.Add(this.ShutdownSettings.ShutdownTimeoutTimeSpan);
+            var shutdownLimit = ShutdownStarted.Add(ShutdownSettings.ShutdownTimeoutTimeSpan);
 
-            while (this.State.RequestsInProgress > 0 && DateTime.UtcNow < shutdownLimit)
+            while (State.RequestsInProgress > 0 && DateTime.UtcNow < shutdownLimit)
             {
-                this.LogInfo("Application stopping, requests in progress: {RequestsInProgress}", this.State.RequestsInProgress);
+                LogInfo("Application stopping, requests in progress: {RequestsInProgress}", State.RequestsInProgress);
                 Thread.Sleep(1000);
             }
 
-            if (this.State.RequestsInProgress > 0)
+            if (State.RequestsInProgress > 0)
             {
-                this.LogError("Application stopped, requests in progress: {RequestsInProgress}", this.State.RequestsInProgress);
+                LogError("Application stopped, requests in progress: {RequestsInProgress}", State.RequestsInProgress);
             }
             else
             {
-                this.LogInfo("Application stopped, requests in progress: {RequestsInProgress}", this.State.RequestsInProgress);
+                LogInfo("Application stopped, requests in progress: {RequestsInProgress}", State.RequestsInProgress);
             }
 
             Log.CloseAndFlush();

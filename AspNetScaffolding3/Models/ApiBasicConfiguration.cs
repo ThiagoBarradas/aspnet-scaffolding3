@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,7 +15,7 @@ namespace AspNetScaffolding.Models
         public string EnvironmentVariablesPrefix { get; set; }
 
         public IEnumerable<Assembly> AutoRegisterAssemblies { get; set; } = new List<Assembly>();
-        
+
         public Action<IHealthChecksBuilder, IServiceProvider> ConfigureHealthcheck { get; set; }
 
         public Action<IServiceCollection> ConfigureServices { get; set; }

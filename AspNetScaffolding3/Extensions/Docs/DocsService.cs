@@ -23,8 +23,8 @@ namespace AspNetScaffolding.Extensions.Docs
 
             if (DocsSettings?.Enabled == true)
             {
-                try 
-                    { 
+                try
+                {
                     DocsSettings.Version = apiSettings.Version;
                     DocsSettings.PathPrefix = apiSettings.PathPrefix;
                     GenerateSwaggerUrl();
@@ -57,6 +57,8 @@ namespace AspNetScaffolding.Extensions.Docs
                                 break;
                         }
 
+                        SwaggerEnum.Enums = DocsSettings.IgnoredEnums;
+
                         options.CustomSchemaIds(x => x.FullName);
                         options.CustomOperationIds(apiDesc =>
                         {
@@ -82,7 +84,7 @@ namespace AspNetScaffolding.Extensions.Docs
                     });
                     services.AddSwaggerGenNewtonsoftSupport();
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Console.WriteLine($"[ERROR] Swagger exception: {e.Message}");
                 }

@@ -11,7 +11,7 @@ namespace AspNetScaffolding.Extensions.TimeElapsed
 
         public TimeElapsedMiddleware(RequestDelegate next)
         {
-            this.Next = next;
+            Next = next;
         }
 
         public async Task Invoke(HttpContext context)
@@ -27,7 +27,7 @@ namespace AspNetScaffolding.Extensions.TimeElapsed
 
             stopwatch.Start();
 
-            await this.Next(context);
+            await Next(context);
 
             stopwatch.Stop();
             timeIsMs = stopwatch.ElapsedMilliseconds.ToString();

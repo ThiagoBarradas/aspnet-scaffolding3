@@ -139,7 +139,8 @@ App Settings
     "Title": "MyApp API Reference",
     "AuthorName": "Thiago Barradas",
     "AuthorEmail": "th.barradas@gmail.com",
-    "PathToReadme": "DOCS.md"
+    "PathToReadme": "DOCS.md",
+    "IgnoredEnums": [ "none", "undefined" ]
   }
 }
 

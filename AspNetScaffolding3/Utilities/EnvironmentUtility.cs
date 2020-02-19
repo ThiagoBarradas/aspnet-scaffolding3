@@ -8,7 +8,7 @@ namespace AspNetScaffolding.Utilities
         {
             return Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
         }
-        
+
         public static bool IsDevelopment()
         {
             var env = GetCurrentEnvironment();

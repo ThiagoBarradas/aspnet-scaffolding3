@@ -10,12 +10,12 @@ namespace AspNetScaffolding.Extensions.AccountId
 
         public AccountIdMiddleware(RequestDelegate next)
         {
-            this.Next = next;
+            Next = next;
         }
 
         public async Task Invoke(HttpContext context, AccountId accountId)
         {
-            await this.Next(context);
+            await Next(context);
 
             context.Items.Add(AccountIdServiceExtension.AccountIdHeaderName, accountId.Value);
         }

@@ -16,9 +16,9 @@ namespace AspNetScaffolding.Extensions.JsonSerializer
         public static Newtonsoft.Json.JsonSerializer JsonSerializer { get; set; }
 
         public static void ConfigureJsonSettings(
-            this IMvcBuilder mvc, 
+            this IMvcBuilder mvc,
             IServiceCollection services,
-            JsonSerializerEnum jsonSerializerMode, 
+            JsonSerializerEnum jsonSerializerMode,
             string timezoneHeaderName,
             TimeZoneInfo defaultTimeZone)
         {
@@ -62,11 +62,13 @@ namespace AspNetScaffolding.Extensions.JsonSerializer
             services.AddScoped((provider) => JsonSerializerSettings);
 
             DateTimeConverter.DefaultTimeZone = defaultTimeZone;
-            mvc.AddNewtonsoftJson(options => {
+            mvc.AddNewtonsoftJson(options =>
+            {
                 options.SerializerSettings.ContractResolver = JsonSerializerSettings.ContractResolver;
                 options.SerializerSettings.Converters = JsonSerializerSettings.Converters;
                 options.SerializerSettings.NullValueHandling = JsonSerializerSettings.NullValueHandling;
-                options.SerializerSettings.Converters.Add(new DateTimeConverter(() => {
+                options.SerializerSettings.Converters.Add(new DateTimeConverter(() =>
+                {
                     var httpContextAccessor = services.BuildServiceProvider().GetService<IHttpContextAccessor>();
                     return DateTimeConverter.GetTimeZoneByAspNetHeader(httpContextAccessor, timezoneHeaderName);
                 }));

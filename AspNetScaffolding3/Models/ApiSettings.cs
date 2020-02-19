@@ -23,9 +23,9 @@ namespace AspNetScaffolding.Models
 
         public string GetPathPrefixConsideringVersion()
         {
-            string version = this.Version ?? null;
+            string version = Version ?? null;
 
-            return this.PathPrefix.Replace("{version}", version, StringComparison.OrdinalIgnoreCase);
+            return PathPrefix.Replace("{version}", version, StringComparison.OrdinalIgnoreCase);
         }
 
         public string Domain { get; set; }
@@ -42,7 +42,7 @@ namespace AspNetScaffolding.Models
 
         public string[] SupportedCultures { get; set; }
 
-        public string RequestKeyProperty { get; set; } 
+        public string RequestKeyProperty { get; set; }
 
         public string AccountIdProperty { get; set; }
 
@@ -50,7 +50,7 @@ namespace AspNetScaffolding.Models
 
         public string TimezoneDefault { get; set; }
 
-        public TimeZoneInfo TimezoneDefaultInfo => TZConvert.GetTimeZoneInfo(this.TimezoneDefault);
+        public TimeZoneInfo TimezoneDefaultInfo => TZConvert.GetTimeZoneInfo(TimezoneDefault);
 
         public string TimeElapsedProperty { get; set; }
     }

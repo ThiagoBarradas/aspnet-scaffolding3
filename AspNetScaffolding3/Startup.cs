@@ -14,7 +14,6 @@ using AspNetScaffolding.Extensions.TimeElapsed;
 using AspNetScaffolding.Utilities;
 using AspNetScaffolding3.Extensions.GracefullShutdown;
 using AspNetSerilog;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -52,7 +51,7 @@ namespace AspNetScaffolding
         {
             services.AddSingleton(Api.ConfigurationRoot);
             services.AddHttpContextAccessor();
-            
+
             services.SetupSwaggerDocs(Api.DocsSettings, Api.ApiSettings);
 
             var mvc = services.AddMvc(options => options.EnableEndpointRouting = false);
@@ -62,32 +61,32 @@ namespace AspNetScaffolding
                 Api.ApiSettings.JsonSerializer,
                 Api.ApiSettings?.TimezoneHeader,
                 Api.ApiSettings?.TimezoneDefaultInfo);
-            
+
             mvc.AddMvcOptions(options =>
             {
                 options.UseCentralRoutePrefix(Api.ApiSettings.GetPathPrefixConsideringVersion());
                 options.AddQueryFormatter(Api.ApiSettings.JsonSerializer);
                 options.AddPathFormatter(Api.ApiSettings.JsonSerializer);
             });
-            
+
             services.AddScoped<IRestClientFactory, RestClientFactory>();
-            
+
             services.SetupAllowCors();
             services.SetupRequestKey(Api.ApiSettings?.RequestKeyProperty);
             services.SetupAccountId(Api.ApiSettings?.AccountIdProperty);
             services.SetupTimeElapsed(Api.ApiSettings?.TimeElapsedProperty);
-            
-            
+
+
             List<string> ignoredRoutes = Api.DocsSettings.GetDocsFinalRoutes().ToList();
-            
+
             if (Api.HealthcheckSettings.LogEnabled == false)
             {
                 ignoredRoutes.Add(HealthcheckkMiddlewareExtension.GetFullPath(Api.ApiSettings, Api.HealthcheckSettings));
             }
-            
+
             services.SetupSerilog(Api.ApiSettings?.Domain,
                 Api.ApiSettings?.Application,
-                Api.LogSettings, 
+                Api.LogSettings,
                 ignoredRoutes);
 
             services.AddControllers();
@@ -116,7 +115,7 @@ namespace AspNetScaffolding
             app.UseMvc();
             app.AllowCors();
             app.UseRouting();
-            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

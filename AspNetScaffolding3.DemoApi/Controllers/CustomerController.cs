@@ -13,7 +13,7 @@ namespace AspNetScaffolding.Controllers
 
         public CustomerController(LogAdditionalInfo logAdditionalInfo)
         {
-            this.LogAdditionalInfo = logAdditionalInfo;
+            LogAdditionalInfo = logAdditionalInfo;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace AspNetScaffolding.Controllers
         [ProducesResponseType(500)]
         public IActionResult Get(CustomerRequest request)
         {
-            this.LogAdditionalInfo.Data.Add("CustomerId", request.CustomerId);
+            LogAdditionalInfo.Data.Add("CustomerId", request.CustomerId);
 
             return Ok(request);
         }
@@ -88,7 +88,7 @@ namespace AspNetScaffolding.Controllers
         [ProducesResponseType(500)]
         public IActionResult GetNull()
         {
-            return this.CreateJsonResponse(ApiResponse.OK());
+            return CreateJsonResponse(ApiResponse.OK());
         }
     }
 }

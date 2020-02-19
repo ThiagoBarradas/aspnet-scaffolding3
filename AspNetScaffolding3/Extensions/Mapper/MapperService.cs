@@ -15,7 +15,7 @@ namespace AspNetScaffolding.Extensions.Mapper
             var mapper = MapperService.GetMapper();
 
             services.AddSingleton(mapper);
-            
+
             GlobalMapper.Mapper = mapper;
         }
 

@@ -24,9 +24,9 @@ namespace AspNetScaffolding.Controllers
             GracefullShutdownState gracefullShutdownState,
             RequestKey requestKey)
         {
-            this.HttpContextAccessor = httpContextAccessor;
-            this.GracefullShutdownState = gracefullShutdownState;
-            this.RequestKey = requestKey;
+            HttpContextAccessor = httpContextAccessor;
+            GracefullShutdownState = gracefullShutdownState;
+            RequestKey = requestKey;
         }
 
         [HttpGet("")]
@@ -34,19 +34,19 @@ namespace AspNetScaffolding.Controllers
         public IActionResult Home()
         {
             this.DisableLogging();
-            
+
             return Ok(new HomeDetails
             {
-                RIP = this.GracefullShutdownState.RequestsInProgress,
+                RIP = GracefullShutdownState.RequestsInProgress,
                 Service = Api.ApiBasicConfiguration?.ApiName,
                 BuildVersion = Api.ApiSettings?.BuildVersion,
                 Environment = EnvironmentUtility.GetCurrentEnvironment(),
-                RequestKey = this.RequestKey.Value,
+                RequestKey = RequestKey.Value,
                 Application = Api.ApiSettings.Application,
                 Domain = Api.ApiSettings.Domain,
                 JsonSerializer = Api.ApiSettings.JsonSerializer,
                 EnvironmentPrefix = Api.ApiBasicConfiguration.EnvironmentVariablesPrefix,
-                TimezoneInfo = new TimezoneInfo(this.HttpContextAccessor)
+                TimezoneInfo = new TimezoneInfo(HttpContextAccessor)
             });
         }
 
@@ -61,15 +61,15 @@ namespace AspNetScaffolding.Controllers
             public string Application { get; set; }
 
             public string Domain { get; set; }
-            
+
             public string EnvironmentPrefix { get; set; }
 
             public long RIP { get; set; }
-            
+
             public JsonSerializerEnum JsonSerializer { get; set; }
-            
+
             public string RequestKey { get; set; }
-        
+
             public TimezoneInfo TimezoneInfo { get; set; }
         }
 
@@ -77,8 +77,8 @@ namespace AspNetScaffolding.Controllers
         {
             public TimezoneInfo(IHttpContextAccessor httpContextAccessor)
             {
-                this.CurrentTimezone = DateTimeConverter.GetTimeZoneByAspNetHeader(
-                    httpContextAccessor, 
+                CurrentTimezone = DateTimeConverter.GetTimeZoneByAspNetHeader(
+                    httpContextAccessor,
                     Api.ApiSettings.TimezoneHeader).Id;
             }
 

@@ -47,8 +47,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Mongo.CRUD" Version="1.0.13" />
-    <PackageReference Include="PackUtils" Version="1.0.67" />
+    <PackageReference Include="Mongo.CRUD" Version="1.0.24" />
+    <PackageReference Include="PackUtils" Version="1.0.68" />
     <PackageReference Include="PagedList.NetCore" Version="1.0.6" />
     <PackageReference Include="PipelineR" Version="1.0.29" />
     <PackageReference Include="RestSharp.Easy" Version="1.0.14" />
@@ -59,6 +59,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.0.0" />
-    <PackageReference Include="WebApi.Models" Version="1.0.10" />
+    <PackageReference Include="WebApi.Models" Version="1.0.12" />
   </ItemGroup>
 </Project>

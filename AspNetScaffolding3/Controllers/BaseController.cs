@@ -53,21 +53,21 @@ namespace AspNetScaffolding.Controllers
         protected void ValidateSignatureFromHeaderWithContent(string secretKey, string headerName)
         {
             var result = false;
-            var signature = this.Request.Headers[headerName].FirstOrDefault() ?? string.Empty;
+            var signature = Request.Headers[headerName].FirstOrDefault() ?? string.Empty;
 
-            if (this.Request.Body.CanRead &&
-                this.Request.Body.CanSeek)
+            if (Request.Body.CanRead &&
+                Request.Body.CanSeek)
             {
                 try
                 {
-                    this.Request.EnableBuffering();
+                    Request.EnableBuffering();
                 }
                 catch (Exception) { }
-                
+
                 MemoryStream stream = new MemoryStream();
-                this.Request.Body.Seek(0, SeekOrigin.Begin);
-                this.Request.Body.CopyTo(stream);
-                this.Request.Body.Seek(0, SeekOrigin.Begin);
+                Request.Body.Seek(0, SeekOrigin.Begin);
+                Request.Body.CopyTo(stream);
+                Request.Body.Seek(0, SeekOrigin.Begin);
 
                 using (StreamReader reader = new StreamReader(stream))
                 {
@@ -87,7 +87,7 @@ namespace AspNetScaffolding.Controllers
         {
             if (ModelState.IsValid == false)
             {
-                ErrorsResponse errors = this.CastModelValidationResultToErrorsResponse(ModelState);
+                ErrorsResponse errors = CastModelValidationResultToErrorsResponse(ModelState);
                 throw new BadRequestException(errors);
             }
         }

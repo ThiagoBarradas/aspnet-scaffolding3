@@ -11,7 +11,7 @@ namespace AspNetScaffolding.Extensions.RequestKey
 
         public RequestKeyMiddleware(RequestKey requestKey)
         {
-            this.RequestKey = requestKey;
+            RequestKey = requestKey;
         }
 
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
@@ -24,15 +24,15 @@ namespace AspNetScaffolding.Extensions.RequestKey
 
             if (context.Request.Headers.ContainsKey(RequestKeyServiceExtension.RequestKeyHeaderName))
             {
-                this.RequestKey.Value = context.Request.Headers[RequestKeyServiceExtension.RequestKeyHeaderName];
+                RequestKey.Value = context.Request.Headers[RequestKeyServiceExtension.RequestKeyHeaderName];
             }
             else
             {
-                this.RequestKey.Value = Guid.NewGuid().ToString();
+                RequestKey.Value = Guid.NewGuid().ToString();
             }
 
-            context.Items.Add(RequestKeyServiceExtension.RequestKeyHeaderName, this.RequestKey.Value);
-            context.Response.Headers.Add(RequestKeyServiceExtension.RequestKeyHeaderName, this.RequestKey.Value);
+            context.Items.Add(RequestKeyServiceExtension.RequestKeyHeaderName, RequestKey.Value);
+            context.Response.Headers.Add(RequestKeyServiceExtension.RequestKeyHeaderName, RequestKey.Value);
 
             await next(context);
         }

@@ -8,7 +8,7 @@ namespace AspNetScaffolding.Models
 
         public ExceptionContainer(Exception exception)
         {
-            this.Exception = exception;
+            Exception = exception;
         }
     }
 }

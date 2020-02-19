@@ -24,12 +24,14 @@ namespace AspNetScaffolding.Extensions.Docs
 
         public string SwaggerJsonTemplateUrl { get; set; }
 
+        public List<string> IgnoredEnums { get; set; } 
+
         public IEnumerable<string> GetDocsFinalRoutes()
         {
             return new List<string>
             {
-                this.SwaggerJsonUrl,
-                this.RedocUrl
+                SwaggerJsonUrl,
+                RedocUrl
             };
         }
     }

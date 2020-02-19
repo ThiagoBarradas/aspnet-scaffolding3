@@ -9,7 +9,7 @@ namespace AspNetScaffolding3.Extensions.GracefullShutdown
 
         private long _requestsProcessed;
         public long RequestsProcessed => Volatile.Read(ref _requestsProcessed);
-        
+
         private bool _stopRequested;
         public bool StopRequested => Volatile.Read(ref _stopRequested);
 

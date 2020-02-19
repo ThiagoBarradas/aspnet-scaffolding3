@@ -10,7 +10,7 @@ namespace AspNetScaffolding.Extensions.RoutePrefix
 
         public RoutePrefixConvention(IRouteTemplateProvider routeTemplateProvider)
         {
-            this.CentralPrefix = new AttributeRouteModel(routeTemplateProvider);
+            CentralPrefix = new AttributeRouteModel(routeTemplateProvider);
         }
 
         public void Apply(ApplicationModel application)
@@ -27,7 +27,7 @@ namespace AspNetScaffolding.Extensions.RoutePrefix
                     }
                 }
 
-                var unmatchedSelectors = controller.Selectors.Where(x =>  x.AttributeRouteModel == null).ToList();
+                var unmatchedSelectors = controller.Selectors.Where(x => x.AttributeRouteModel == null).ToList();
                 if (unmatchedSelectors.Any())
                 {
                     foreach (var selectorModel in unmatchedSelectors)

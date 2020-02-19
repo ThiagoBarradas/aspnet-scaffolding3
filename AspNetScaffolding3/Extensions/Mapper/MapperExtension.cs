@@ -7,14 +7,14 @@ namespace AspNetScaffolding.Extensions.Mapper
     {
         public static IMapper Mapper { get; set; }
 
-        public static TDestination Map<TDestination>(this object source) 
+        public static TDestination Map<TDestination>(this object source)
             where TDestination : class
         {
             return GlobalMapper.Mapper.Map<TDestination>(source);
         }
 
-        public static TDestination Map<TSource, TDestination>(this TDestination destination, TSource source) 
-            where TSource : class 
+        public static TDestination Map<TSource, TDestination>(this TDestination destination, TSource source)
+            where TSource : class
             where TDestination : class
         {
             return GlobalMapper.Mapper.Map(source, destination);
@@ -42,7 +42,7 @@ namespace AspNetScaffolding.Extensions.Mapper
         public static IEnumerable<TDestination> AsCollection<TDestination>(this IEnumerable<object> source)
             where TDestination : class
         {
-            return GlobalMapper.Mapper.Map<IEnumerable<TDestination>>(source);  
+            return GlobalMapper.Mapper.Map<IEnumerable<TDestination>>(source);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace AspNetScaffolding.Utilities
                     if (error.Property != null)
                     {
                         var parts = error.Property.Split(".").ToList();
-                        
+
                         if (parts.Count > 1)
                         {
                             parts.RemoveAt(0);

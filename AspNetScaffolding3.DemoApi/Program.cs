@@ -18,7 +18,7 @@ namespace AspNetScaffolding.DemoApi
                 ConfigureHealthcheck = AdditionalConfigureHealthcheck,
                 ConfigureServices = AdditionalConfigureServices,
                 Configure = AdditionalConfigure,
-                AutoRegisterAssemblies = new Assembly[] 
+                AutoRegisterAssemblies = new Assembly[]
                     { Assembly.GetExecutingAssembly() }
             };
 
