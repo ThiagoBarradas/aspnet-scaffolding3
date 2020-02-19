@@ -16,20 +16,13 @@ dotnet_csproj:
   file_version: '%version%'
   informational_version: '%version%'
 
-before_build:
-#  - choco install opencover.portable
-#  - choco install codecov
+before_build:   
   - dotnet restore
 
 build:
   project: AspNetScaffolding3.sln
 
-#test_script:
-#  - OpenCover.Console.exe -oldstyle -register:user -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:"test --logger:trx;LogFileName=results.trx /p:DebugType=full AspNetScaffolding.Tests\AspNetScaffolding.Tests.csproj" -filter:"+[AspNetScaffolding*]* -[AspNetScaffolding.Tests*]*" -output:".\coverage.xml"
-#  - codecov -f .\coverage.xml -t %CODECOV_TOKEN%
-
 after_test:
-  - find . -name \appsettings*.json -type f -delete
   - dotnet pack --configuration Release /p:Version=%version%
 
 artifacts:

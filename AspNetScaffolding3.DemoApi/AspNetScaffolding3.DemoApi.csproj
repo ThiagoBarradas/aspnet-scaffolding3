@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PackUtils" Version="1.0.67" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\AspNetScaffolding3\AspNetScaffolding3.csproj" />
   </ItemGroup>
 
