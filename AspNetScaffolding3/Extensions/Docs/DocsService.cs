@@ -3,8 +3,10 @@ using AspNetScaffolding.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using PackUtils;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.IO;
+using System.Reflection;
 
 namespace AspNetScaffolding.Extensions.Docs
 {
@@ -21,55 +23,69 @@ namespace AspNetScaffolding.Extensions.Docs
 
             if (DocsSettings?.Enabled == true)
             {
-                DocsSettings.Version = apiSettings.Version;
-                DocsSettings.PathPrefix = apiSettings.PathPrefix;
-                GenerateSwaggerUrl();
+                try 
+                    { 
+                    DocsSettings.Version = apiSettings.Version;
+                    DocsSettings.PathPrefix = apiSettings.PathPrefix;
+                    GenerateSwaggerUrl();
 
-                services.AddSwaggerGen(options =>
-                {
-                    string readme = null;
-                    try
+                    services.AddSwaggerGen(options =>
                     {
-                        if (string.IsNullOrWhiteSpace(DocsSettings.PathToReadme) == false)
+                        string readme = null;
+                        try
                         {
-                            readme = File.ReadAllText(DocsSettings.PathToReadme);
+                            if (string.IsNullOrWhiteSpace(DocsSettings.PathToReadme) == false)
+                            {
+                                readme = File.ReadAllText(DocsSettings.PathToReadme);
+                            }
                         }
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine($"[ERROR] Swagger markdown ({DocsSettings.PathToReadme}) could not be loaded.");
-                    }
-
-                    switch (apiSettings.JsonSerializer)
-                    {
-                        case JsonSerializerEnum.Camelcase:
-                            options.SchemaFilter<CamelEnumSchemaFilter>();
-                            break;
-                        case JsonSerializerEnum.Snakecase:
-                            options.SchemaFilter<SnakeEnumSchemaFilter>();
-                            break;
-                        case JsonSerializerEnum.Lowercase:
-                            options.SchemaFilter<LowerEnumSchemaFilter>();
-                            break;
-                    }
-
-                    options.IgnoreObsoleteActions();
-                    options.IgnoreObsoleteProperties();
-
-                    options.OperationFilter<QueryAndPathCaseOperationFilter>();
-                    options.SwaggerDoc(apiSettings.Version, new OpenApiInfo
-                    {
-                        Title = DocsSettings.Title,
-                        Version = apiSettings.Version,
-                        Description = readme,
-                        Contact = new OpenApiContact
+                        catch (Exception)
                         {
-                            Name = DocsSettings.AuthorName,
-                            Email = DocsSettings.AuthorEmail
+                            Console.WriteLine($"[ERROR] Swagger markdown ({DocsSettings.PathToReadme}) could not be loaded.");
                         }
+
+                        switch (apiSettings.JsonSerializer)
+                        {
+                            case JsonSerializerEnum.Camelcase:
+                                options.SchemaFilter<CamelEnumSchemaFilter>();
+                                break;
+                            case JsonSerializerEnum.Snakecase:
+                                options.SchemaFilter<SnakeEnumSchemaFilter>();
+                                break;
+                            case JsonSerializerEnum.Lowercase:
+                                options.SchemaFilter<LowerEnumSchemaFilter>();
+                                break;
+                        }
+
+                        options.CustomSchemaIds(x => x.FullName);
+                        options.CustomOperationIds(apiDesc =>
+                        {
+                            return apiDesc.TryGetMethodInfo(out MethodInfo methodInfo)
+                               ? methodInfo.Name : null;
+                        });
+
+                        options.IgnoreObsoleteActions();
+                        options.IgnoreObsoleteProperties();
+
+                        options.OperationFilter<QueryAndPathCaseOperationFilter>();
+                        options.SwaggerDoc(apiSettings.Version, new OpenApiInfo
+                        {
+                            Title = DocsSettings.Title,
+                            Version = apiSettings.Version,
+                            Description = readme,
+                            Contact = new OpenApiContact
+                            {
+                                Name = DocsSettings.AuthorName,
+                                Email = DocsSettings.AuthorEmail
+                            }
+                        });
                     });
-                });
-                services.AddSwaggerGenNewtonsoftSupport();
+                    services.AddSwaggerGenNewtonsoftSupport();
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine($"[ERROR] Swagger exception: {e.Message}");
+                }
             }
         }
 
