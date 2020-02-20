@@ -112,16 +112,16 @@ namespace AspNetScaffolding
             app.UseScaffoldingRequestLocalization(Api.ApiSettings?.SupportedCultures);
             app.UseScaffoldingExceptionHandler();
             app.UseHealthcheck();
-            app.UseMvc();
             app.AllowCors();
             app.UseRouting();
 
+            Api.ApiBasicConfiguration.Configure?.Invoke(app);
+            
+            app.UseMvc();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
-            Api.ApiBasicConfiguration.Configure?.Invoke(app);
         }
 
         public static void ConfigureHealthcheck(IHealthChecksBuilder builder, IServiceProvider provider)
