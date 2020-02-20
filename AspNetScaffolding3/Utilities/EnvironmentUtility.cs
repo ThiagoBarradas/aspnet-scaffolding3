@@ -13,7 +13,7 @@ namespace AspNetScaffolding.Utilities
         {
             var env = GetCurrentEnvironment();
 
-            return env.Contains("develop");
+            return env.Contains("dev", StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }
