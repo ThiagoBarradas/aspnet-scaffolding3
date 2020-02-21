@@ -51,11 +51,6 @@ namespace AspNetScaffolding.Extensions.JsonSerializer
                 return string.Join(".", parts.Select(r => r.ToCase(jsonSerializerMode.ToString())));
             };
 
-            JsonSerializer.Converters.Clear();
-            JsonSerializer.Converters.Add(new EnumWithContractJsonConverter());
-            JsonSerializerSettings.Converters.Clear();
-            JsonSerializerSettings.Converters.Add(new EnumWithContractJsonConverter());
-
             JsonConvert.DefaultSettings = () => JsonSerializerSettings;
 
             services.AddScoped((provider) => JsonSerializer);
