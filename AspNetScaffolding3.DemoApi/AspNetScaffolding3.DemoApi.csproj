@@ -7,7 +7,7 @@
   <ItemGroup>
     <PackageReference Include="CQRS.Extensions" Version="3.0.6" />
     <PackageReference Include="CQRS.Extensions.AspNetMVC" Version="3.0.6" />
-    <PackageReference Include="Mongo.CRUD" Version="1.0.24" />
+    <PackageReference Include="Mongo.CRUD" Version="1.0.25" />
     <PackageReference Include="PackUtils" Version="1.0.69" />
     <PackageReference Include="RestSharp.Easy" Version="1.0.15" />
     <PackageReference Include="WebApi.Models" Version="1.0.12" />
