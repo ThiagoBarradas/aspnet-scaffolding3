@@ -35,7 +35,7 @@
     <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="3.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="3.0.0" />
-    <PackageReference Include="AspNetSerilog" Version="1.0.9" />
+    <PackageReference Include="AspNetSerilog" Version="1.0.10" />
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="CorrelationId" Version="2.1.0" />
     <PackageReference Include="CQRS.Extensions" Version="3.0.6" />
