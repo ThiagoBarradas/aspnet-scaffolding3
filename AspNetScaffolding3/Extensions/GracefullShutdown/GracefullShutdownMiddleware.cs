@@ -21,7 +21,7 @@ namespace AspNetScaffolding3.Extensions.GracefullShutdown
 
         public GracefullShutdownMiddleware(
             RequestDelegate next,
-            IApplicationLifetime applicationLifetime,
+            IHostApplicationLifetime applicationLifetime,
             GracefullShutdownState state
         )
         {
