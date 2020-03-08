@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace AspNetScaffolding3.Extensions.StreamExt
+namespace AspNetScaffolding.Extensions.StreamExt
 {
     public static class StreamExtension
     {
