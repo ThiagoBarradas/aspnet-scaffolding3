@@ -1,6 +1,6 @@
 ﻿using AspNetScaffolding.Extensions.Cors;
+using AspNetScaffolding.Extensions.GracefullShutdown;
 using AspNetScaffolding.Extensions.JsonSerializer;
-using AspNetScaffolding3.Extensions.GracefullShutdown;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

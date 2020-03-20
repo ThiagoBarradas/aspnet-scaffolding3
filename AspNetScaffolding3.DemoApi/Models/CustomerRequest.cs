@@ -13,6 +13,6 @@ namespace AspNetScaffolding.DemoApi.Models
     {
         [FromRoute] public string CustomerId { get; set; }
 
-        public string OtherProp { get; set; }
+        [FromBody] public string OtherProp { get; set; }
     }
 }

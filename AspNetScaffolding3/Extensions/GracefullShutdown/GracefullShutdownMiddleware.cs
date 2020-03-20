@@ -7,7 +7,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AspNetScaffolding3.Extensions.GracefullShutdown
+namespace AspNetScaffolding.Extensions.GracefullShutdown
 {
     public class GracefullShutdownMiddleware
     {

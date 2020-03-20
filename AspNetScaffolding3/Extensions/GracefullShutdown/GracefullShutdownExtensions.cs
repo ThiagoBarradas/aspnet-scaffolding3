@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using WebApi.Models.Exceptions;
 
-namespace AspNetScaffolding3.Extensions.GracefullShutdown
+namespace AspNetScaffolding.Extensions.GracefullShutdown
 {
     public static class GracefullShutdownExtensions
     {

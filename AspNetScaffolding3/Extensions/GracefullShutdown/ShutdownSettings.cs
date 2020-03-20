@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AspNetScaffolding3.Extensions.GracefullShutdown
+namespace AspNetScaffolding.Extensions.GracefullShutdown
 {
     public class ShutdownSettings
     {

@@ -1,4 +1,4 @@
-﻿namespace AspNetScaffolding3.Extensions.GracefullShutdown
+﻿namespace AspNetScaffolding.Extensions.GracefullShutdown
 {
     public interface IRequestsCountProvider
     {

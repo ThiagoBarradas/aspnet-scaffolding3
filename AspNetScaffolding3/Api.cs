@@ -1,8 +1,8 @@
 ﻿using AspNetScaffolding.Extensions.Docs;
+using AspNetScaffolding.Extensions.GracefullShutdown;
 using AspNetScaffolding.Extensions.Healthcheck;
 using AspNetScaffolding.Extensions.Logger;
 using AspNetScaffolding.Models;
-using AspNetScaffolding3.Extensions.GracefullShutdown;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using System;

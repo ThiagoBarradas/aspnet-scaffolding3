@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace AspNetScaffolding3.Extensions.GracefullShutdown
+namespace AspNetScaffolding.Extensions.GracefullShutdown
 {
     public class GracefullShutdownState : IRequestsCountProvider
     {

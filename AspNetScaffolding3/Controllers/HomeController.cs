@@ -1,7 +1,7 @@
-﻿using AspNetScaffolding.Extensions.JsonSerializer;
+﻿using AspNetScaffolding.Extensions.GracefullShutdown;
+using AspNetScaffolding.Extensions.JsonSerializer;
 using AspNetScaffolding.Extensions.RequestKey;
 using AspNetScaffolding.Utilities;
-using AspNetScaffolding3.Extensions.GracefullShutdown;
 using AspNetSerilog.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +30,7 @@ namespace AspNetScaffolding.Controllers
         }
 
         [HttpGet("")]
+        [Produces("application/json")]
         [ProducesResponseType(typeof(HomeDetails), 200)]
         public IActionResult Home()
         {
