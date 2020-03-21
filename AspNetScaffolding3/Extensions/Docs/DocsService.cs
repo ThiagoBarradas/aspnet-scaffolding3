@@ -69,6 +69,7 @@ namespace AspNetScaffolding.Extensions.Docs
                         options.IgnoreObsoleteActions();
                         options.IgnoreObsoleteProperties();
 
+                        options.SchemaFilter<SwaggerExcludeFilter>();
                         options.OperationFilter<QueryAndPathCaseOperationFilter>();
                         options.SwaggerDoc(apiSettings.Version, new OpenApiInfo
                         {
