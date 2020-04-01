@@ -10,7 +10,6 @@ namespace AspNetScaffolding.Models
         {
             Domain = "DefaultDomain";
             Application = "DefaultApp";
-            SupportedCultures = new string[] { "pt-BR", "en-US" };
             TimezoneDefault = "UTC";
             TimezoneHeader = "Timezone";
             TimeElapsedProperty = "X-Internal-Time";

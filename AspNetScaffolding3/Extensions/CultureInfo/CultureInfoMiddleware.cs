@@ -15,7 +15,7 @@ namespace AspNetScaffolding.Extensions.CultureInfo
                 {
                     options.AddSupportedCultures(acceptedsLanguages);
                     options.AddSupportedUICultures(acceptedsLanguages);
-                    options.SetDefaultCulture(acceptedsLanguages.First());
+                    options.SetDefaultCulture(acceptedsLanguages.FirstOrDefault());
                     options.RequestCultureProviders = new List<IRequestCultureProvider>
                     {
                         new AcceptLanguageHeaderRequestCultureProvider { Options = options }
