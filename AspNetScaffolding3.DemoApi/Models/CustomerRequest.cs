@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace AspNetScaffolding.DemoApi.Models
 {
@@ -14,5 +15,7 @@ namespace AspNetScaffolding.DemoApi.Models
         [FromRoute] public string CustomerId { get; set; }
 
         [FromBody] public string OtherProp { get; set; }
+
+        [FromBody] public DateTime DateTest { get; set; }
     }
 }

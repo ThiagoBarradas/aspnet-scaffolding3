@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using PackUtils;
 using PackUtils.Converters;
 using System;
@@ -45,11 +46,19 @@ namespace AspNetScaffolding.Extensions.JsonSerializer
                     break;
             }
 
+            // for fluent validation in cqrs extensions
             PropertyName.Resolver = (propertyName) =>
             {
                 var parts = propertyName.Split('.');
                 return string.Join(".", parts.Select(r => r.ToCase(jsonSerializerMode.ToString())));
             };
+
+            IsoDateTimeConverter isoDateTimeConverter = new IsoDateTimeConverter
+            {
+                DateTimeFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.ffffff"
+            };
+            JsonSerializerSettings.Converters.Add(isoDateTimeConverter);
+            JsonSerializer.Converters.Add(isoDateTimeConverter);
 
             JsonConvert.DefaultSettings = () => JsonSerializerSettings;
 
