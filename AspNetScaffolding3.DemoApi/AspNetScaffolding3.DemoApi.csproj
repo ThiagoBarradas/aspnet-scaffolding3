@@ -2,15 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AspNetSerilog" Version="1.0.11" />
     <PackageReference Include="CQRS.Extensions" Version="3.0.6" />
     <PackageReference Include="CQRS.Extensions.AspNetMVC" Version="3.0.6" />
-    <PackageReference Include="Mongo.CRUD" Version="1.0.25" />
+    <PackageReference Include="Mongo.CRUD" Version="1.0.26" />
     <PackageReference Include="PackUtils" Version="1.0.70" />
-    <PackageReference Include="RestSharp.Easy" Version="1.0.15" />
+    <PackageReference Include="RestSharp.Easy" Version="1.0.19" />
     <PackageReference Include="WebApi.Models" Version="1.0.12" />
   </ItemGroup>
 

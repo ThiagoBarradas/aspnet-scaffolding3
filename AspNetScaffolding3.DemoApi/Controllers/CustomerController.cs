@@ -76,8 +76,6 @@ namespace AspNetScaffolding.Controllers
         {
             var customer = request2.As<Customer>();
 
-            throw new System.Exception("asdsd");
-
             return Created("", customer);
         }
 
