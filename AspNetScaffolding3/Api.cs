@@ -3,6 +3,8 @@ using AspNetScaffolding.Extensions.GracefullShutdown;
 using AspNetScaffolding.Extensions.Healthcheck;
 using AspNetScaffolding.Extensions.Logger;
 using AspNetScaffolding.Models;
+using AspNetScaffolding3.Extensions.Cache;
+using AspNetScaffolding3.Extensions.RequestLimit;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -27,6 +29,10 @@ namespace AspNetScaffolding
         public static DocsSettings DocsSettings { get; set; } = new DocsSettings();
 
         public static ShutdownSettings ShutdownSettings { get; set; } = new ShutdownSettings();
+
+        public static IpRateLimitingAdditional IpRateLimitingAdditional { get; set; } = new IpRateLimitingAdditional();
+
+        public static CacheSettings CacheSettings { get; set; } = new CacheSettings();
 
         public static void Run(ApiBasicConfiguration apiBasicConfiguration)
         {

@@ -111,6 +111,33 @@ App Settings
     "ConnectionString": "mongodb://user:pass@localhost:27017/DatabaseName",
     "Name": "DatabaseName"
   },
+   "CacheSettings": {
+    "Enabled": true,
+    "RedisConnectionString": ""
+  },
+  "IpRateLimiting": {
+    "Enabled" : true,
+    "EnableEndpointRateLimiting": false,
+    "StackBlockedRequests": false,
+    "RealIpHeader": "X-Real-IP",
+    "ClientIdHeader": "X-ClientId",
+    "HttpStatusCode": 429,
+    "IpWhitelist": [],
+    "EndpointWhitelist": [],
+    "ClientWhitelist": [],
+    "GeneralRules": [
+      {
+        "Endpoint": "*",
+        "Period": "1m",
+        "Limit": 5
+      },
+      {
+        "Endpoint": "*",
+        "Period": "1h",
+        "Limit": 1000
+      }
+    ]
+  },
   "LogSettings": {
     "DebugEnabled": true,
     "TitlePrefix": "[{Application}] ",

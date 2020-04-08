@@ -1,4 +1,5 @@
-﻿using AspNetScaffolding.Extensions.AccountId;
+﻿using AspNetCoreRateLimit;
+using AspNetScaffolding.Extensions.AccountId;
 using AspNetScaffolding.Extensions.Cors;
 using AspNetScaffolding.Extensions.CultureInfo;
 using AspNetScaffolding.Extensions.Docs;
@@ -10,9 +11,11 @@ using AspNetScaffolding.Extensions.Logger;
 using AspNetScaffolding.Extensions.Mapper;
 using AspNetScaffolding.Extensions.QueryFormatter;
 using AspNetScaffolding.Extensions.RequestKey;
+using AspNetScaffolding.Extensions.RequestLimit;
 using AspNetScaffolding.Extensions.RoutePrefix;
 using AspNetScaffolding.Extensions.TimeElapsed;
 using AspNetScaffolding.Utilities;
+using AspNetScaffolding3.Extensions.Cache;
 using AspNetSerilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -45,13 +48,19 @@ namespace AspNetScaffolding
             Api.ConfigurationRoot.GetSection("DatabaseSettings").Bind(Api.DatabaseSettings);
             Api.ConfigurationRoot.GetSection("DocsSettings").Bind(Api.DocsSettings);
             Api.ConfigurationRoot.GetSection("ShutdownSettings").Bind(Api.ShutdownSettings);
+            Api.ConfigurationRoot.GetSection("IpRateLimiting").Bind(Api.IpRateLimitingAdditional);
+            Api.ConfigurationRoot.GetSection("CacheSettings").Bind(Api.CacheSettings);
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(Api.ConfigurationRoot);
             services.AddHttpContextAccessor();
+            
+            services.AddOptions();
+            services.SetupCache(Api.CacheSettings);
 
+            services.SetupIpRateLimiting(Api.IpRateLimitingAdditional, Api.CacheSettings);
             services.SetupSwaggerDocs(Api.DocsSettings, Api.ApiSettings);
 
             var mvc = services.AddMvc(options => options.EnableEndpointRouting = false);
@@ -114,6 +123,11 @@ namespace AspNetScaffolding
             app.UseHealthcheck();
             app.AllowCors();
             app.UseRouting();
+
+            if (Api.IpRateLimitingAdditional?.Enabled == true)
+            {
+                app.UseIpRateLimiting();
+            }
 
             Api.ApiBasicConfiguration.Configure?.Invoke(app);
             
