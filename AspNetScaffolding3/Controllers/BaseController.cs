@@ -1,6 +1,7 @@
 ﻿using AspNetScaffolding.Extensions.Cors;
 using AspNetScaffolding.Extensions.GracefullShutdown;
 using AspNetScaffolding.Extensions.JsonSerializer;
+using AspNetSerilog;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ using WebApi.Models.Response;
 
 namespace AspNetScaffolding.Controllers
 {
+    [SerilogFilter]
     [EnableCors(CorsServiceExtension.CorsName)]
     public class BaseController : ControllerBase
     {

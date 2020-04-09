@@ -32,7 +32,7 @@ namespace AspNetScaffolding.Controllers
         [HttpGet("")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(HomeDetails), 200)]
-        public IActionResult Home()
+        public IActionResult GetAppInfo()
         {
             this.DisableLogging();
 

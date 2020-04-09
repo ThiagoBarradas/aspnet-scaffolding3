@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetSerilog" Version="1.0.11" />
+    <PackageReference Include="AspNetSerilog" Version="1.0.12" />
     <PackageReference Include="CQRS.Extensions" Version="3.0.6" />
     <PackageReference Include="CQRS.Extensions.AspNetMVC" Version="3.0.6" />
     <PackageReference Include="Mongo.CRUD" Version="1.0.26" />
     <PackageReference Include="PackUtils" Version="1.0.70" />
-    <PackageReference Include="RestSharp.Easy" Version="1.0.19" />
+    <PackageReference Include="RestSharp.Easy" Version="1.0.20" />
     <PackageReference Include="WebApi.Models" Version="1.0.12" />
   </ItemGroup>
 

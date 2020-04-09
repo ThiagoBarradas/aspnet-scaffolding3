@@ -16,7 +16,7 @@ namespace AspNetScaffolding.Extensions.Logger
             string domain,
             string application,
             LoggerSettings settings,
-            IEnumerable<string> ignoredRoutes)
+            List<string> ignoredRoutes)
         {
             var loggerBuilder = new LoggerBuilder();
 

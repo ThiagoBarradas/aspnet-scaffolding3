@@ -1,4 +1,4 @@
-﻿namespace AspNetScaffolding3.Extensions.RequestLimit
+﻿namespace AspNetScaffolding.Extensions.RequestLimit
 {
     public class IpRateLimitingAdditional
     {

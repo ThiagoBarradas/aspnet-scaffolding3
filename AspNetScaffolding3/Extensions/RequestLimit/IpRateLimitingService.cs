@@ -1,6 +1,6 @@
 ﻿using AspNetCoreRateLimit;
-using AspNetScaffolding3.Extensions.Cache;
-using AspNetScaffolding3.Extensions.RequestLimit;
+using AspNetScaffolding.Extensions.Cache;
+using AspNetScaffolding.Extensions.RequestLimit;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 

@@ -1,4 +1,4 @@
-﻿namespace AspNetScaffolding3.Extensions.Cache
+﻿namespace AspNetScaffolding.Extensions.Cache
 {
     public class CacheSettings
     {

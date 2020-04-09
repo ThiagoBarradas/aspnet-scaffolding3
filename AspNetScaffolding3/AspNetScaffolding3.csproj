@@ -29,14 +29,14 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="AspNetCore.HealthChecks.AzureStorage" Version="3.0.1" />
-    <PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="3.0.1" />
-    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="3.0.7" />
-    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="3.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="3.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.AzureStorage" Version="3.1.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="3.1.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="3.1.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="3.1.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.1.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="3.1.0" />
     <PackageReference Include="AspNetCoreRateLimit" Version="3.0.5" />
-    <PackageReference Include="AspNetSerilog" Version="1.0.11" />
+    <PackageReference Include="AspNetSerilog" Version="1.0.12" />
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="CorrelationId" Version="2.1.0" />
     <PackageReference Include="CQRS.Extensions" Version="3.0.6" />
@@ -52,14 +52,14 @@
     <PackageReference Include="PackUtils" Version="1.0.70" />
     <PackageReference Include="PagedList.NetCore" Version="1.0.6" />
     <PackageReference Include="PipelineR" Version="1.0.30" />
-    <PackageReference Include="RestSharp.Easy" Version="1.0.19" />
-    <PackageReference Include="RestSharp.Serilog.Auto" Version="1.0.44" />
+    <PackageReference Include="RestSharp.Easy" Version="1.0.20" />
+    <PackageReference Include="RestSharp.Serilog.Auto" Version="1.0.45" />
     <PackageReference Include="Serilog.Builder" Version="1.0.25" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.3.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="5.3.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.3.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.3.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="5.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.3.1" />
     <PackageReference Include="WebApi.Models" Version="1.0.12" />
   </ItemGroup>
 </Project>

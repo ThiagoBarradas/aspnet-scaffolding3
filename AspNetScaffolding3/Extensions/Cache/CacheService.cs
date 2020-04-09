@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace AspNetScaffolding3.Extensions.Cache
+namespace AspNetScaffolding.Extensions.Cache
 {
     public static class CacheService
     {

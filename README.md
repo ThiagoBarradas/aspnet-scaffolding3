@@ -39,7 +39,7 @@ public class Program
             ApiName = "My AspNet Scaffolding",
             ApiPort = 8700,
             EnvironmentVariablesPrefix = "Prefix_",
-	    ConfigureHealthcheck = Startup.AdditionalConfigureHealthcheck,
+            ConfigureHealthcheck = Startup.AdditionalConfigureHealthcheck,
             ConfigureServices = Startup.AdditionalConfigureServices,
             Configure = Startup.AdditionalConfigure,
             AutoRegisterAssemblies = new Assembly[] 
@@ -139,6 +139,7 @@ App Settings
     ]
   },
   "LogSettings": {
+    "IgnoredRoutes": [],
     "DebugEnabled": true,
     "TitlePrefix": "[{Application}] ",
     "JsonBlacklist": [ "*password", "*card.number", "*creditcardnumber", "*cvv" ],

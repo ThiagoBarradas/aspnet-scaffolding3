@@ -1,5 +1,6 @@
 ﻿using AspNetCoreRateLimit;
 using AspNetScaffolding.Extensions.AccountId;
+using AspNetScaffolding.Extensions.Cache;
 using AspNetScaffolding.Extensions.Cors;
 using AspNetScaffolding.Extensions.CultureInfo;
 using AspNetScaffolding.Extensions.Docs;
@@ -15,7 +16,6 @@ using AspNetScaffolding.Extensions.RequestLimit;
 using AspNetScaffolding.Extensions.RoutePrefix;
 using AspNetScaffolding.Extensions.TimeElapsed;
 using AspNetScaffolding.Utilities;
-using AspNetScaffolding3.Extensions.Cache;
 using AspNetSerilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -123,6 +123,7 @@ namespace AspNetScaffolding
             app.UseHealthcheck();
             app.AllowCors();
             app.UseRouting();
+            app.UseStaticFiles($"/{Api.ApiSettings.GetPathPrefixConsideringVersion()}");
 
             if (Api.IpRateLimitingAdditional?.Enabled == true)
             {
