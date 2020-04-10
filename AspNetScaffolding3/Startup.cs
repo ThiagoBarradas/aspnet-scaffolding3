@@ -123,7 +123,10 @@ namespace AspNetScaffolding
             app.UseHealthcheck();
             app.AllowCors();
             app.UseRouting();
-            app.UseStaticFiles($"/{Api.ApiSettings.GetPathPrefixConsideringVersion()}");
+
+            var path = $"/{Api.ApiSettings.GetPathPrefixConsideringVersion()}";
+            Console.WriteLine("StaticFiles Path: {0}", path);
+            app.UseStaticFiles(path);
 
             if (Api.IpRateLimitingAdditional?.Enabled == true)
             {
