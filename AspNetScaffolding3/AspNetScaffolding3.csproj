@@ -52,7 +52,7 @@
     <PackageReference Include="PackUtils" Version="1.0.70" />
     <PackageReference Include="PagedList.NetCore" Version="1.0.6" />
     <PackageReference Include="PipelineR" Version="1.0.30" />
-    <PackageReference Include="RestSharp.Easy" Version="1.0.20" />
+    <PackageReference Include="RestSharp.Easy" Version="1.0.21" />
     <PackageReference Include="RestSharp.Serilog.Auto" Version="1.0.45" />
     <PackageReference Include="Serilog.Builder" Version="1.0.25" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.1" />

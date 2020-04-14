@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AspNetScaffolding.Models;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AspNetScaffolding.Extensions.Cache
 {
@@ -6,7 +7,8 @@ namespace AspNetScaffolding.Extensions.Cache
     {
         public static void SetupCache(
             this IServiceCollection services,
-            CacheSettings cacheSettings)
+            CacheSettings cacheSettings,
+            ApiSettings apiSettings)
         {
             if (cacheSettings?.Enabled == true)
             {
@@ -15,6 +17,7 @@ namespace AspNetScaffolding.Extensions.Cache
                     services.AddDistributedRedisCache(options =>
                     {
                         options.Configuration = cacheSettings.RedisConnectionString;
+                        options.InstanceName = apiSettings.Application;
                     });
                 }
                 else
