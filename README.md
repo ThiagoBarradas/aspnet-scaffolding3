@@ -113,6 +113,8 @@ App Settings
   },
    "CacheSettings": {
     "Enabled": true,
+	"UseRedis": true,
+    "UseLocker": true,
     "Ssl": false,
     "Password": "RedisAuth",
     "Host": "localhost",

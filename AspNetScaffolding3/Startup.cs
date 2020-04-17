@@ -58,9 +58,7 @@ namespace AspNetScaffolding
             services.AddHttpContextAccessor();
             
             services.AddOptions();
-            services.SetupCache(Api.CacheSettings, Api.ApiSettings);
-            services.AddSingleton(Api.CacheSettings);
-            services.AddSingleton<ILocker, Locker>();
+            services.SetupCache(Api.CacheSettings);
 
             services.SetupIpRateLimiting(Api.IpRateLimitingAdditional, Api.CacheSettings);
             services.SetupSwaggerDocs(Api.DocsSettings, Api.ApiSettings);

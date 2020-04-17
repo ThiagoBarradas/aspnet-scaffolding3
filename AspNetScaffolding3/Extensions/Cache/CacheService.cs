@@ -1,5 +1,4 @@
-﻿using AspNetScaffolding.Models;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace AspNetScaffolding.Extensions.Cache
 {
@@ -7,9 +6,14 @@ namespace AspNetScaffolding.Extensions.Cache
     {
         public static void SetupCache(
             this IServiceCollection services,
-            CacheSettings cacheSettings,
-            ApiSettings apiSettings)
+            CacheSettings cacheSettings)
         {
+            if (cacheSettings.UseLocker)
+            {
+                services.AddSingleton(cacheSettings);
+                services.AddSingleton<ILocker, Locker>();
+            }
+
             if (cacheSettings?.Enabled == true)
             {
                 if (cacheSettings.UseRedis)

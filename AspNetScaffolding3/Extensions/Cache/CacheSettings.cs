@@ -6,6 +6,8 @@
 
         public bool UseRedis { get; set; }
 
+        public bool UseLocker { get; set; }
+
         public string Host { get; set; }
 
         public int TimeoutInMs { get; set; }

@@ -1,17 +1,27 @@
 ﻿using AspNetScaffolding.DemoApi.Models;
+using AspNetScaffolding.Extensions.Cache;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Threading.Tasks;
+using WebApi.Models.Exceptions;
 using WebApi.Models.Response;
 
 namespace AspNetScaffolding.Controllers
 {
     public class PersonController : BaseController
     {
-        public PersonController()
-        {
+        private IDistributedCache DistributedCache { get; set; }
 
+
+        private ILocker Locker { get; set; }
+
+        public PersonController(IDistributedCache cache, ILocker locker)
+        {
+            this.Locker = locker;
+            this.DistributedCache = cache;
         }
 
         [HttpGet("persons/{id}")]
@@ -19,7 +29,7 @@ namespace AspNetScaffolding.Controllers
         [ProducesResponseType(typeof(ErrorsResponse), 400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             var person = new Person
             {
@@ -29,6 +39,20 @@ namespace AspNetScaffolding.Controllers
                 Email = "john.doe@email.com",
                 Type = PersonType.PhysicalPerson
             };
+
+            var options = new DistributedCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
+            };
+
+            await this.DistributedCache.SetStringAsync("123123", "teste", options);
+
+            var locker = await this.Locker.GetDistributedLockerAsync("teste", 600);
+
+            if (!locker.IsAcquired)
+            {
+                throw new ConflictException();
+            }
 
             var apiResponse = new ApiResponse
             {
