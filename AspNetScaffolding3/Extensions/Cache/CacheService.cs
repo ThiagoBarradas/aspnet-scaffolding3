@@ -12,12 +12,12 @@ namespace AspNetScaffolding.Extensions.Cache
         {
             if (cacheSettings?.Enabled == true)
             {
-                if (cacheSettings.IsDistributed)
+                if (cacheSettings.UseRedis)
                 {
-                    services.AddDistributedRedisCache(options =>
+                    services.AddStackExchangeRedisCache(options =>
                     {
-                        options.Configuration = cacheSettings.RedisConnectionString;
-                        options.InstanceName = apiSettings.Application;
+                        options.Configuration = cacheSettings.GetCacheConnectionString();
+                        options.InstanceName = cacheSettings.CachePrefix;
                     });
                 }
                 else

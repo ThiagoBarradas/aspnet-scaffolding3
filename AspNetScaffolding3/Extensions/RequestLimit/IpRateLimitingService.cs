@@ -24,7 +24,7 @@ namespace AspNetScaffolding.Extensions.RequestLimit
                 services.Configure<IpRateLimitPolicies>(Api.ConfigurationRoot.GetSection("IpRateLimitPolicies"));
                 
 
-                if (cacheSettings.IsDistributed)
+                if (cacheSettings.UseRedis)
                 {
                     services.AddSingleton<IIpPolicyStore, DistributedCacheIpPolicyStore>();
                     services.AddSingleton<IRateLimitCounterStore, DistributedCacheRateLimitCounterStore>();

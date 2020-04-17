@@ -113,7 +113,16 @@ App Settings
   },
    "CacheSettings": {
     "Enabled": true,
-    "RedisConnectionString": ""
+    "Ssl": false,
+    "Password": "RedisAuth",
+    "Host": "localhost",
+    "Port": 6379,
+    "LockerPrefix": "app-locker-",
+    "LockerTtlInSeconds": 100,
+    "LockerDb": 0,  
+    "CachePrefix": "app-cache-",
+    "CacheTtlInSeconds": 900,
+    "CacheDb": 0
   },
   "IpRateLimiting": {
     "Enabled" : true,
