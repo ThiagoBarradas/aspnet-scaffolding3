@@ -1,6 +1,8 @@
-﻿using AspNetScaffolding.Models;
+﻿using AspNetScaffolding.Extensions.RequestKey;
+using AspNetScaffolding.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Mundipagg;
 using System;
 using System.Reflection;
 
@@ -34,6 +36,13 @@ namespace AspNetScaffolding.DemoApi
 
         public static void AdditionalConfigureServices(IServiceCollection services)
         {
+            var apiUrl = "https://api.mundipagg.com/core/v1";
+
+            services.AddScoped<IMundipaggApiClient>(provider =>
+            {
+                return new MundipaggApiClient(null, provider.GetService<RequestKey>().Value, apiUrl, 120000);
+            });
+
             // add services
             //services.AddSingleton<ISomething, Something>();
         }

@@ -11,6 +11,7 @@
     <PackageReference Include="CQRS.Extensions" Version="3.0.6" />
     <PackageReference Include="CQRS.Extensions.AspNetMVC" Version="3.0.6" />
     <PackageReference Include="Mongo.CRUD" Version="1.0.26" />
+    <PackageReference Include="Mundipagg" Version="1.0.85" />
     <PackageReference Include="PackUtils" Version="1.0.70" />
     <PackageReference Include="RestSharp.Easy" Version="1.0.21" />
     <PackageReference Include="WebApi.Models" Version="1.0.12" />

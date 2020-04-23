@@ -86,6 +86,8 @@ App Settings
     "AppUrl": "http://localhost:5855",
     "JsonSerializer": "Snakecase",
     "PathPrefix": "myapp/{version}",
+	"UseStaticFiles": true,
+    "StaticFilesPath": "assets",
     "Domain": "MyDomain",
     "Application": "MyApp",
     "Version": "v1",

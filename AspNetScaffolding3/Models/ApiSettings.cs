@@ -45,6 +45,15 @@ namespace AspNetScaffolding.Models
 
         public string AccountIdProperty { get; set; }
 
+        public bool UseStaticFiles { get; set; }
+        
+        public string StaticFilesPath { get; set; }
+
+        public string GetStaticFilesPath()
+        {
+            return $"/{this.GetPathPrefixConsideringVersion().TrimEnd('/')}/{this.StaticFilesPath}".Replace("//","/").TrimEnd('/');
+        }
+
         public string TimezoneHeader { get; set; }
 
         public string TimezoneDefault { get; set; }

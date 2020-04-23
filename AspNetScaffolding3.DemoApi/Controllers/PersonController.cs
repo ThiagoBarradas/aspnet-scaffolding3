@@ -2,6 +2,7 @@
 using AspNetScaffolding.Extensions.Cache;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
+using Mundipagg;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -18,7 +19,7 @@ namespace AspNetScaffolding.Controllers
 
         private ILocker Locker { get; set; }
 
-        public PersonController(IDistributedCache cache, ILocker locker)
+        public PersonController(IDistributedCache cache, ILocker locker, IMundipaggApiClient client)
         {
             this.Locker = locker;
             this.DistributedCache = cache;
