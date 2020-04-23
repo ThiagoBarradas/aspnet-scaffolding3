@@ -124,8 +124,8 @@ namespace AspNetScaffolding
             app.AllowCors();
             app.UseRouting();
 
-            var path = $"/{Api.ApiSettings.GetPathPrefixConsideringVersion()}";
-            Console.WriteLine("StaticFiles Path: {0}", path.TrimEnd('/'));
+            var path = $"/{Api.ApiSettings.GetPathPrefixConsideringVersion()}".TrimEnd('/');
+            Console.WriteLine("StaticFiles Path: {0}", path);
             app.UseStaticFiles(path);
 
             if (Api.IpRateLimitingAdditional?.Enabled == true)
