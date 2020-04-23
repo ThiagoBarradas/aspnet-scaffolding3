@@ -125,7 +125,7 @@ namespace AspNetScaffolding
             app.UseRouting();
 
             var path = $"/{Api.ApiSettings.GetPathPrefixConsideringVersion()}";
-            Console.WriteLine("StaticFiles Path: {0}", path);
+            Console.WriteLine("StaticFiles Path: {0}", path.TrimEnd('/'));
             app.UseStaticFiles(path);
 
             if (Api.IpRateLimitingAdditional?.Enabled == true)
