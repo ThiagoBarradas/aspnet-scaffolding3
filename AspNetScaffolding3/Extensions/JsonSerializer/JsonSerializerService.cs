@@ -53,13 +53,6 @@ namespace AspNetScaffolding.Extensions.JsonSerializer
                 return string.Join(".", parts.Select(r => r.ToCase(jsonSerializerMode.ToString())));
             };
 
-            IsoDateTimeConverter isoDateTimeConverter = new IsoDateTimeConverter
-            {
-                DateTimeFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.ffffff"
-            };
-            JsonSerializerSettings.Converters.Add(isoDateTimeConverter);
-            JsonSerializer.Converters.Add(isoDateTimeConverter);
-
             JsonConvert.DefaultSettings = () => JsonSerializerSettings;
 
             services.AddScoped((provider) => JsonSerializer);
