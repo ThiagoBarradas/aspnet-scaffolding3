@@ -162,6 +162,11 @@ App Settings
       "Url": "http://localhost:5341",
       "ApiKey": "XXXX"
     },
+    "NewRelicOptions": {
+      "Enabled": false,
+      "AppName": "Verbose",
+      "LicenseKey": "XXXX"
+    },
     "SplunkOptions": {
       "Enabled": false,
       "MinimumLevel": "Verbose",

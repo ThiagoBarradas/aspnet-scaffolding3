@@ -24,6 +24,7 @@ namespace AspNetScaffolding.Extensions.Logger
                 .UseSuggestedSetting(domain, application)
                 .SetupSeq(settings?.SeqOptions)
                 .SetupSplunk(settings?.SplunkOptions)
+                .SetupNewRelic(settings?.NewRelicOptions)
                 .BuildLogger();
 
             if (settings?.DebugEnabled ?? false)

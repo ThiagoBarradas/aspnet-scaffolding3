@@ -13,5 +13,7 @@ namespace AspNetScaffolding.Extensions.Logger
         public SeqOptions SeqOptions { get; set; } = new SeqOptions();
 
         public SplunkOptions SplunkOptions { get; set; } = new SplunkOptions();
+
+        public NewRelicOptions NewRelicOptions { get; set; } = new NewRelicOptions();
     }
 }
