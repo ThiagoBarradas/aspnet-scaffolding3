@@ -11,7 +11,7 @@
 # [sonarcloud_account]  name from 'project settings' > 'connected services' > add 'sonarcloud' account
 
 variables:
-  solution_path:    'AspNetScaffolding3.sln'
+  solution_path: 'AspNetScaffolding3.sln'
   sdk_project_name: 'AspNetScaffolding3'
   sdk_project_path: 'AspNetScaffolding3/AspNetScaffolding3.csproj'
   sdk_nuget_target: 'NugetAccountBarradas'
@@ -45,7 +45,7 @@ stages:
     variables: 
       current_counter: $[counter(variables['Build.SourceBranchName'], 1)]    
     steps:
-    - task: gittools.gitversion.gitversion-task.GitVersion@5
+    - task: UseGitVersion@5
       condition: eq(variables['Build.SourceBranchName'], 'master')
       displayName: 'Get version from git tag for master'
       inputs:
