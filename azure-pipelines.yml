@@ -45,7 +45,7 @@ stages:
     variables: 
       current_counter: $[counter(variables['Build.SourceBranchName'], 1)]    
     steps:
-    - task: UseGitVersion@5
+    - task: gittools.gitversion.gitversion-task.GitVersion@5
       condition: eq(variables['Build.SourceBranchName'], 'master')
       displayName: 'Get version from git tag for master'
       inputs:
@@ -72,6 +72,7 @@ stages:
 
   - job: Build
     dependsOn: UpdateBuildVersion
+    condition: succeeded()
     workspace:
       clean: all
     steps:
