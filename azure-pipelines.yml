@@ -1,7 +1,7 @@
 # - requires:
 # https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarcloud
 # https://marketplace.visualstudio.com/items?itemName=SimondeLang.sonarcloud-buildbreaker
-# https://marketplace.visualstudio.com/items?itemName=gittools.usegitversion
+# https://marketplace.visualstudio.com/items?itemName=gittools.gitversion
 # 
 # - CI/CD for git flow
 # - for linux environment
