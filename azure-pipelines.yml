@@ -1,20 +1,15 @@
 # - requires:
 # https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarcloud
 # https://marketplace.visualstudio.com/items?itemName=SimondeLang.sonarcloud-buildbreaker
-# https://marketplace.visualstudio.com/items?itemName=gittools.usegitversion
+# https://marketplace.visualstudio.com/items?itemName=gittools.gitversion
 # 
 # - CI/CD for git flow
 # - for linux environment
-#
-# - Variables:
-# [sdk_nuget_target]    name from 'project settings' > 'connected services' > add 'nuget' account
-# [sonarcloud_account]  name from 'project settings' > 'connected services' > add 'sonarcloud' account
 
 variables:
   solution_path: 'AspNetScaffolding3.sln'
   sdk_project_name: 'AspNetScaffolding3'
   sdk_project_path: 'AspNetScaffolding3/AspNetScaffolding3.csproj'
-  sdk_nuget_target: 'NugetAccountBarradas'
   net_version: 'netcoreapp3.1'
   execute_test: 'false'
   test_project_base_folder: ''
@@ -45,7 +40,7 @@ stages:
     variables: 
       current_counter: $[counter(variables['Build.SourceBranchName'], 1)]    
     steps:
-    - task: UseGitVersion@5
+    - task: gittools.gitversion.gitversion-task.GitVersion@5
       condition: eq(variables['Build.SourceBranchName'], 'master')
       displayName: 'Get version from git tag for master'
       inputs:
@@ -72,6 +67,7 @@ stages:
 
   - job: Build
     dependsOn: UpdateBuildVersion
+    condition: succeeded()
     workspace:
       clean: all
     steps:
@@ -217,6 +213,8 @@ stages:
         eq(variables['Build.SourceBranchName'], 'master')
       )
     )
+  variables:
+    - group: NugetCredentials
   jobs:
   - job: PublishNugetPackage
     steps:
@@ -227,7 +225,9 @@ stages:
     - task: DotNetCoreCLI@2
       displayName: 'Publish package in NuGet'
       inputs:
-        command: push
-        packagesToPush: '$(Pipeline.Workspace)/$(sdk_project_name).$(Build.BuildNumber).nupkg'
-        nuGetFeedType: 'external'
-        publishFeedCredentials: 'NugetAccountBarradas'
+        command: custom
+        custom: nuget
+        arguments: >
+          push $(Pipeline.Workspace)/$(sdk_project_name).$(Build.BuildNumber).nupkg
+          -s $(NugetServerUrl)
+          -k $(NugetApiKey)
