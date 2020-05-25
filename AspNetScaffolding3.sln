@@ -4,10 +4,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6BC787A5-75A6-455E-8F77-5B27EC826F05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetScaffolding3", "AspNetScaffolding3\AspNetScaffolding3.csproj", "{C62F17AB-7EA4-4549-9C78-0618CEDC2C1F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetScaffolding3.DemoApi", "AspNetScaffolding3.DemoApi\AspNetScaffolding3.DemoApi.csproj", "{7852D13E-020D-47CF-97A2-6E84F43AD41D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{6EF09181-69F5-4FB8-82DF-89E096007B85}"
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		appveyor.yml = appveyor.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{472E49FE-D82F-4E41-AC5D-519C9D291CC6}"
+	ProjectSection(SolutionItems) = preProject
 		.github\CONTRIBUTING.md = .github\CONTRIBUTING.md
 		.github\ISSUE_TEMPLATE.md = .github\ISSUE_TEMPLATE.md
 		LICENSE = LICENSE
@@ -15,9 +24,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetScaffolding3", "AspNetScaffolding3\AspNetScaffolding3.csproj", "{C62F17AB-7EA4-4549-9C78-0618CEDC2C1F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetScaffolding3.DemoApi", "AspNetScaffolding3.DemoApi\AspNetScaffolding3.DemoApi.csproj", "{7852D13E-020D-47CF-97A2-6E84F43AD41D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devops", "devops", "{F554D092-6DFC-49FB-894C-2582917C1393}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +46,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6EF09181-69F5-4FB8-82DF-89E096007B85} = {6BC787A5-75A6-455E-8F77-5B27EC826F05}
+		{472E49FE-D82F-4E41-AC5D-519C9D291CC6} = {6BC787A5-75A6-455E-8F77-5B27EC826F05}
+		{F554D092-6DFC-49FB-894C-2582917C1393} = {6BC787A5-75A6-455E-8F77-5B27EC826F05}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B3368CDA-F6C0-4F7C-936A-18E5A37F6D28}
