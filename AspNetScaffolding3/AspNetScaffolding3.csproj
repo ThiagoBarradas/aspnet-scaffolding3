@@ -52,7 +52,7 @@
     <PackageReference Include="RedLock.net" Version="2.2.0" />
     <PackageReference Include="RestSharp.Easy" Version="1.0.22" />
     <PackageReference Include="RestSharp.Serilog.Auto" Version="1.0.46" />
-    <PackageReference Include="Serilog.Builder" Version="1.0.27" />
+    <PackageReference Include="Serilog.Builder" Version="1.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="5.4.1" />
