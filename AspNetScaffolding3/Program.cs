@@ -1,4 +1,5 @@
 ﻿using AspNetScaffolding.Models;
+using System.Net;
 
 namespace AspNetScaffolding
 {
@@ -6,6 +7,10 @@ namespace AspNetScaffolding
     {
         public static void Main(string[] args)
         {
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+            ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+
             var config = new ApiBasicConfiguration
             {
                 ApiName = "My AspNet Scaffolding",

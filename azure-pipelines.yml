@@ -14,7 +14,7 @@ variables:
   execute_test: 'false'
   test_project_base_folder: ''
   test_project_path: ''
-  execute_sonarcloud: 'true'
+  execute_sonarcloud: 'false'
   sonarcloud_project: 'ThiagoBarradas_aspnet-scaffolding3'
   sonarcloud_organization: 'thiagobarradas-github'
   sonarcloud_account: 'SonarCloudBarradas' 
