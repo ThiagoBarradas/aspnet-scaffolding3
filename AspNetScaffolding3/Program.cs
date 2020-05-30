@@ -9,7 +9,6 @@ namespace AspNetScaffolding
         {
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
 
             var config = new ApiBasicConfiguration
             {
