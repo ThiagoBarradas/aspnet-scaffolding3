@@ -5,6 +5,7 @@ using AspNetSerilog;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Builder;
+using System;
 using System.Collections.Generic;
 
 namespace AspNetScaffolding.Extensions.Logger
@@ -19,6 +20,11 @@ namespace AspNetScaffolding.Extensions.Logger
             List<string> ignoredRoutes)
         {
             var loggerBuilder = new LoggerBuilder();
+
+            if (settings?.NewRelicOptions?.Enabled == true && string.IsNullOrWhiteSpace(settings?.NewRelicOptions?.LicenseKey))
+            {
+                settings.NewRelicOptions.LicenseKey = Environment.GetEnvironmentVariable("NEW_RELIC_LICENSE_KEY");
+            }
 
             Log.Logger = loggerBuilder
                 .UseSuggestedSetting(domain, application)

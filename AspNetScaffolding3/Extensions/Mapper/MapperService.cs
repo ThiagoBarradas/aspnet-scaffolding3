@@ -39,6 +39,8 @@ namespace AspNetScaffolding.Extensions.Mapper
                 assemblies.Add(assembly);
             }
 
+            assemblies.AddRange(Api.ApiBasicConfiguration.AutoRegisterAssemblies);
+
             return assemblies.ToArray();
         }
 
