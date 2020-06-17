@@ -99,10 +99,10 @@ namespace AspNetScaffolding
                 ignoredRoutes);
 
             services.AddControllers();
+            services.SetupAutoMapper();
 
             Api.ApiBasicConfiguration.ConfigureServices?.Invoke(services);
 
-            services.SetupAutoMapper();
             services.AddGracefullShutdown();
 
             services.SetupHealthcheck(Api.ApiSettings,

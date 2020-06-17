@@ -29,30 +29,30 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="AspNetCore.HealthChecks.AzureStorage" Version="3.1.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.AzureStorage" Version="3.2.0" />
     <PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="3.1.1" />
-    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="3.1.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="3.1.2" />
     <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="3.1.1" />
     <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.1.1" />
-    <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="3.1.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="3.1.2" />
     <PackageReference Include="AspNetCoreRateLimit" Version="3.0.5" />
-    <PackageReference Include="AspNetSerilog" Version="1.0.13" />
+    <PackageReference Include="AspNetSerilog" Version="1.1.0" />
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="CQRS.Extensions" Version="3.0.6" />
     <PackageReference Include="CQRS.Extensions.AspNetMVC" Version="3.0.6" />
-    <PackageReference Include="Easy.Elasticsearch.BulkAndSearch" Version="1.0.18" />
+    <PackageReference Include="Easy.Elasticsearch.BulkAndSearch" Version="1.1.0" />
     <PackageReference Include="FluentValidation" Version="8.6.2" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.4" />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.5" />
     <PackageReference Include="Mongo.CRUD" Version="1.0.27" />
     <PackageReference Include="PackUtils" Version="1.0.72" />
     <PackageReference Include="PagedList.NetCore" Version="1.0.6" />
     <PackageReference Include="PipelineR" Version="1.0.30" />
     <PackageReference Include="RedLock.net" Version="2.2.0" />
-    <PackageReference Include="RestSharp.Easy" Version="1.0.22" />
-    <PackageReference Include="RestSharp.Serilog.Auto" Version="1.0.46" />
-    <PackageReference Include="Serilog.Builder" Version="1.1.0" />
+    <PackageReference Include="RestSharp.Easy" Version="1.1.1" />
+    <PackageReference Include="RestSharp.Serilog.Auto" Version="1.1.1" />
+    <PackageReference Include="Serilog.Builder" Version="1.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="5.4.1" />
