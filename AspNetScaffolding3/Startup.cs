@@ -80,7 +80,6 @@ namespace AspNetScaffolding
 
             services.AddScoped<IRestClientFactory, RestClientFactory>();
 
-            services.SetupAllowCors();
             services.SetupRequestKey(Api.ApiSettings?.RequestKeyProperty);
             services.SetupAccountId(Api.ApiSettings?.AccountIdProperty);
             services.SetupTimeElapsed(Api.ApiSettings?.TimeElapsedProperty);
@@ -121,7 +120,6 @@ namespace AspNetScaffolding
             app.UseScaffoldingRequestLocalization(Api.ApiSettings?.SupportedCultures);
             app.UseScaffoldingExceptionHandler();
             app.UseHealthcheck();
-            app.AllowCors();
             app.UseRouting();
 
             if (Api.ApiSettings.UseStaticFiles)
