@@ -41,6 +41,8 @@ namespace AspNetScaffolding.Controllers
                 Type = PersonType.PhysicalPerson
             };
 
+            return Ok(person);
+
             var options = new DistributedCacheEntryOptions
             {
                 AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
