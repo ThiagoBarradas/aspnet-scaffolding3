@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-	<AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-	<IsPackable>true</IsPackable>
-	<PackageIconUrl>https://i.imgur.com/Wq5D0gQ.png</PackageIconUrl>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <IsPackable>true</IsPackable>
+    <PackageIconUrl>https://i.imgur.com/Wq5D0gQ.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/thiagobarradas/aspnet-scaffolding3</PackageProjectUrl>
     <PackageTags>aspnet, scaffolding, splunk, seq, healthcheck, timezone, requestkey, timeelapsed, api, core, json</PackageTags>
     <Company>Thiago Barradas</Company>
     <Authors>Thiago Barradas</Authors>
     <PackageLicenseUrl>https://github.com/thiagobarradas/aspnet-scaffolding3/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/thiagobarradas/aspnet-scaffolding3</RepositoryUrl>
-	<Description>AspNet Scaffolding with log, serializer, and all structure to work good for me :D</Description>
+    <Description>AspNet Scaffolding with log, serializer, and all structure to work good for me :D</Description>
     <Copyright>Ⓒ Thiago Barradas</Copyright>
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
@@ -27,37 +27,39 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.AzureStorage" Version="3.2.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="3.1.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="3.1.2" />
     <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="3.1.2" />
     <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="3.1.1" />
     <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.1.1" />
     <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="3.1.2" />
     <PackageReference Include="AspNetCoreRateLimit" Version="3.0.5" />
-    <PackageReference Include="AspNetSerilog" Version="1.1.0" />
-    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AspNetSerilog" Version="1.1.2" />
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="CQRS.Extensions" Version="3.0.6" />
     <PackageReference Include="CQRS.Extensions.AspNetMVC" Version="3.0.6" />
-    <PackageReference Include="Easy.Elasticsearch.BulkAndSearch" Version="1.1.0" />
-    <PackageReference Include="FluentValidation" Version="8.6.2" />
-    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
+    <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="Easy.Elasticsearch.BulkAndSearch" Version="1.1.1" />
+    <PackageReference Include="FluentValidation" Version="9.0.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.5" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.5" />
-    <PackageReference Include="Mongo.CRUD" Version="1.0.27" />
-    <PackageReference Include="PackUtils" Version="1.0.72" />
+    <PackageReference Include="Mongo.CRUD" Version="1.1.0" />
+    <PackageReference Include="PackUtils" Version="1.2.1" />
     <PackageReference Include="PagedList.NetCore" Version="1.0.6" />
-    <PackageReference Include="PipelineR" Version="1.0.30" />
+    <PackageReference Include="PipelineR" Version="1.4.1" />
     <PackageReference Include="RedLock.net" Version="2.2.0" />
-    <PackageReference Include="RestSharp.Easy" Version="1.1.1" />
-    <PackageReference Include="RestSharp.Serilog.Auto" Version="1.1.1" />
-    <PackageReference Include="Serilog.Builder" Version="1.1.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.4.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="5.4.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.4.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.4.1" />
-    <PackageReference Include="WebApi.Models" Version="1.0.12" />
+    <PackageReference Include="RestSharp.Easy" Version="1.1.4" />
+    <PackageReference Include="RestSharp.Serilog.Auto" Version="1.1.3" />
+    <PackageReference Include="Serilog.Builder" Version="1.1.4" />
+    <PackageReference Include="SqlClient.ParseToObject" Version="1.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.5.1" />
+    <PackageReference Include="WebApi.Models" Version="1.0.13" />
   </ItemGroup>
 </Project>

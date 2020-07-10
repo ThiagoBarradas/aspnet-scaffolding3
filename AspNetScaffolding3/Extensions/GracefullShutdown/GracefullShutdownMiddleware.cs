@@ -1,5 +1,4 @@
-﻿using AspNetScaffolding;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Context;
@@ -36,6 +35,9 @@ namespace AspNetScaffolding.Extensions.GracefullShutdown
 
             applicationLifetime.ApplicationStopping.Register(OnApplicationStopping);
             applicationLifetime.ApplicationStopped.Register(OnApplicationStopped);
+
+            EventHandler waitFinish = (sender, e) => OnApplicationStopped();
+            AppDomain.CurrentDomain.ProcessExit += waitFinish;
         }
 
         public async Task Invoke(HttpContext context)
