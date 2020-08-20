@@ -155,7 +155,8 @@ App Settings
     "IgnoredRoutes": [],
     "DebugEnabled": true,
     "TitlePrefix": "[{Application}] ",
-    "JsonBlacklist": [ "*password", "*card.number", "*creditcardnumber", "*cvv" ],
+    "JsonBlacklistRequest":  [ "*password", "*card.number", "*creditcardnumber", "*cvv" ],
+    "JsonBlacklistResponse": [ "*password", "*card.number", "*creditcardnumber", "*cvv" ],
     "SeqOptions": {
       "Enabled": true,
       "MinimumLevel": "Verbose",

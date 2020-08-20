@@ -12,5 +12,20 @@
         public string CustomerId { get; private set; }
 
         public string OtherProp { get; private set; }
+
+
+        public string OnlyResponse { get; private set; } = "test";
+
+
+        public string OnlyRequest { get; private set; } = "test";
+
+        public SubTest SubTest { get; set; } = new SubTest();
+    }
+
+    public class SubTest
+    {
+        public string OnlyResponse { get; private set; } = "test";
+
+        public string OnlyRequest { get; private set; } = "test";
     }
 }
