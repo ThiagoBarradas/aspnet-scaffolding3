@@ -3,6 +3,8 @@ using AspNetScaffolding.DemoApi.Models;
 using AspNetScaffolding.Extensions.Mapper;
 using AspNetSerilog;
 using Microsoft.AspNetCore.Mvc;
+using RestSharp.Easy;
+using System.Net.Http;
 using WebApi.Models.Response;
 
 namespace AspNetScaffolding.Controllers
@@ -67,6 +69,10 @@ namespace AspNetScaffolding.Controllers
         public IActionResult Create([FromBody] CustomerRequest2 request2)
         {
             var customer = request2.As<Customer>();
+
+            var rest = new EasyRestClient("http://pruu.herokuapp.com/dump/baaaaarr");
+
+            var result = rest.SendRequest<object>(HttpMethod.Post, "");
 
             return Created("", customer);
         }
