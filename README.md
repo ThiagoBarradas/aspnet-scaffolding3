@@ -39,9 +39,9 @@ public class Program
             ApiName = "My AspNet Scaffolding",
             ApiPort = 8700,
             EnvironmentVariablesPrefix = "Prefix_",
-            ConfigureHealthcheck = Startup.AdditionalConfigureHealthcheck,
-            ConfigureServices = Startup.AdditionalConfigureServices,
-            Configure = Startup.AdditionalConfigure,
+            ConfigureHealthcheck = Startup.ConfigureHealthcheck,
+            ConfigureServices = Startup.ConfigureServices,
+            Configure = Startup.Configure,
             AutoRegisterAssemblies = new Assembly[] 
                 { Assembly.GetExecutingAssembly() }
         };
@@ -56,19 +56,19 @@ public class Program
 
 public static class Startup
 {
-    public static void AdditionalConfigureHealthcheck(IHealthChecksBuilder builder, IServiceProvider services)
+    public static void ConfigureHealthcheck(IHealthChecksBuilder builder, IServiceProvider provider)
     {
         // add health check configuration
         builder.AddMongoDb("mongodb://localhost:27017");
     }
 
-    public static void AdditionalConfigureServices(IServiceCollection services)
+    public static void ConfigureServices(IServiceCollection services)
     {
         // add services
         services.AddSingleton<ISomething, Something>();
     }
 
-    public static void AdditionalConfigure(IApplicationBuilder app)
+    public static void Configure(IApplicationBuilder app)
     {
         // customize your app
         app.UseAuthentication();
@@ -83,10 +83,10 @@ App Settings
 
 {
   "ApiSettings": {
-    "AppUrl": "http://localhost:5855",
+    "AppUrl": "http://localhost:8700",
     "JsonSerializer": "Snakecase",
     "PathPrefix": "myapp/{version}",
-	"UseStaticFiles": true,
+    "UseStaticFiles": true,
     "StaticFilesPath": "assets",
     "Domain": "MyDomain",
     "Application": "MyApp",
@@ -115,7 +115,7 @@ App Settings
   },
    "CacheSettings": {
     "Enabled": true,
-	"UseRedis": true,
+    "UseRedis": true,
     "UseLocker": true,
     "Ssl": false,
     "Password": "RedisAuth",

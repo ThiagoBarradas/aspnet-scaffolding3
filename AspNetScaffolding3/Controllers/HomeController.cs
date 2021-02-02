@@ -10,7 +10,6 @@ using System;
 
 namespace AspNetScaffolding.Controllers
 {
-    [ApiController]
     public class HomeController : BaseController
     {
         protected readonly RequestKey RequestKey;
@@ -29,9 +28,7 @@ namespace AspNetScaffolding.Controllers
             RequestKey = requestKey;
         }
 
-        [HttpGet("")]
-        [Produces("application/json")]
-        [ProducesResponseType(typeof(HomeDetails), 200)]
+        [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete, HttpHead, HttpOptions]
         public IActionResult GetAppInfo()
         {
             this.DisableLogging();
