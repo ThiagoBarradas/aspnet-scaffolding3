@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ApplicationModels;
+﻿using AspNetScaffolding3.Extensions.RoutePrefix;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Routing;
 using System.Linq;
 
@@ -22,6 +23,11 @@ namespace AspNetScaffolding.Extensions.RoutePrefix
                 {
                     foreach (var selectorModel in matchedSelectors)
                     {
+                        if (selectorModel.EndpointMetadata.Any(r => r.GetType() == typeof(IgnoreRoutePrefixAttribute)))
+                        {
+                            continue;
+                        }
+
                         selectorModel.AttributeRouteModel = AttributeRouteModel.CombineAttributeRouteModel(CentralPrefix,
                             selectorModel.AttributeRouteModel);
                     }
@@ -32,6 +38,11 @@ namespace AspNetScaffolding.Extensions.RoutePrefix
                 {
                     foreach (var selectorModel in unmatchedSelectors)
                     {
+                        if (selectorModel.EndpointMetadata.Any(r => r.GetType() == typeof(IgnoreRoutePrefixAttribute)))
+                        {
+                            continue;
+                        }
+
                         selectorModel.AttributeRouteModel = CentralPrefix;
                     }
                 }

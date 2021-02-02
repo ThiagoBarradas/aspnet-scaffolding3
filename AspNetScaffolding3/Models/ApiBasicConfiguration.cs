@@ -20,6 +20,10 @@ namespace AspNetScaffolding.Models
 
         public Action<IServiceCollection> ConfigureServices { get; set; }
 
+        public Action<IApplicationBuilder> ConfigureBefore { get; set; }
+
         public Action<IApplicationBuilder> Configure { get; set; }
+
+        public Action<IApplicationBuilder> ConfigureAfter { get; set; }
     }
 }

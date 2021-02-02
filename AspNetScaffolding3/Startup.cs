@@ -18,6 +18,7 @@ using AspNetScaffolding.Extensions.TimeElapsed;
 using AspNetScaffolding.Utilities;
 using AspNetSerilog;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestSharp.Serilog.Auto;
@@ -56,12 +57,14 @@ namespace AspNetScaffolding
         {
             services.AddSingleton(Api.ConfigurationRoot);
             services.AddHttpContextAccessor();
-            
+
             services.AddOptions();
             services.SetupCache(Api.CacheSettings);
 
             services.SetupIpRateLimiting(Api.IpRateLimitingAdditional, Api.CacheSettings);
             services.SetupSwaggerDocs(Api.DocsSettings, Api.ApiSettings);
+
+            services.AddControllers(mvc => { mvc.EnableEndpointRouting = false; });
 
             var mvc = services.AddMvc(options => options.EnableEndpointRouting = false);
             mvc.RegisterAssembliesForControllers(Api.ApiBasicConfiguration?.AutoRegisterAssemblies);
@@ -85,7 +88,6 @@ namespace AspNetScaffolding
             services.SetupAccountId(Api.ApiSettings?.AccountIdProperty);
             services.SetupTimeElapsed(Api.ApiSettings?.TimeElapsedProperty);
 
-
             List<string> ignoredRoutes = Api.DocsSettings.GetDocsFinalRoutes().ToList();
 
             if (Api.HealthcheckSettings.LogEnabled == false)
@@ -98,7 +100,6 @@ namespace AspNetScaffolding
                 Api.LogSettings,
                 ignoredRoutes);
 
-            services.AddControllers();
             services.SetupAutoMapper();
 
             Api.ApiBasicConfiguration.ConfigureServices?.Invoke(services);
@@ -110,8 +111,10 @@ namespace AspNetScaffolding
                 Api.ApiBasicConfiguration.ConfigureHealthcheck);
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment en)
         {
+            Api.ApiBasicConfiguration.ConfigureBefore?.Invoke(app);
+
             app.UseGracefullShutdown();
             app.UseAspNetSerilog();
             app.UseAccountId();
@@ -121,9 +124,9 @@ namespace AspNetScaffolding
             app.UseScaffoldingRequestLocalization(Api.ApiSettings?.SupportedCultures);
             app.UseScaffoldingExceptionHandler();
             app.UseHealthcheck();
-            app.AllowCors();
             app.UseRouting();
-
+            app.AllowCors();
+            
             if (Api.ApiSettings.UseStaticFiles)
             {
                 var path = Api.ApiSettings.GetStaticFilesPath();
@@ -137,12 +140,14 @@ namespace AspNetScaffolding
             }
 
             Api.ApiBasicConfiguration.Configure?.Invoke(app);
-            
+
             app.UseMvc();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            Api.ApiBasicConfiguration.ConfigureAfter?.Invoke(app);
         }
 
         public static void ConfigureHealthcheck(IHealthChecksBuilder builder, IServiceProvider provider)
