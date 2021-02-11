@@ -1,5 +1,6 @@
 ﻿using AspNetScaffolding.DemoApi.Entities;
 using AspNetScaffolding.DemoApi.Models;
+using AspNetScaffolding.Extensions.Logger;
 using AspNetScaffolding.Extensions.Mapper;
 using AspNetSerilog;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,8 @@ namespace AspNetScaffolding.Controllers
         public IActionResult Get(CustomerRequest request)
         {
             LogAdditionalInfo.Data.Add("CustomerId", request.CustomerId);
+
+            SimpleLogger.Info("teste teste teste", new {request});
 
             return Ok(request);
         }
