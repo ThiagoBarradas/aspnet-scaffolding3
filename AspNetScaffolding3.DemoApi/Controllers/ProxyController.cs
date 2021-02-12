@@ -1,5 +1,5 @@
 ﻿using AspNetScaffolding.Controllers;
-using AspNetScaffolding3.Extensions.RoutePrefix;
+using AspNetScaffolding.Extensions.RoutePrefix;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetScaffolding3.DemoApi.Controllers

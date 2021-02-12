@@ -1,5 +1,4 @@
-﻿using AspNetScaffolding3.Extensions.RoutePrefix;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
+﻿using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Routing;
 using System.Linq;
 

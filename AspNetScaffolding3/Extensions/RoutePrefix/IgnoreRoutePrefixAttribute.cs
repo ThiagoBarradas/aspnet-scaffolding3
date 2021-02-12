@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 
-namespace AspNetScaffolding3.Extensions.RoutePrefix
+namespace AspNetScaffolding.Extensions.RoutePrefix
 {
     public class IgnoreRoutePrefixAttribute : Attribute, IActionFilter, IFilterMetadata 
     {
