@@ -1,6 +1,7 @@
 ﻿using AspNetScaffolding.Extensions.AccountId;
 using AspNetScaffolding.Extensions.RequestKey;
 using AspNetScaffolding.Extensions.TimeElapsed;
+using AspNetScaffolding.Utilities;
 using AspNetSerilog;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -50,6 +51,9 @@ namespace AspNetScaffolding.Extensions.Logger
                 TimeElapsedProperty = TimeElapsedServiceExtension.TimeElapsedHeaderName,
                 IgnoredRoutes = ignoredRoutes
             };
+
+            SimpleLogger.UpdateVersion(Api.ApiSettings.BuildVersion);
+            SimpleLogger.UpdateEnvironment(EnvironmentUtility.GetCurrentEnvironment());
 
             services.SetupSerilog(config);
         }
