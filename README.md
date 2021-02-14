@@ -117,6 +117,7 @@ App Settings
     "Enabled": true,
     "UseRedis": true,
     "UseLocker": true,
+    "TimeoutInMs": 1000,
     "Ssl": false,
     "Password": "RedisAuth",
     "Host": "localhost",
@@ -149,7 +150,12 @@ App Settings
         "Period": "1h",
         "Limit": 1000
       }
-    ]
+    ],
+    "QuotaExceededResponse": {
+      "Content": "{{ \"message\": \"Quota exceeded. Maximum allowed: {0} per {1}. Please try again in {2} second(s).\" }}",
+      "ContentType": "application/json",
+      "StatusCode": 429
+    }
   },
   "LogSettings": {
     "IgnoredRoutes": [],
