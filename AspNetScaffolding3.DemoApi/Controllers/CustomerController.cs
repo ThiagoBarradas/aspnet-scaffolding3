@@ -35,7 +35,12 @@ namespace AspNetScaffolding.Controllers
 
             SimpleLogger.Info("teste teste teste", new {request});
 
-            return Ok(request);
+            return Ok(new
+            {
+                request,
+                test = "1",
+                test_1 = "123"
+            });
         }
 
         [HttpGet("customers/{customerId}/string")]

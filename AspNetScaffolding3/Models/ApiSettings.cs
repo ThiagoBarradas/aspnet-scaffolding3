@@ -61,5 +61,9 @@ namespace AspNetScaffolding.Models
         public TimeZoneInfo TimezoneDefaultInfo => TZConvert.GetTimeZoneInfo(TimezoneDefault);
 
         public string TimeElapsedProperty { get; set; }
+
+        public string JsonFieldSelectorProperty { get; set; }
+
+        public bool IsJsonFieldSelectorEnabled => !string.IsNullOrWhiteSpace(this.JsonFieldSelectorProperty);
     }
 }

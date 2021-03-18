@@ -97,7 +97,8 @@ App Settings
     "AccountIdProperty": "AccountId",
     "TimezoneHeader": "Timezone",
     "TimezoneDefault": "America/Sao_Paulo",
-    "TimeElapsedProperty": "X-Internal-Time"
+    "TimeElapsedProperty": "X-Internal-Time",
+    "JsonFieldSelectorProperty": "fields"
   },
   "HealthcheckSettings": {
     "Enabled": true,
