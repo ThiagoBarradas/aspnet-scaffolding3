@@ -39,7 +39,8 @@ namespace AspNetScaffolding.Controllers
             {
                 request,
                 test = "1",
-                test_1 = "123"
+                test_1 = "123",
+                customer = new Customer("xx", "yy")
             });
         }
 
@@ -86,7 +87,17 @@ namespace AspNetScaffolding.Controllers
         }
 
         [HttpPost("customers/{customerId}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(typeof(Customer), 400)]
         public IActionResult Create2(CustomerRequest2 request2)
+        {
+            var customer = request2.As<Customer>();
+
+            return Created("", customer);
+        }
+
+        [HttpGet("customers/{customerId}/test")]
+        public IActionResult Create22(CustomerRequest2 request2)
         {
             var customer = request2.As<Customer>();
 

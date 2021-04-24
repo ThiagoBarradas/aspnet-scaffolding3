@@ -2,9 +2,12 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using PackUtils;
 using PackUtils.Converters;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AspNetScaffolding.Extensions.JsonSerializer
@@ -26,6 +29,18 @@ namespace AspNetScaffolding.Extensions.JsonSerializer
 
             JsonSerializerSettings = null;
             JsonSerializer = null;
+
+            if (Api.ApiSettings.UseOriginalEnumValue)
+            {
+                JsonUtility.DefaultConverters = new List<JsonConverter>
+                {
+                    new StringEnumConverter(new OriginalCaseNamingResolver()),
+                    new IsoDateTimeConverter
+                    {
+                        DateTimeFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.ffffff"
+                    }
+                };
+            }
 
             switch (jsonSerializerMode)
             {

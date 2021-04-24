@@ -20,6 +20,15 @@
         public string OnlyRequest { get; private set; } = "test";
 
         public SubTest SubTest { get; set; } = new SubTest();
+
+        public Test TestTest { get; set; }
+    }
+
+    public enum Test
+    {
+        TEst_TESt,
+        TESTE_TEST,
+        
     }
 
     public class SubTest
