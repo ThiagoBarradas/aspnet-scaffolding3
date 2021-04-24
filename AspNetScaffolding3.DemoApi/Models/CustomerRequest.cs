@@ -18,4 +18,11 @@ namespace AspNetScaffolding.DemoApi.Models
 
         [FromBody] public DateTime DateTest { get; set; }
     }
+
+    public class CustomerRequest3
+    {
+        public string CustomerId { get; set; }
+
+        public string ServiceId { get; set; }
+    }
 }

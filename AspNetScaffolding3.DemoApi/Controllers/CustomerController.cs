@@ -44,6 +44,31 @@ namespace AspNetScaffolding.Controllers
             });
         }
 
+        /// <summary>
+        /// Get Customer
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("customers/{customerId}/post")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(typeof(ErrorsResponse), 400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public IActionResult Post([FromBody] CustomerRequest3 request)
+        {
+            LogAdditionalInfo.Data.Add("CustomerId", request.CustomerId);
+
+            SimpleLogger.Info("teste teste teste", new { request });
+
+            return Ok(new
+            {
+                request,
+                test = "1",
+                test_1 = "123",
+                customer = new Customer("xx", "yy")
+            });
+        }
+
         [HttpGet("customers/{customerId}/string")]
         [ProducesResponseType(200)]
         [ProducesResponseType(typeof(ErrorsResponse), 400)]

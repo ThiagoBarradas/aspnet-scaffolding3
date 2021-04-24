@@ -30,17 +30,7 @@ namespace AspNetScaffolding.Extensions.JsonSerializer
             JsonSerializerSettings = null;
             JsonSerializer = null;
 
-            if (Api.ApiSettings.UseOriginalEnumValue)
-            {
-                JsonUtility.DefaultConverters = new List<JsonConverter>
-                {
-                    new StringEnumConverter(new OriginalCaseNamingResolver()),
-                    new IsoDateTimeConverter
-                    {
-                        DateTimeFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.ffffff"
-                    }
-                };
-            }
+            EnumWithContractJsonConverter.IgnoreEnumCase = Api.ApiSettings.UseOriginalEnumValue;
 
             switch (jsonSerializerMode)
             {
