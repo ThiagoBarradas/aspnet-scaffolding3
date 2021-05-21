@@ -9,6 +9,7 @@ using System.Net;
 using System.Threading.Tasks;
 using WebApi.Models.Exceptions;
 using WebApi.Models.Helpers;
+using WebApi.Models.Response;
 
 namespace AspNetScaffolding.Extensions.ExceptionHandler
 {
@@ -17,6 +18,8 @@ namespace AspNetScaffolding.Extensions.ExceptionHandler
         private readonly RequestDelegate Next;
 
         private readonly bool IsDevelopment;
+
+        public static Func<ApiException, object> ChangeErrorFormat;
 
         public ExceptionHandlerMiddleware(RequestDelegate next)
         {
@@ -75,6 +78,7 @@ namespace AspNetScaffolding.Extensions.ExceptionHandler
         private static Task ApiException(HttpContext context, ApiException exception)
         {
             var apiResponse = exception.ToApiResponse();
+
             var statusCode = (int)apiResponse.StatusCode;
 
             if (exception is PermanentRedirectException)
@@ -88,9 +92,15 @@ namespace AspNetScaffolding.Extensions.ExceptionHandler
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = statusCode;
 
-            if (apiResponse.Content != null)
+            if (apiResponse.Content != null && ChangeErrorFormat == null)
             {
                 context.Response.WriteAsync(JsonConvert.SerializeObject(apiResponse.Content, JsonSerializerService.JsonSerializerSettings)).Wait();
+                context.Response.Body.Position = 0;
+            }
+            else if (ChangeErrorFormat != null)
+            {
+                var content = ChangeErrorFormat.Invoke(exception);
+                context.Response.WriteAsync(JsonConvert.SerializeObject(content, JsonSerializerService.JsonSerializerSettings)).Wait();
                 context.Response.Body.Position = 0;
             }
 

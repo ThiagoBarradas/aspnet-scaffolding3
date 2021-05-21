@@ -39,7 +39,33 @@ namespace AspNetScaffolding.Controllers
             {
                 request,
                 test = "1",
-                test_1 = "123"
+                test_1 = "123",
+                customer = new Customer("xx", "yy")
+            });
+        }
+
+        /// <summary>
+        /// Get Customer
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("customers/{customerId}/post")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(typeof(ErrorsResponse), 400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public IActionResult Post([FromBody] CustomerRequest3 request)
+        {
+            LogAdditionalInfo.Data.Add("CustomerId", request.CustomerId);
+
+            SimpleLogger.Info("teste teste teste", new { request });
+
+            return Ok(new
+            {
+                request,
+                test = "1",
+                test_1 = "123",
+                customer = new Customer("xx", "yy")
             });
         }
 
@@ -86,7 +112,17 @@ namespace AspNetScaffolding.Controllers
         }
 
         [HttpPost("customers/{customerId}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(typeof(Customer), 400)]
         public IActionResult Create2(CustomerRequest2 request2)
+        {
+            var customer = request2.As<Customer>();
+
+            return Created("", customer);
+        }
+
+        [HttpGet("customers/{customerId}/test")]
+        public IActionResult Create22(CustomerRequest2 request2)
         {
             var customer = request2.As<Customer>();
 

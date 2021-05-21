@@ -45,6 +45,8 @@ namespace AspNetScaffolding.Models
 
         public string AccountIdProperty { get; set; }
 
+        public bool UseOriginalEnumValue { get; set; }
+
         public bool UseStaticFiles { get; set; }
         
         public string StaticFilesPath { get; set; }

@@ -92,6 +92,7 @@ App Settings
     "Application": "MyApp",
     "Version": "v1",
     "BuildVersion": "1.0.0",
+    "UseOriginalEnumValue": false,
     "SupportedCultures": [ "pt-BR", "es-ES", "en-US" ],
     "RequestKeyProperty": "RequestKey",
     "AccountIdProperty": "AccountId",
