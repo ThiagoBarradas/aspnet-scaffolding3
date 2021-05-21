@@ -66,14 +66,22 @@ namespace AspNetScaffolding.Extensions.JsonSerializer
             mvc.AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ContractResolver = JsonSerializerSettings.ContractResolver;
-                options.SerializerSettings.Converters = JsonSerializerSettings.Converters;
                 options.SerializerSettings.NullValueHandling = JsonSerializerSettings.NullValueHandling;
                 options.SerializerSettings.Converters.Add(new DateTimeConverter(() =>
                 {
                     var httpContextAccessor = services.BuildServiceProvider().GetService<IHttpContextAccessor>();
                     return DateTimeConverter.GetTimeZoneByAspNetHeader(httpContextAccessor, timezoneHeaderName);
                 }));
+                foreach (var converter in JsonSerializerSettings.Converters)
+                {
+                    options.SerializerSettings.Converters.Add(converter);
+                }
             });
+        }
+
+        public static IList<T> Clone<T>(IList<T> listToClone) where T : ICloneable
+        {
+            return listToClone.Select(item => (T)item.Clone()).ToList();
         }
     }
 }
