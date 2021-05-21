@@ -44,17 +44,24 @@ namespace AspNetScaffolding.Extensions.Docs
                             Console.WriteLine($"[ERROR] Swagger markdown ({DocsSettings.PathToReadme}) could not be loaded.");
                         }
 
-                        switch (apiSettings.JsonSerializer)
+                        if (!Api.ApiSettings.UseOriginalEnumValue)
                         {
-                            case JsonSerializerEnum.Camelcase:
-                                options.SchemaFilter<CamelEnumSchemaFilter>();
-                                break;
-                            case JsonSerializerEnum.Snakecase:
-                                options.SchemaFilter<SnakeEnumSchemaFilter>();
-                                break;
-                            case JsonSerializerEnum.Lowercase:
-                                options.SchemaFilter<LowerEnumSchemaFilter>();
-                                break;
+                            switch (apiSettings.JsonSerializer)
+                            {
+                                case JsonSerializerEnum.Camelcase:
+                                    options.SchemaFilter<CamelEnumSchemaFilter>();
+                                    break;
+                                case JsonSerializerEnum.Snakecase:
+                                    options.SchemaFilter<SnakeEnumSchemaFilter>();
+                                    break;
+                                case JsonSerializerEnum.Lowercase:
+                                    options.SchemaFilter<LowerEnumSchemaFilter>();
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            options.SchemaFilter<OriginalEnumSchemaFilter>();
                         }
 
                         SwaggerEnum.Enums = DocsSettings.IgnoredEnums;

@@ -45,6 +45,8 @@ namespace AspNetScaffolding.Models
 
         public string AccountIdProperty { get; set; }
 
+        public bool UseOriginalEnumValue { get; set; }
+
         public bool UseStaticFiles { get; set; }
         
         public string StaticFilesPath { get; set; }
@@ -61,5 +63,9 @@ namespace AspNetScaffolding.Models
         public TimeZoneInfo TimezoneDefaultInfo => TZConvert.GetTimeZoneInfo(TimezoneDefault);
 
         public string TimeElapsedProperty { get; set; }
+
+        public string JsonFieldSelectorProperty { get; set; }
+
+        public bool IsJsonFieldSelectorEnabled => !string.IsNullOrWhiteSpace(this.JsonFieldSelectorProperty);
     }
 }

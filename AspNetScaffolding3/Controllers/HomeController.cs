@@ -28,7 +28,7 @@ namespace AspNetScaffolding.Controllers
             RequestKey = requestKey;
         }
 
-        [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete, HttpHead, HttpOptions]
+        [HttpGet]
         public IActionResult GetAppInfo()
         {
             this.DisableLogging();

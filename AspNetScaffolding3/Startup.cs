@@ -7,6 +7,7 @@ using AspNetScaffolding.Extensions.Docs;
 using AspNetScaffolding.Extensions.ExceptionHandler;
 using AspNetScaffolding.Extensions.GracefullShutdown;
 using AspNetScaffolding.Extensions.Healthcheck;
+using AspNetScaffolding.Extensions.JsonFieldSelector;
 using AspNetScaffolding.Extensions.JsonSerializer;
 using AspNetScaffolding.Extensions.Logger;
 using AspNetScaffolding.Extensions.Mapper;
@@ -140,6 +141,8 @@ namespace AspNetScaffolding
             }
 
             Api.ApiBasicConfiguration.Configure?.Invoke(app);
+
+            app.UseJsonFieldSelector(Api.ApiSettings.JsonFieldSelectorProperty, Api.ApiSettings.IsJsonFieldSelectorEnabled);
 
             app.UseMvc();
             app.UseEndpoints(endpoints =>

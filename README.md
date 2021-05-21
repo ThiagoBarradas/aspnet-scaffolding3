@@ -92,12 +92,14 @@ App Settings
     "Application": "MyApp",
     "Version": "v1",
     "BuildVersion": "1.0.0",
+    "UseOriginalEnumValue": false,
     "SupportedCultures": [ "pt-BR", "es-ES", "en-US" ],
     "RequestKeyProperty": "RequestKey",
     "AccountIdProperty": "AccountId",
     "TimezoneHeader": "Timezone",
     "TimezoneDefault": "America/Sao_Paulo",
-    "TimeElapsedProperty": "X-Internal-Time"
+    "TimeElapsedProperty": "X-Internal-Time",
+    "JsonFieldSelectorProperty": "fields"
   },
   "HealthcheckSettings": {
     "Enabled": true,

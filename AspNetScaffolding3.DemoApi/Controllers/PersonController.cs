@@ -16,7 +16,6 @@ namespace AspNetScaffolding.Controllers
     {
         private IDistributedCache DistributedCache { get; set; }
 
-
         private ILocker Locker { get; set; }
 
         public PersonController(IDistributedCache cache, ILocker locker, IMundipaggApiClient client)
