@@ -62,6 +62,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="5.5.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.5.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.5.1" />
-    <PackageReference Include="WebApi.Models" Version="1.0.13" />
+    <PackageReference Include="WebApi.Models" Version="1.1.0" />
   </ItemGroup>
 </Project>
