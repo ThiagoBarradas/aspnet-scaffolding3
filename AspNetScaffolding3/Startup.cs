@@ -105,13 +105,12 @@ namespace AspNetScaffolding
                 ignoredRoutes);
 
             services.SetupAutoMapper();
+            services.SetupQueue();
 
             Api.ApiBasicConfiguration.ConfigureServices?.Invoke(services);
 
             services.AddGracefullShutdown();
             
-            services.SetupQueue();
-
             services.SetupHealthcheck(Api.ApiSettings,
                 Api.HealthcheckSettings,
                 Api.ApiBasicConfiguration.ConfigureHealthcheck);
