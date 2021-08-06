@@ -6,6 +6,8 @@ namespace AspNetScaffolding.Extensions.Queue
 {
     public class QueueSettings
     {
+        public bool Enabled { get; set; }
+
         public int RetryTTL { get; set; }
 
         public double RetryTTLFactor { get; set; }

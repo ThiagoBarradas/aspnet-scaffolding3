@@ -131,6 +131,19 @@ App Settings
     "CacheTtlInSeconds": 900,
     "CacheDb": 0
   },
+  "QueueSettings": {
+    "Enabled": false,
+    "RetryTTL": 20000,
+    "RetryTTLFactor": 2.0,
+    "RetryCount": 5,
+    "QueueConnectionString": "amqp://guest:guest@localhost:5672/VHost",
+    "VHostApi": "http://guest:guest@localhost:15672/api/queues/VHost",
+    "QueueName": "my-queue",
+    "ExchangeToSubscribe": "main.topic",
+    "EventsToSubscribe": "event.something.created,event.other.#",
+    "MaxThreads": 200,
+    "AutoAckOnSuccess": true
+  },
   "IpRateLimiting": {
     "Enabled" : true,
     "EnableEndpointRateLimiting": false,

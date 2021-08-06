@@ -16,16 +16,19 @@ namespace AspNetScaffolding.Extensions.Queue
 {
     public static class QueueService
     {
-        public static void ConfigureQueue(this IServiceCollection services)
+        public static void SetupQueue(this IServiceCollection services)
         {
-            services.AddSingletonConfiguration<QueueSettings>("QueueSettings");
-            services.AddSingleton<IQueueClient, QueueClient>();
-            services.AddSingleton<IQueueProcessor>(provider =>
+            if (Api.QueueSettings?.Enabled == true)
             {
-                var queueSettings = provider.GetService<QueueSettings>();
-                var queueClient = provider.GetService<IQueueClient>();
-                return new QueueProcessor(queueClient, queueSettings);
-            });
+                services.AddSingleton<QueueSettings>(Api.QueueSettings);
+                services.AddSingleton<IQueueClient, QueueClient>();
+                services.AddSingleton<IQueueProcessor>(provider =>
+                {
+                    var queueSettings = provider.GetService<QueueSettings>();
+                    var queueClient = provider.GetService<IQueueClient>();
+                    return new QueueProcessor(queueClient, queueSettings);
+                });
+            }
         }
     }
 }

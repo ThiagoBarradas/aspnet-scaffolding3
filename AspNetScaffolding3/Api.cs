@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
+using AspNetScaffolding.Extensions.Queue;
 
 namespace AspNetScaffolding
 {
@@ -29,6 +30,8 @@ namespace AspNetScaffolding
         public static DocsSettings DocsSettings { get; set; } = new DocsSettings();
 
         public static ShutdownSettings ShutdownSettings { get; set; } = new ShutdownSettings();
+
+        public static QueueSettings QueueSettings { get; set; } = new QueueSettings();
 
         public static IpRateLimitingAdditional IpRateLimitingAdditional { get; set; } = new IpRateLimitingAdditional();
 
