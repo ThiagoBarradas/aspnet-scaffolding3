@@ -18,7 +18,7 @@ namespace AspNetScaffolding.Extensions.Queue
 {
     public static class QueueHealthcheck
     {
-        public static void AddRabbitMqAutomatic(IHealthChecksBuilder builder, IServiceProvider provider)
+        public static void AddRabbitMqAutomatic(this IHealthChecksBuilder builder, IServiceProvider provider)
         {
             var queueSettings = provider.GetService<QueueSettings>();
             var sslOptions = new SslOption
