@@ -11,6 +11,11 @@ namespace AspNetScaffolding.Extensions.Worker
 {
     public abstract class BaseWorkerRunner : IWorkerRunner
     {
+        public BaseWorkerRunner(IQueueProcessor queueProcessor)
+        {
+            this.QueueProcessor = queueProcessor;
+        }
+
         public IQueueProcessor QueueProcessor { get; set; }
 
         public Thread CurrentThread { get; set; }
@@ -44,7 +49,7 @@ namespace AspNetScaffolding.Extensions.Worker
 
     public class DemoWorkerRunner : BaseWorkerRunner
     {
-        public DemoWorkerRunner(IQueueProcessor queueProcessor)
+        public DemoWorkerRunner(IQueueProcessor queueProcessor) : base(queueProcessor)
         {
             this.QueueProcessor = queueProcessor;
             this.InitFunction(ExecuteAsync);

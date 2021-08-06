@@ -1,15 +1,16 @@
-﻿using AspNetScaffolding.Extensions.Docs;
+﻿using AspNetScaffolding.Extensions.Cache;
+using AspNetScaffolding.Extensions.Docs;
 using AspNetScaffolding.Extensions.GracefullShutdown;
 using AspNetScaffolding.Extensions.Healthcheck;
 using AspNetScaffolding.Extensions.Logger;
-using AspNetScaffolding.Models;
-using AspNetScaffolding.Extensions.Cache;
+using AspNetScaffolding.Extensions.Queue;
 using AspNetScaffolding.Extensions.RequestLimit;
+using AspNetScaffolding.Extensions.Worker;
+using AspNetScaffolding.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
-using AspNetScaffolding.Extensions.Queue;
 
 namespace AspNetScaffolding
 {
@@ -36,6 +37,8 @@ namespace AspNetScaffolding
         public static IpRateLimitingAdditional IpRateLimitingAdditional { get; set; } = new IpRateLimitingAdditional();
 
         public static CacheSettings CacheSettings { get; set; } = new CacheSettings();
+
+        public static WorkerSettings WorkerSettings { get; set; } = new WorkerSettings();
 
         public static void Run(ApiBasicConfiguration apiBasicConfiguration)
         {

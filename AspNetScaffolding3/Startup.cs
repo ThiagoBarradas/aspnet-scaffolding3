@@ -54,6 +54,7 @@ namespace AspNetScaffolding
             Api.ConfigurationRoot.GetSection("ShutdownSettings").Bind(Api.ShutdownSettings);
             Api.ConfigurationRoot.GetSection("IpRateLimiting").Bind(Api.IpRateLimitingAdditional);
             Api.ConfigurationRoot.GetSection("CacheSettings").Bind(Api.CacheSettings);
+            Api.ConfigurationRoot.GetSection("WorkerSettings").Bind(Api.WorkerSettings);
         }
 
         public void ConfigureServices(IServiceCollection services)
