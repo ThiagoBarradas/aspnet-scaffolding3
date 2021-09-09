@@ -12,6 +12,7 @@ using AspNetScaffolding.Extensions.JsonSerializer;
 using AspNetScaffolding.Extensions.Logger;
 using AspNetScaffolding.Extensions.Mapper;
 using AspNetScaffolding.Extensions.QueryFormatter;
+using AspNetScaffolding.Extensions.Queue;
 using AspNetScaffolding.Extensions.RequestKey;
 using AspNetScaffolding.Extensions.RequestLimit;
 using AspNetScaffolding.Extensions.RoutePrefix;
@@ -47,11 +48,13 @@ namespace AspNetScaffolding
             Api.ConfigurationRoot.GetSection("ApiSettings").Bind(Api.ApiSettings);
             Api.ConfigurationRoot.GetSection("HealthcheckSettings").Bind(Api.HealthcheckSettings);
             Api.ConfigurationRoot.GetSection("LogSettings").Bind(Api.LogSettings);
+            Api.ConfigurationRoot.GetSection("QueueSettings").Bind(Api.QueueSettings);
             Api.ConfigurationRoot.GetSection("DatabaseSettings").Bind(Api.DatabaseSettings);
             Api.ConfigurationRoot.GetSection("DocsSettings").Bind(Api.DocsSettings);
             Api.ConfigurationRoot.GetSection("ShutdownSettings").Bind(Api.ShutdownSettings);
             Api.ConfigurationRoot.GetSection("IpRateLimiting").Bind(Api.IpRateLimitingAdditional);
             Api.ConfigurationRoot.GetSection("CacheSettings").Bind(Api.CacheSettings);
+            Api.ConfigurationRoot.GetSection("WorkerSettings").Bind(Api.WorkerSettings);
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -102,11 +105,12 @@ namespace AspNetScaffolding
                 ignoredRoutes);
 
             services.SetupAutoMapper();
+            services.SetupQueue();
 
             Api.ApiBasicConfiguration.ConfigureServices?.Invoke(services);
 
             services.AddGracefullShutdown();
-
+            
             services.SetupHealthcheck(Api.ApiSettings,
                 Api.HealthcheckSettings,
                 Api.ApiBasicConfiguration.ConfigureHealthcheck);
