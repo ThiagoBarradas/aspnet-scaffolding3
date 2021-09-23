@@ -52,10 +52,11 @@ namespace AspNetScaffolding.Extensions.Logger
                 IgnoredRoutes = ignoredRoutes
             };
 
-            SimpleLogger.UpdateVersion(Api.ApiSettings.BuildVersion);
-            SimpleLogger.UpdateEnvironment(EnvironmentUtility.GetCurrentEnvironment());
+            StaticSimpleLogger.UpdateVersion(Api.ApiSettings.BuildVersion);
+            StaticSimpleLogger.UpdateEnvironment(EnvironmentUtility.GetCurrentEnvironment());
 
             services.SetupSerilog(config);
+            services.AddScoped<ISimpleLogger, SimpleLogger>();
         }
     }
 }

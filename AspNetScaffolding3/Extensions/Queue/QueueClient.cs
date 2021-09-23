@@ -13,7 +13,7 @@ namespace AspNetScaffolding.Extensions.Queue
     {
         private IModel Channel;
 
-        public Func<string, int, ulong, Task> ReceiveMessage { get; set; }
+        public Func<string, int, ulong, string, Task> ReceiveMessage { get; set; }
 
         public QueueSettings QueueSettings { get; private set; }
 
@@ -22,7 +22,7 @@ namespace AspNetScaffolding.Extensions.Queue
             this.QueueSettings = queueSettings;
         }
 
-        public void AddRetryMessage(string message, int retryCount)
+        public void AddRetryMessage(string message, int retryCount, string requestKey)
         {
             var buffer = Encoding.UTF8.GetBytes(message);
             this.Channel.BasicPublish(
@@ -33,30 +33,45 @@ namespace AspNetScaffolding.Extensions.Queue
                     Persistent = true,
                     Headers = new Dictionary<string, object>
                     {
-                        { "retry_count", retryCount }
+                        { "retry_count", retryCount },
+                        { "request_key", requestKey }
                     },
                     Expiration = this.QueueSettings.GetCalculedRetryTTL(retryCount).ToString()
                 },
                 body: buffer);
         }
 
-        public void AddDeadMessage(string message)
+        public void AddDeadMessage(string message, string requestKey)
         {
             var buffer = Encoding.UTF8.GetBytes(message);
             this.Channel.BasicPublish(
                 exchange: "",
                 routingKey: $"{this.QueueSettings.QueueName}-dead",
-                basicProperties: new BasicProperties { Persistent = true },
+                basicProperties: new BasicProperties
+                {
+                    Persistent = true,
+                    Headers = new Dictionary<string, object>
+                    {
+                        { "request_key", requestKey }
+                    }
+                },
                 body: buffer);
         }
 
-        public void AddMessage(string message)
+        public void AddMessage(string message, string requestKey)
         {
             var buffer = Encoding.UTF8.GetBytes(message);
             this.Channel.BasicPublish(
                 exchange: "",
                 routingKey: this.QueueSettings.QueueName,
-                basicProperties: new BasicProperties { Persistent = true },
+                basicProperties: new BasicProperties
+                {
+                    Persistent = true,
+                    Headers = new Dictionary<string, object>
+                    {
+                        { "request_key", requestKey }
+                    }
+                },
                 body: buffer);
         }
 
@@ -153,13 +168,12 @@ namespace AspNetScaffolding.Extensions.Queue
 
         private async Task Received(object model, BasicDeliverEventArgs eventArgs)
         {
-            object headerValue = null;
+            object retryCountHeader = null;
             try
             {
-
                 if (eventArgs.BasicProperties.Headers?.ContainsKey("retry_count") == true)
                 {
-                    eventArgs.BasicProperties.Headers.TryGetValue("retry_count", out headerValue);
+                    eventArgs.BasicProperties.Headers.TryGetValue("retry_count", out retryCountHeader);
                 }
             }
             catch (Exception)
@@ -167,10 +181,24 @@ namespace AspNetScaffolding.Extensions.Queue
                 // Exception ignored because is a try to get retry_count
             }
 
-            int retryCount = headerValue != null ? (int)headerValue : 0;
+            object requestKeyHeader = null;
+            try
+            {
+                if (eventArgs.BasicProperties.Headers?.ContainsKey("request_key") == true)
+                {
+                    eventArgs.BasicProperties.Headers.TryGetValue("request_key", out requestKeyHeader);
+                }
+            }
+            catch (Exception)
+            {
+                // Exception ignored because is a try to get requestKey
+            }
+
+            int retryCount = retryCountHeader != null ? (int)retryCountHeader : 0;
 
             var message = Encoding.UTF8.GetString(eventArgs.Body);
-            await this.ReceiveMessage?.Invoke(message, retryCount, eventArgs.DeliveryTag);
+
+            await this.ReceiveMessage?.Invoke(message, retryCount, eventArgs.DeliveryTag, requestKeyHeader?.ToString());
         }
 
         public void Dispose()
