@@ -20,25 +20,25 @@ namespace AspNetScaffolding.Extensions.Worker
 
         public Thread CurrentThread { get; set; }
 
-        public abstract Task<bool> ExecuteAsync(string message, int retryCount, ulong deliveryTag);
+        public abstract Task<bool> ExecuteAsync(string message, int retryCount, ulong deliveryTag, string requestKey);
 
         public void Start()
         {
             Task.Delay(1000).ContinueWith((state) =>
             {
                 this.CurrentThread.Start();
-                SimpleLogger.Info("WorkerRunner", nameof(Start), "Worker started!");
+                StaticSimpleLogger.Info("WorkerRunner", nameof(Start), "Worker started!");
             });
         }
 
         public void Stop()
         {
-            SimpleLogger.Info("WorkerRunner", nameof(Stop), "Worker stopped!");
+            StaticSimpleLogger.Info("WorkerRunner", nameof(Stop), "Worker stopped!");
             Thread.Sleep(2000);
             this.CurrentThread.Abort();
         }
 
-        protected void InitFunction(Func<string, int, ulong, Task<bool>> func)
+        protected void InitFunction(Func<string, int, ulong, string, Task<bool>> func)
         {
             this.CurrentThread = new Thread(() =>
             {
@@ -55,7 +55,7 @@ namespace AspNetScaffolding.Extensions.Worker
             this.InitFunction(ExecuteAsync);
         }
 
-        public override async Task<bool> ExecuteAsync(string message, int retryCount, ulong deliveryTag)
+        public override async Task<bool> ExecuteAsync(string message, int retryCount, ulong deliveryTag, string requestKey)
         {
             await Task.Delay(1);
 

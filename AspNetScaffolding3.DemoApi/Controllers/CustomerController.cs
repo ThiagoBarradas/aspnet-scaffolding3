@@ -33,7 +33,7 @@ namespace AspNetScaffolding.Controllers
         {
             LogAdditionalInfo.Data.Add("CustomerId", request.CustomerId);
 
-            SimpleLogger.Info("teste teste teste", new {request});
+            StaticSimpleLogger.Info("teste teste teste", "123", new {request});
 
             return Ok(new
             {
@@ -58,7 +58,7 @@ namespace AspNetScaffolding.Controllers
         {
             LogAdditionalInfo.Data.Add("CustomerId", request.CustomerId);
 
-            SimpleLogger.Info("teste teste teste", new { request });
+            StaticSimpleLogger.Info("teste teste teste", "requestKey", new { request });
 
             return Ok(new
             {
