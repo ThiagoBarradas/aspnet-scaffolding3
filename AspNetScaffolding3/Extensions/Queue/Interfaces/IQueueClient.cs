@@ -5,13 +5,13 @@ namespace AspNetScaffolding.Extensions.Queue.Interfaces
 {
     public interface IQueueClient
     {
-        Func<string, int, ulong, Task> ReceiveMessage { get; set; }
+        Func<string, int, ulong, string, Task> ReceiveMessage { get; set; }
 
-        void AddRetryMessage(string message, int retryCount);
+        void AddRetryMessage(string message, int retryCount, string requestKey);
 
-        void AddDeadMessage(string message);
+        void AddDeadMessage(string message, string requestKey);
 
-        void AddMessage(string message);
+        void AddMessage(string message, string requestKey);
 
         void Ack(ulong deliveryTag);
 

@@ -28,13 +28,13 @@ namespace AspNetScaffolding.Extensions.Queue
             this.QueueClient = queueClient;
         }
 
-        public bool ExecuteConsumer(Func<string, int, ulong, Task<bool>> func)
+        public bool ExecuteConsumer(Func<string, int, ulong, string, Task<bool>> func)
         {
             try
             {
                 this.QueueClient.TryConnect();
 
-                this.QueueClient.ReceiveMessage += (message, retryCount, deliveryTag) =>
+                this.QueueClient.ReceiveMessage += (message, retryCount, deliveryTag, requestKey) =>
                 {
                     lock (this.LockThreads)
                     {
@@ -47,26 +47,26 @@ namespace AspNetScaffolding.Extensions.Queue
                         while (this.CanAddThread() == false);
                     }
 
-                    this.Threads.Add(HandleReceivedMessage(message, retryCount, deliveryTag, func));
+                    this.Threads.Add(HandleReceivedMessage(message, retryCount, deliveryTag, requestKey, func));
 
                     return Task.CompletedTask;
                 };
 
-                SimpleLogger.Info(nameof(QueueProcessor), nameof(ExecuteConsumer), "Queue connected!");
+                StaticSimpleLogger.Info(nameof(QueueProcessor), nameof(ExecuteConsumer), "Queue connected!");
 
                 return true;
             }
             catch (Exception e)
             {
-                SimpleLogger.Error(nameof(QueueProcessor), nameof(ExecuteConsumer), "An exception occurred while trying to connect with queue!", e);
+                StaticSimpleLogger.Error(nameof(QueueProcessor), nameof(ExecuteConsumer), "An exception occurred while trying to connect with queue!", e);
                 Thread.Sleep(2000);
                 return false;
             }
         }
 
-        public async Task HandleReceivedMessage(string message, int retryCount, ulong deliveryTag, Func<string, int, ulong, Task<bool>> func)
+        public async Task HandleReceivedMessage(string message, int retryCount, ulong deliveryTag, string requestKey, Func<string, int, ulong, string, Task<bool>> func)
         {
-            var success = await func.Invoke(message, retryCount, deliveryTag);
+            var success = await func.Invoke(message, retryCount, deliveryTag, requestKey);
 
             try
             {
@@ -79,14 +79,14 @@ namespace AspNetScaffolding.Extensions.Queue
                 }
                 else
                 {
-                    this.HandleFailedEvent(message, retryCount, deliveryTag);
+                    this.HandleFailedEvent(message, retryCount, deliveryTag, requestKey);
                 }
             }
             catch (Exception)
             {
                 lock (this.LockAckError)
                 {
-                    SimpleLogger.Error(nameof(QueueProcessor), nameof(HandleReceivedMessage), $"Error on handle received message {deliveryTag}", null);
+                    StaticSimpleLogger.Error(nameof(QueueProcessor), nameof(HandleReceivedMessage), $"Error on handle received message {deliveryTag}", null, requestKey);
                     this.QueueClient.TryConnect();
                 }
             }
@@ -97,16 +97,16 @@ namespace AspNetScaffolding.Extensions.Queue
             this.QueueClient.Ack(deliveryTag);
         }
 
-        public void HandleFailedEvent(string message, int retryCount, ulong deliveryTag)
+        public void HandleFailedEvent(string message, int retryCount, ulong deliveryTag, string requestKey)
         {
             if (retryCount < this.QueueProcessorSettings.RetryCount)
             {
-                this.QueueClient.AddRetryMessage(message, retryCount + 1);
+                this.QueueClient.AddRetryMessage(message, retryCount + 1, requestKey);
                 this.QueueClient.Ack(deliveryTag);
             }
             else
             {
-                this.QueueClient.AddDeadMessage(message);
+                this.QueueClient.AddDeadMessage(message, requestKey);
                 this.QueueClient.Ack(deliveryTag);
             }
         }
