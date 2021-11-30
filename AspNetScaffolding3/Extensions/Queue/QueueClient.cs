@@ -182,11 +182,17 @@ namespace AspNetScaffolding.Extensions.Queue
             }
 
             object requestKeyHeader = null;
+            string requestKey = null;
             try
             {
                 if (eventArgs.BasicProperties.Headers?.ContainsKey("request_key") == true)
                 {
                     eventArgs.BasicProperties.Headers.TryGetValue("request_key", out requestKeyHeader);
+                }
+                
+                if (requestKeyHeader != null)
+                {
+                    requestKey = Encoding.UTF8.GetString((byte[])requestKeyHeader);
                 }
             }
             catch (Exception)
@@ -198,7 +204,7 @@ namespace AspNetScaffolding.Extensions.Queue
 
             var message = Encoding.UTF8.GetString(eventArgs.Body);
 
-            await this.ReceiveMessage?.Invoke(message, retryCount, eventArgs.DeliveryTag, requestKeyHeader?.ToString());
+            await this.ReceiveMessage?.Invoke(message, retryCount, eventArgs.DeliveryTag, requestKey);
         }
 
         public void Dispose()
