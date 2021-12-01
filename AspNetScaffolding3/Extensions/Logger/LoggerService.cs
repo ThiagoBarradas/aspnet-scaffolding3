@@ -32,6 +32,7 @@ namespace AspNetScaffolding.Extensions.Logger
                 .SetupSeq(settings?.SeqOptions)
                 .SetupSplunk(settings?.SplunkOptions)
                 .SetupNewRelic(settings?.NewRelicOptions)
+                .SetupDataDog(settings?.DataDogOptions)
                 .BuildLogger();
 
             if (settings?.DebugEnabled ?? false)

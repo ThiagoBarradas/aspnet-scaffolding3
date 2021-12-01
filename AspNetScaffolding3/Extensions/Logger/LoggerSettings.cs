@@ -35,5 +35,7 @@ namespace AspNetScaffolding.Extensions.Logger
         public SplunkOptions SplunkOptions { get; set; } = new SplunkOptions();
 
         public NewRelicOptions NewRelicOptions { get; set; } = new NewRelicOptions();
+
+        public DataDogOptions DataDogOptions { get; set; } = new DataDogOptions();
     }
 }
