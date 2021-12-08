@@ -32,6 +32,7 @@ namespace AspNetScaffolding.Extensions.Logger
                 .SetupSeq(settings?.SeqOptions)
                 .SetupSplunk(settings?.SplunkOptions)
                 .SetupNewRelic(settings?.NewRelicOptions)
+                .SetupDataDog(settings?.DataDogOptions)
                 .BuildLogger();
 
             if (settings?.DebugEnabled ?? false)
@@ -46,6 +47,8 @@ namespace AspNetScaffolding.Extensions.Logger
                 ErrorTitle = settings?.TitlePrefix + CommunicationLogger.DefaultErrorTitle,
                 BlacklistRequest = settings?.GetJsonBlacklistRequest(),
                 BlacklistResponse = settings?.JsonBlacklistResponse,
+                HeaderBlacklist = settings?.HeaderBlacklist,
+                QueryStringBlacklist = settings?.QueryStringBlacklist,
                 RequestKeyProperty = RequestKeyServiceExtension.RequestKeyHeaderName,
                 AccountIdProperty = AccountIdServiceExtension.AccountIdHeaderName,
                 TimeElapsedProperty = TimeElapsedServiceExtension.TimeElapsedHeaderName,
