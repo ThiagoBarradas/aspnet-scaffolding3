@@ -74,9 +74,9 @@ namespace AspNetScaffolding.Controllers
         [ProducesResponseType(typeof(ErrorsResponse), 400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public IActionResult GetString([FromRoute] string customerId)
+        public IActionResult GetString([FromRoute] string customerId, [FromQuery] string customerKey)
         {
-            return Ok(new { customerId });
+            return Ok(new { customerId, customerKey });
         }
 
         [HttpGet("customers/{customerId}/none")]

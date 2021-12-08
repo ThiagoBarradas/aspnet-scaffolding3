@@ -28,6 +28,10 @@ namespace AspNetScaffolding.Extensions.Logger
 
         public string[] JsonBlacklistResponse { get; set; }
 
+        public string[] HeaderBlacklist { get; set; }
+
+        public string[] QueryStringBlacklist { get; set; }
+
         public bool DebugEnabled { get; set; }
 
         public SeqOptions SeqOptions { get; set; } = new SeqOptions();

@@ -47,6 +47,8 @@ namespace AspNetScaffolding.Extensions.Logger
                 ErrorTitle = settings?.TitlePrefix + CommunicationLogger.DefaultErrorTitle,
                 BlacklistRequest = settings?.GetJsonBlacklistRequest(),
                 BlacklistResponse = settings?.JsonBlacklistResponse,
+                HeaderBlacklist = settings?.HeaderBlacklist,
+                QueryStringBlacklist = settings?.QueryStringBlacklist,
                 RequestKeyProperty = RequestKeyServiceExtension.RequestKeyHeaderName,
                 AccountIdProperty = AccountIdServiceExtension.AccountIdHeaderName,
                 TimeElapsedProperty = TimeElapsedServiceExtension.TimeElapsedHeaderName,

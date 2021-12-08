@@ -36,7 +36,7 @@
     <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.1.1" />
     <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="3.1.2" />
     <PackageReference Include="AspNetCoreRateLimit" Version="3.2.2" />
-    <PackageReference Include="AspNetSerilog" Version="1.4.0" />
+    <PackageReference Include="AspNetSerilog" Version="1.5.0" />
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="CQRS.Extensions" Version="3.0.6" />
     <PackageReference Include="CQRS.Extensions.AspNetMVC" Version="3.0.6" />
@@ -54,8 +54,8 @@
     <PackageReference Include="PeriodicBatching" Version="1.1.0" />
     <PackageReference Include="PipelineR" Version="1.6.0" />
     <PackageReference Include="RedLock.net" Version="2.3.1" />
-    <PackageReference Include="RestSharp.Easy" Version="1.5.1-preview.3" />
-    <PackageReference Include="RestSharp.Serilog.Auto" Version="1.3.0" />
+    <PackageReference Include="RestSharp.Easy" Version="1.5.1" />
+    <PackageReference Include="RestSharp.Serilog.Auto" Version="1.4.0" />
     <PackageReference Include="Serilog.Builder" Version="1.4.0-preview.1" />
     <PackageReference Include="SqlClient.ParseToObject" Version="1.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
