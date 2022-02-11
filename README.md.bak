@@ -179,7 +179,7 @@ App Settings
     "JsonBlacklistRequest":  [ "*password", "*card.number", "*creditcardnumber", "*cvv" ],
     "JsonBlacklistResponse": [ "*password", "*card.number", "*creditcardnumber", "*cvv" ],
     "SeqOptions": {
-      "Enabled": false,
+      "Enabled": true,
       "MinimumLevel": "Verbose",
       "Url": "http://localhost:5341",
       "ApiKey": "XXXX"

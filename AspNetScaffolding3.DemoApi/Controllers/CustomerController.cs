@@ -33,7 +33,7 @@ namespace AspNetScaffolding.Controllers
         {
             LogAdditionalInfo.Data.Add("CustomerId", request.CustomerId);
 
-            SimpleLogger.Info("teste teste teste", new {request});
+            StaticSimpleLogger.Info("teste teste teste", "123", new {request});
 
             return Ok(new
             {
@@ -58,7 +58,7 @@ namespace AspNetScaffolding.Controllers
         {
             LogAdditionalInfo.Data.Add("CustomerId", request.CustomerId);
 
-            SimpleLogger.Info("teste teste teste", new { request });
+            StaticSimpleLogger.Info("teste teste teste", "requestKey", new { request });
 
             return Ok(new
             {
@@ -74,9 +74,9 @@ namespace AspNetScaffolding.Controllers
         [ProducesResponseType(typeof(ErrorsResponse), 400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public IActionResult GetString([FromRoute] string customerId)
+        public IActionResult GetString([FromRoute] string customerId, [FromQuery] string customerKey)
         {
-            return Ok(new { customerId });
+            return Ok(new { customerId, customerKey });
         }
 
         [HttpGet("customers/{customerId}/none")]

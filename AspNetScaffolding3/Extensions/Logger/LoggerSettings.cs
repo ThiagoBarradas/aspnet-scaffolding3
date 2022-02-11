@@ -28,6 +28,10 @@ namespace AspNetScaffolding.Extensions.Logger
 
         public string[] JsonBlacklistResponse { get; set; }
 
+        public string[] HeaderBlacklist { get; set; }
+
+        public string[] QueryStringBlacklist { get; set; }
+
         public bool DebugEnabled { get; set; }
 
         public SeqOptions SeqOptions { get; set; } = new SeqOptions();
@@ -35,5 +39,7 @@ namespace AspNetScaffolding.Extensions.Logger
         public SplunkOptions SplunkOptions { get; set; } = new SplunkOptions();
 
         public NewRelicOptions NewRelicOptions { get; set; } = new NewRelicOptions();
+
+        public DataDogOptions DataDogOptions { get; set; } = new DataDogOptions();
     }
 }
