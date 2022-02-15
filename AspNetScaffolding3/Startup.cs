@@ -52,9 +52,19 @@ namespace AspNetScaffolding
             Api.ConfigurationRoot.GetSection("DatabaseSettings").Bind(Api.DatabaseSettings);
             Api.ConfigurationRoot.GetSection("DocsSettings").Bind(Api.DocsSettings);
             Api.ConfigurationRoot.GetSection("ShutdownSettings").Bind(Api.ShutdownSettings);
-            Api.ConfigurationRoot.GetSection("IpRateLimiting").Bind(Api.IpRateLimitingAdditional);
             Api.ConfigurationRoot.GetSection("CacheSettings").Bind(Api.CacheSettings);
-            Api.ConfigurationRoot.GetSection("WorkerSettings").Bind(Api.WorkerSettings);
+
+            //Create this lógic to keep retrocompatibility because we change the IpRateLimiting section name to RateLimiting
+            var ipRateLimitingSection = Api.ConfigurationRoot.GetSection("IpRateLimiting");
+
+            if (ipRateLimitingSection.Exists())
+            {
+                ipRateLimitingSection.Bind(Api.RateLimitingAdditional);
+            }
+            else
+            {
+                Api.ConfigurationRoot.GetSection("RateLimiting").Bind(Api.RateLimitingAdditional);
+            }
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -65,7 +75,7 @@ namespace AspNetScaffolding
             services.AddOptions();
             services.SetupCache(Api.CacheSettings);
 
-            services.SetupIpRateLimiting(Api.IpRateLimitingAdditional, Api.CacheSettings);
+            services.SetupIpRateLimiting(Api.RateLimitingAdditional, Api.CacheSettings);
             services.SetupSwaggerDocs(Api.DocsSettings, Api.ApiSettings);
 
             services.AddControllers(mvc => { mvc.EnableEndpointRouting = false; });
@@ -139,7 +149,7 @@ namespace AspNetScaffolding
                 app.UseStaticFiles(path);
             }
             
-            if (Api.IpRateLimitingAdditional?.Enabled == true)
+            if (Api.RateLimitingAdditional?.Enabled == true)
             {
                 app.UseIpRateLimiting();
             }
