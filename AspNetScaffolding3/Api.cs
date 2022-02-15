@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
+using AspNetScaffolding3.Extensions.RequestLimit;
 
 namespace AspNetScaffolding
 {
@@ -34,7 +35,7 @@ namespace AspNetScaffolding
 
         public static QueueSettings QueueSettings { get; set; } = new QueueSettings();
 
-        public static IpRateLimitingAdditional IpRateLimitingAdditional { get; set; } = new IpRateLimitingAdditional();
+        public static RateLimitingAdditional RateLimitingAdditional { get; set; } = new RateLimitingAdditional();
 
         public static CacheSettings CacheSettings { get; set; } = new CacheSettings();
 

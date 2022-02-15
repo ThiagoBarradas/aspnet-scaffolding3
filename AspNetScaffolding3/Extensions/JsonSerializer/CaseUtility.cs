@@ -8,6 +8,11 @@ namespace AspNetScaffolding.Extensions.JsonSerializer
 
         public static string GetValueConsideringCurrentCase(this string value)
         {
+            if (string.IsNullOrEmpty(value))
+            {
+                return string.Empty;
+            }
+
             return value.ToCase(JsonSerializerMode.ToString());
         }
     }
