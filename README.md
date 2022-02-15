@@ -144,9 +144,11 @@ App Settings
     "MaxThreads": 200,
     "AutoAckOnSuccess": true
   },
-  "IpRateLimiting": {
+  "RateLimiting": {
     "Enabled" : true,
     "EnableEndpointRateLimiting": false,
+    "ByUrlResource": false,
+    "UrlResource": "",
     "StackBlockedRequests": false,
     "RealIpHeader": "X-Real-IP",
     "ClientIdHeader": "X-ClientId",
