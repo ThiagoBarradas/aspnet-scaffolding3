@@ -120,7 +120,7 @@ namespace AspNetScaffolding
             Api.ApiBasicConfiguration.ConfigureServices?.Invoke(services);
 
             services.AddGracefullShutdown();
-            
+
             services.SetupHealthcheck(Api.ApiSettings,
                 Api.HealthcheckSettings,
                 Api.ApiBasicConfiguration.ConfigureHealthcheck);
@@ -141,17 +141,24 @@ namespace AspNetScaffolding
             app.UseHealthcheck();
             app.UseRouting();
             app.AllowCors();
-            
+
             if (Api.ApiSettings.UseStaticFiles)
             {
                 var path = Api.ApiSettings.GetStaticFilesPath();
                 Console.WriteLine("StaticFiles Path: {0}", path);
                 app.UseStaticFiles(path);
             }
-            
+
             if (Api.RateLimitingAdditional?.Enabled == true)
             {
-                app.UseIpRateLimiting();
+                if (Api.RateLimitingAdditional.ByClientIdHeader)
+                {
+                    app.UseClientRateLimiting();
+                }
+                else
+                {
+                    app.UseIpRateLimiting();
+                }
             }
 
             Api.ApiBasicConfiguration.Configure?.Invoke(app);
