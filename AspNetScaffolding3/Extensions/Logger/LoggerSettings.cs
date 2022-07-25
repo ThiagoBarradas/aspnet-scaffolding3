@@ -1,6 +1,7 @@
 ﻿using Serilog.Builder.Models;
 using System;
 using System.Linq;
+using AspNetSerilog;
 
 namespace AspNetScaffolding.Extensions.Logger
 {
@@ -29,7 +30,13 @@ namespace AspNetScaffolding.Extensions.Logger
         public string[] JsonBlacklistResponse { get; set; }
 
         public string[] HeaderBlacklist { get; set; }
+        
+        public string[] HttpContextBlacklist { get; set; }
 
+        public string InformationTitle { get; set; }
+
+        public string ErrorTitle { get; set; }
+        
         public string[] QueryStringBlacklist { get; set; }
 
         public bool DebugEnabled { get; set; }
@@ -41,5 +48,21 @@ namespace AspNetScaffolding.Extensions.Logger
         public NewRelicOptions NewRelicOptions { get; set; } = new NewRelicOptions();
 
         public DataDogOptions DataDogOptions { get; set; } = new DataDogOptions();
+        
+        public string GetInformationTitle()
+        {
+            if (string.IsNullOrWhiteSpace(InformationTitle))
+                return CommunicationLogger.DefaultInformationTitle;
+
+            return InformationTitle;
+        }
+        
+        public string GetErrorTitle()
+        {
+            if (string.IsNullOrWhiteSpace(ErrorTitle))
+                return CommunicationLogger.DefaultErrorTitle;
+
+            return ErrorTitle;
+        }
     }
 }
