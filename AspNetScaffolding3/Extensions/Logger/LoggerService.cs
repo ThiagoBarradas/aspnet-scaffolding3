@@ -43,11 +43,12 @@ namespace AspNetScaffolding.Extensions.Logger
             var config = new SerilogConfiguration
             {
                 Version = Api.ApiSettings.BuildVersion,
-                InformationTitle = settings?.TitlePrefix + CommunicationLogger.DefaultInformationTitle,
-                ErrorTitle = settings?.TitlePrefix + CommunicationLogger.DefaultErrorTitle,
+                InformationTitle = settings?.TitlePrefix + settings?.GetInformationTitle(),
+                ErrorTitle = settings?.TitlePrefix + settings?.GetErrorTitle(),
                 BlacklistRequest = settings?.GetJsonBlacklistRequest(),
                 BlacklistResponse = settings?.JsonBlacklistResponse,
                 HeaderBlacklist = settings?.HeaderBlacklist,
+                HttpContextBlacklist = settings?.HttpContextBlacklist,
                 QueryStringBlacklist = settings?.QueryStringBlacklist,
                 RequestKeyProperty = RequestKeyServiceExtension.RequestKeyHeaderName,
                 AccountIdProperty = AccountIdServiceExtension.AccountIdHeaderName,
