@@ -48,7 +48,7 @@ namespace AspNetScaffolding.Extensions.Logger
                 BlacklistRequest = settings?.GetJsonBlacklistRequest(),
                 BlacklistResponse = settings?.JsonBlacklistResponse,
                 HeaderBlacklist = settings?.HeaderBlacklist,
-                //HttpContextBlacklist = settings?.HttpContextBlacklist,
+                HttpContextBlacklist = settings?.HttpContextBlacklist,
                 QueryStringBlacklist = settings?.QueryStringBlacklist,
                 RequestKeyProperty = RequestKeyServiceExtension.RequestKeyHeaderName,
                 AccountIdProperty = AccountIdServiceExtension.AccountIdHeaderName,
