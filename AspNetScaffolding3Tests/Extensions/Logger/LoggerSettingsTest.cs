@@ -26,7 +26,7 @@ namespace AspNetScaffolding3Tests.Extensions.Logger
         }
 
         [Fact]
-        public void GetInformationTitle_InformationTitleEqualNull_ReturnDefaundValue()
+        public void GetInformationTitle_InformationTitleEqualNull_ReturnDefaultValue()
         {
             var expected = "HTTP {Method} {Path} from {Ip} responded {StatusCode} in {ElapsedMilliseconds} ms";
             var actual = _loggerSettings.GetInformationTitle();
@@ -35,7 +35,7 @@ namespace AspNetScaffolding3Tests.Extensions.Logger
         }
         
         [Fact]
-        public void GetInformationTitle_InformationTitleEqualEmpty_ReturnDefaundValue()
+        public void GetInformationTitle_InformationTitleEqualEmpty_ReturnDefaultValue()
         {
             var informationTitle = " ";
             _loggerSettings.InformationTitle = informationTitle;
@@ -59,7 +59,7 @@ namespace AspNetScaffolding3Tests.Extensions.Logger
         }
 
         [Fact]
-        public void GetErrorTitle_ErrorTitleEqualNull_ReturnDefaundValue()
+        public void GetErrorTitle_ErrorTitleEqualNull_ReturnDefaultValue()
         {
             var expected = "HTTP {Method} {Path} from {Ip} responded {StatusCode} in {ElapsedMilliseconds} ms";
             var actual = _loggerSettings.GetErrorTitle();
@@ -68,7 +68,7 @@ namespace AspNetScaffolding3Tests.Extensions.Logger
         }
         
         [Fact]
-        public void GetErrorTitle_ErrorTitleEqualEmpty_ReturnDefaundValue()
+        public void GetErrorTitle_ErrorTitleEqualEmpty_ReturnDefaultValue()
         {
             var informationTitle = " ";
             _loggerSettings.ErrorTitle = informationTitle;
