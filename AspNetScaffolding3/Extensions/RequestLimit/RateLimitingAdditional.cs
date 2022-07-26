@@ -8,6 +8,8 @@
         public bool Enabled { get; set; }
 
         public bool ByUrlResource { get; set; }
+        
+        public bool ByClientIdHeader { get; set; }
 
         public string UrlResource { get; set; }
     }

@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devops", "devops", "{F554D0
 		azure-pipelines.yml = azure-pipelines.yml
 	EndProjectSection
 EndProject
+uProject("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetScaffolding3Tests", "AspNetScaffolding3Tests\AspNetScaffolding3Tests.csproj", "{BB3602B0-49B1-43F3-A574-A10199F18204}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{7852D13E-020D-47CF-97A2-6E84F43AD41D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7852D13E-020D-47CF-97A2-6E84F43AD41D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7852D13E-020D-47CF-97A2-6E84F43AD41D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB3602B0-49B1-43F3-A574-A10199F18204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3602B0-49B1-43F3-A574-A10199F18204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB3602B0-49B1-43F3-A574-A10199F18204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3602B0-49B1-43F3-A574-A10199F18204}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

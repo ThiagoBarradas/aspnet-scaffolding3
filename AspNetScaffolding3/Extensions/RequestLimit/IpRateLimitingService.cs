@@ -27,21 +27,43 @@ namespace AspNetScaffolding.Extensions.RequestLimit
                     services.AddSingleton<IRateLimitConfiguration, CustomRateLimitConfiguration>();
                     UrlResourceRateLimitContributor.UrlResource = rateLimitingAdditional.UrlResource;
                 }
-                else 
+                else if (rateLimitingAdditional.ByClientIdHeader)
+                {
+                    services.Configure<ClientRateLimitOptions>(Api.ConfigurationRoot.GetSection("RateLimiting"));
+                    services.Configure<ClientRateLimitPolicies>(Api.ConfigurationRoot.GetSection("ClientRateLimitPolicies"));
+                    services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+                }
+                else
                 {
                     services.Configure<IpRateLimitOptions>(Api.ConfigurationRoot.GetSection("IpRateLimiting"));
                     services.Configure<IpRateLimitPolicies>(Api.ConfigurationRoot.GetSection("IpRateLimitPolicies"));
                     services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
                 }
-                
+
                 if (cacheSettings.UseRedis)
                 {
-                    services.AddSingleton<IIpPolicyStore, DistributedCacheIpPolicyStore>();
+                    if (rateLimitingAdditional.ByClientIdHeader)
+                    {
+                        services.AddSingleton<IClientPolicyStore, DistributedCacheClientPolicyStore>();
+                    }
+                    else
+                    {
+                        services.AddSingleton<IIpPolicyStore, DistributedCacheIpPolicyStore>();
+                    }
+
                     services.AddSingleton<IRateLimitCounterStore, DistributedCacheRateLimitCounterStore>();
                 }
                 else
                 {
-                    services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+                    if (rateLimitingAdditional.ByClientIdHeader)
+                    {
+                        services.AddSingleton<IClientPolicyStore, MemoryCacheClientPolicyStore>();
+                    }
+                    else
+                    {
+                        services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+                    }
+                    
                     services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
                 }
             }
