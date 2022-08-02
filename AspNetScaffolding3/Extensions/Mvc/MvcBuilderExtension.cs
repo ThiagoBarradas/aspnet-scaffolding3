@@ -21,7 +21,8 @@ namespace AspNetScaffolding.Extensions.RequestKey
             mvc.AddFluentValidation(fluent =>
             {
                 fluent.RegisterValidatorsFromAssemblyContaining<Startup>();
-
+                fluent.ImplicitlyValidateChildProperties = true;
+                
                 if (assemblies?.Any() == true)
                 {
                     fluent.RegisterValidatorsFromAssemblies(assemblies);
