@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using AspNetSerilog;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AspNetScaffolding.Extensions.Logger
 {
@@ -48,7 +49,9 @@ namespace AspNetScaffolding.Extensions.Logger
         public NewRelicOptions NewRelicOptions { get; set; } = new NewRelicOptions();
 
         public DataDogOptions DataDogOptions { get; set; } = new DataDogOptions();
-        
+
+        public Action<IServiceCollection, SerilogConfiguration> SetupSerilog { get; set; }
+
         public string GetInformationTitle()
         {
             if (string.IsNullOrWhiteSpace(InformationTitle))
