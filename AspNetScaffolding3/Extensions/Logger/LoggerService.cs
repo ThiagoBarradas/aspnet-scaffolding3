@@ -59,7 +59,15 @@ namespace AspNetScaffolding.Extensions.Logger
             StaticSimpleLogger.UpdateVersion(Api.ApiSettings.BuildVersion);
             StaticSimpleLogger.UpdateEnvironment(EnvironmentUtility.GetCurrentEnvironment());
 
-            services.SetupSerilog(config);
+            if (settings.SetupSerilog is null)
+            {
+                services.SetupSerilog(config);
+            }
+            else 
+            {
+                settings.SetupSerilog.Invoke(services, config);
+            }
+
             services.AddScoped<ISimpleLogger, SimpleLogger>();
         }
     }
