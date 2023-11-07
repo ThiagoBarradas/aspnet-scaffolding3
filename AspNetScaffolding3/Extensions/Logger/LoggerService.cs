@@ -8,6 +8,7 @@ using Serilog;
 using Serilog.Builder;
 using System;
 using System.Collections.Generic;
+using AspNetScaffolding3.Extensions.Logger;
 
 namespace AspNetScaffolding.Extensions.Logger
 {
@@ -33,7 +34,9 @@ namespace AspNetScaffolding.Extensions.Logger
                 .SetupSplunk(settings?.SplunkOptions)
                 .SetupNewRelic(settings?.NewRelicOptions)
                 .SetupDataDog(settings?.DataDogOptions)
-                .BuildLogger();
+                .BuildConfiguration()
+                .EnableStdOutput(settings?.ConsoleOptions)
+                .CreateLogger();
 
             if (settings?.DebugEnabled ?? false)
             {
