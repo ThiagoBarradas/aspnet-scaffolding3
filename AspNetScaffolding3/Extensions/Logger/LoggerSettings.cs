@@ -49,6 +49,8 @@ namespace AspNetScaffolding.Extensions.Logger
         public NewRelicOptions NewRelicOptions { get; set; } = new NewRelicOptions();
 
         public DataDogOptions DataDogOptions { get; set; } = new DataDogOptions();
+        
+        public ConsoleOptions ConsoleOptions { get; set; } = new ConsoleOptions();
 
         public Action<IServiceCollection, SerilogConfiguration> SetupSerilog { get; set; }
 
