@@ -50,7 +50,7 @@ namespace AspNetScaffolding.Extensions.Logger
 
         public DataDogOptions DataDogOptions { get; set; } = new DataDogOptions();
         
-        public ConsoleOptions ConsoleOptions { get; set; } = new ConsoleOptions();
+        public AspNetScaffolding.Extensions.Logger.ScaffoldingConsoleOptions ConsoleOptions { get; set; } = new AspNetScaffolding.Extensions.Logger.ScaffoldingConsoleOptions();
 
         public Action<IServiceCollection, SerilogConfiguration> SetupSerilog { get; set; }
 
@@ -69,5 +69,16 @@ namespace AspNetScaffolding.Extensions.Logger
 
             return ErrorTitle;
         }
+    }
+
+    public class ScaffoldingConsoleOptions : Serilog.Builder.Models.ConsoleOptions
+    {
+        public EConsoleEnricherFormatter FormatterType { get; set; } = EConsoleEnricherFormatter.Default;
+    }
+
+    public enum EConsoleEnricherFormatter
+    {
+        Default,
+        SnakeCase
     }
 }
