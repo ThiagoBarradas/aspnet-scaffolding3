@@ -34,6 +34,7 @@ namespace AspNetScaffolding.Extensions.Logger
                 .SetupSplunk(settings?.SplunkOptions)
                 .SetupNewRelic(settings?.NewRelicOptions)
                 .SetupDataDog(settings?.DataDogOptions)
+                .SetupLapi(settings?.LapiOptions)
                 .DisableConsoleIfConsoleSinkIsEnabled(settings?.ConsoleOptions)
                 .BuildConfiguration()
                 .EnableStdOutput(settings?.ConsoleOptions)
