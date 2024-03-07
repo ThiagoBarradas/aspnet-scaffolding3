@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using AspNetSerilog;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AspNetScaffolding.Extensions.Logger
 {
@@ -48,7 +49,13 @@ namespace AspNetScaffolding.Extensions.Logger
         public NewRelicOptions NewRelicOptions { get; set; } = new NewRelicOptions();
 
         public DataDogOptions DataDogOptions { get; set; } = new DataDogOptions();
+
+        public LapiOptions LapiOptions { get; set; } = new LapiOptions();
         
+        public AspNetScaffolding.Extensions.Logger.ScaffoldingConsoleOptions ConsoleOptions { get; set; } = new AspNetScaffolding.Extensions.Logger.ScaffoldingConsoleOptions();
+
+        public Action<IServiceCollection, SerilogConfiguration> SetupSerilog { get; set; }
+
         public string GetInformationTitle()
         {
             if (string.IsNullOrWhiteSpace(InformationTitle))
@@ -64,5 +71,16 @@ namespace AspNetScaffolding.Extensions.Logger
 
             return ErrorTitle;
         }
+    }
+
+    public class ScaffoldingConsoleOptions : Serilog.Builder.Models.ConsoleOptions
+    {
+        public EConsoleEnricherFormatter FormatterType { get; set; } = EConsoleEnricherFormatter.Default;
+    }
+
+    public enum EConsoleEnricherFormatter
+    {
+        Default,
+        SnakeCase
     }
 }

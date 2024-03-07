@@ -8,6 +8,7 @@ using Serilog;
 using Serilog.Builder;
 using System;
 using System.Collections.Generic;
+using AspNetScaffolding3.Extensions.Logger;
 
 namespace AspNetScaffolding.Extensions.Logger
 {
@@ -33,7 +34,11 @@ namespace AspNetScaffolding.Extensions.Logger
                 .SetupSplunk(settings?.SplunkOptions)
                 .SetupNewRelic(settings?.NewRelicOptions)
                 .SetupDataDog(settings?.DataDogOptions)
-                .BuildLogger();
+                .SetupLapi(settings?.LapiOptions)
+                .DisableConsoleIfConsoleSinkIsEnabled(settings?.ConsoleOptions)
+                .BuildConfiguration()
+                .EnableStdOutput(settings?.ConsoleOptions)
+                .CreateLogger();
 
             if (settings?.DebugEnabled ?? false)
             {
@@ -59,7 +64,15 @@ namespace AspNetScaffolding.Extensions.Logger
             StaticSimpleLogger.UpdateVersion(Api.ApiSettings.BuildVersion);
             StaticSimpleLogger.UpdateEnvironment(EnvironmentUtility.GetCurrentEnvironment());
 
-            services.SetupSerilog(config);
+            if (settings.SetupSerilog is null)
+            {
+                services.SetupSerilog(config);
+            }
+            else 
+            {
+                settings.SetupSerilog.Invoke(services, config);
+            }
+
             services.AddScoped<ISimpleLogger, SimpleLogger>();
         }
     }

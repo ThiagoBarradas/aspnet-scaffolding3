@@ -53,6 +53,7 @@ namespace AspNetScaffolding
             Api.ConfigurationRoot.GetSection("DocsSettings").Bind(Api.DocsSettings);
             Api.ConfigurationRoot.GetSection("ShutdownSettings").Bind(Api.ShutdownSettings);
             Api.ConfigurationRoot.GetSection("CacheSettings").Bind(Api.CacheSettings);
+            Api.ConfigurationRoot.GetSection("WorkerSettings").Bind(Api.WorkerSettings);
 
             //Create this lógic to keep retrocompatibility because we change the IpRateLimiting section name to RateLimiting
             var ipRateLimitingSection = Api.ConfigurationRoot.GetSection("IpRateLimiting");

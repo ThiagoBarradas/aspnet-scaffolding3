@@ -40,6 +40,8 @@ namespace AspNetScaffolding.Controllers
                 request,
                 test = "1",
                 test_1 = "123",
+                password = "hellomyfriend",
+                creditCard = "123456788911",
                 customer = new Customer("xx", "yy")
             });
         }
