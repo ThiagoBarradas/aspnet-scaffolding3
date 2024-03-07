@@ -49,6 +49,8 @@ namespace AspNetScaffolding.Extensions.Logger
         public NewRelicOptions NewRelicOptions { get; set; } = new NewRelicOptions();
 
         public DataDogOptions DataDogOptions { get; set; } = new DataDogOptions();
+
+        public LapiOptions LapiOptions { get; set; } = new LapiOptions();
         
         public AspNetScaffolding.Extensions.Logger.ScaffoldingConsoleOptions ConsoleOptions { get; set; } = new AspNetScaffolding.Extensions.Logger.ScaffoldingConsoleOptions();
 
