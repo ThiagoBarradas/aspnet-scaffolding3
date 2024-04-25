@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -25,5 +26,7 @@ namespace AspNetScaffolding.Models
         public Action<IApplicationBuilder> Configure { get; set; }
 
         public Action<IApplicationBuilder> ConfigureAfter { get; set; }
+
+        public Action<MvcOptions> ConfigureControllers { get; set; }
     }
 }
