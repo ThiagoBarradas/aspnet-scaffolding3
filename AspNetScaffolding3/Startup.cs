@@ -23,6 +23,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using RestSharp.Serilog.Auto;
 using System;
 using System.Collections.Generic;
@@ -79,7 +80,11 @@ namespace AspNetScaffolding
             services.SetupIpRateLimiting(Api.RateLimitingAdditional, Api.CacheSettings);
             services.SetupSwaggerDocs(Api.DocsSettings, Api.ApiSettings);
 
-            services.AddControllers(mvc => { mvc.EnableEndpointRouting = false; });
+            services.AddControllers(mvc => 
+            { 
+                mvc.EnableEndpointRouting = false;
+                Api.ApiBasicConfiguration?.ConfigureControllers?.Invoke(mvc);
+            });
 
             var mvc = services.AddMvc(options => options.EnableEndpointRouting = false);
             mvc.RegisterAssembliesForControllers(Api.ApiBasicConfiguration?.AutoRegisterAssemblies);
