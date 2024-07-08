@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using AspNetSerilog;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 
 namespace AspNetScaffolding.Extensions.Logger
 {
@@ -28,7 +29,11 @@ namespace AspNetScaffolding.Extensions.Logger
 
         public string[] JsonBlacklistRequest { get; set; }
 
+        public Dictionary<string, Func<string, string>> JsonBlacklistRequestPartial { get; set; }
+
         public string[] JsonBlacklistResponse { get; set; }
+
+        public Dictionary<string, Func<string, string>> JsonBlacklistResponsePartial { get; set; }
 
         public string[] HeaderBlacklist { get; set; }
         
