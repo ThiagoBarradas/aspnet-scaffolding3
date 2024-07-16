@@ -1,29 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="CQRS.Extensions" Version="3.0.6" />
     <PackageReference Include="CQRS.Extensions.AspNetMVC" Version="3.0.6" />
     <PackageReference Include="Mongo.CRUD" Version="1.1.0" />
     <PackageReference Include="PackUtils" Version="1.5.1" />
     <PackageReference Include="PeriodicBatching" Version="1.1.0" />
-    <PackageReference Include="RestSharp.Easy" Version="1.5.1" />
+    <PackageReference Include="RestSharp.Easy" Version="1.7.0" />
     <PackageReference Include="WebApi.Models" Version="1.1.0" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\AspNetScaffolding3\AspNetScaffolding3.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <None Update="DOCS.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
 </Project>
