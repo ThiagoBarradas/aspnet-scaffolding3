@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devops", "devops", "{F554D0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetScaffolding3Tests", "AspNetScaffolding3Tests\AspNetScaffolding3Tests.csproj", "{BB3602B0-49B1-43F3-A574-A10199F18204}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetScaffolding3.DemoWorker", "AspNetScaffolding3.DemoWorker\AspNetScaffolding3.DemoWorker.csproj", "{72F91E52-9B22-4EAB-B4D1-417872978836}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetScaffolding3.DemoWorker", "AspNetScaffolding3.DemoWorker\AspNetScaffolding3.DemoWorker.csproj", "{72F91E52-9B22-4EAB-B4D1-417872978836}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
