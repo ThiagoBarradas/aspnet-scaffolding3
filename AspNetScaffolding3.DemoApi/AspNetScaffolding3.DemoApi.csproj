@@ -12,7 +12,7 @@
     <PackageReference Include="Mongo.CRUD" Version="1.1.0" />
     <PackageReference Include="PackUtils" Version="1.5.1" />
     <PackageReference Include="PeriodicBatching" Version="1.1.0" />
-    <PackageReference Include="RestSharp.Easy" Version="1.5.1" />
+    <PackageReference Include="RestSharp.Easy" Version="1.7.0" />
     <PackageReference Include="WebApi.Models" Version="1.1.0" />
   </ItemGroup>
 
