@@ -115,6 +115,11 @@ namespace AspNetScaffolding
                 ignoredRoutes.Add(HealthcheckkMiddlewareExtension.GetFullPath(Api.ApiSettings, Api.HealthcheckSettings));
             }
 
+            if (Api.LogSettings.IgnoredRoutes?.Count() > 0)
+            {
+                ignoredRoutes.AddRange(Api.LogSettings.IgnoredRoutes?.ToList());
+            }
+
             services.SetupSerilog(Api.ApiSettings?.Domain,
                 Api.ApiSettings?.Application,
                 Api.LogSettings,

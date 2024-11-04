@@ -61,6 +61,8 @@ namespace AspNetScaffolding.Extensions.Logger
 
         public Action<IServiceCollection, SerilogConfiguration> SetupSerilog { get; set; }
 
+        public string[] IgnoredRoutes { get; set; }
+
         public string GetInformationTitle()
         {
             if (string.IsNullOrWhiteSpace(InformationTitle))
